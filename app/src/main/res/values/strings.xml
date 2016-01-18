@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">PROYECTO ANDROID</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="misiones">
+        <item> MISIONES FACIL </item>
+        <item> MISIONES NORMAL </item>
+        <item> MISIONES DIFICIL </item>
+    </string-array>
+
+    <!-- **************** MODALIDAD FACIL  ****************** -->
+
+    <string-array name="modalidad_facil_titulo">
+        <item>Mision del dia</item>
+        <item>Reto de velocidad</item>
+        <item>Te animas?</item>
+        <item>Nadia es capaz</item>
+        <item>Reto del palomo</item>
+    </string-array>
+
+
+    <string-array name="modalidad_facil_contenido">
+        <item>Progreso</item>
+        <item>Progreso</item>
+        <item>Progreso</item>
+        <item>Progreso</item>
+        <item>Progreso</item>
+    </string-array>
+
+    <string-array name="modalidad_facil_contenido_completo">
+        <item>Aca va la descripcion de la mision 1 de la modalidad facil, o cualquier otra categoria que se les ocurra</item>
+        <item>Aca va la descripcion de la mision 2 de la modalidad facil, o cualquier otra categoria que se les ocurra.</item>
+        <item>Aca va la descripcion de la mision 3 de la modalidad facil, o cualquier otra categoria que se les ocurra</item>
+        <item>Aca va la descripcion de la mision 4 de la modalidad facil, o cualquier otra categoria que se les ocurra</item>
+        <item>Aca va la descripcion de la mision 5 de la modalidad facil, o cualquier otra categoria que se les ocurra</item>
+    </string-array>
+
+    <!-- **************** MODALIDAD NORMAL ****************** -->
+
+    <string-array name="modalidad_normal_titulo">
+        <item>Modo normal</item>
+        <item>Putabida challenge</item>
+        <item>No se que poner?</item>
+    </string-array>
+
+
+    <string-array name="modalidad_normal_contenido">
+        <item>Progreso</item>
+        <item>Progreso</item>
+        <item>Progreso</item>
+    </string-array>
+
+    <string-array name="modalidad_normal_contenido_completo">
+        <item>Aca va la descripcion de la mision 1 de la modalidad normal, o cualquier otra categoria que se les ocurra</item>
+        <item>Aca va la descripcion de la mision 2 de la modalidad normal, o cualquier otra categoria que se les ocurra.</item>
+        <item>Aca va la descripcion de la mision 3 de la modalidad normal, o cualquier otra categoria que se les ocurra</item>
+    </string-array>
+
+    <!-- **************** MODALIDAD DIFICIL  ****************** -->
+
+    <string-array name="modalidad_dificil_titulo">
+        <item>Mision animador</item>
+        <item>Necesito imagenes</item>
+        <item>Se puede?</item>
+        <item>Imposible</item>
+    </string-array>
+
+
+    <string-array name="modalidad_dificil_contenido">
+        <item>Progreso</item>
+        <item>Progreso</item>
+        <item>Progreso</item>
+        <item>Progreso</item>
+    </string-array>
+
+    <string-array name="modalidad_dificil_contenido_completo">
+        <item>Aca va la descripcion de la mision 1 de la modalidad dificil, o cualquier otra categoria que se les ocurra</item>
+        <item>Aca va la descripcion de la mision 2 de la modalidad dificil, o cualquier otra categoria que se les ocurra.</item>
+        <item>Aca va la descripcion de la mision 3 de la modalidad dificil, o cualquier otra categoria que se les ocurra</item>
+        <item>Aca va la descripcion de la mision 4 de la modalidad dificil, o cualquier otra categoria que se les ocurra</item>
+    </string-array>
+
+</resources>

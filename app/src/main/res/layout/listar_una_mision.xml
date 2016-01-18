@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fffbfff9">
+
+    <LinearLayout
+        android:id="@+id/linearMaps"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:visibility="gone"
+        android:animateLayoutChanges="true"
+        android:layout_below="@+id/linearlayout_localizacion"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:id="@+id/iv_imagen_listarUnaMision"
+                android:src="@drawable/bob"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Mision todos los dias"
+                    android:id="@+id/tv_titulo_listarUnaMision"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#ff000000"
+                    android:visibility="visible"
+                    android:layout_gravity="center_vertical"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per."
+                android:id="@+id/tv_contenido_ListarUnaMision"
+                android:layout_margin="5dp"
+                android:textColor="#ff868686" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
