@@ -37,14 +37,14 @@ public class UsuarioAdapter {
     public final static String CR_TABLE="create table if not exists " +
             NAME +"("+Columns.ID +" integer primary key autoincrement,"
             +Columns.NOMBRE +" text not null, "
-            +Columns.NIVEL +" text not null, "
+            +Columns.NIVEL +" integer not null, "
             +Columns.EXP+" integer not null, "
-            +Columns.NMISIONES+" text not null, "
-            +Columns.FUERZA+" text not null, "
-            +Columns.DESTREZA+" text not null, "
-            +Columns.INTELIGENCIA+" text not null)";
+            +Columns.NMISIONES+" integer not null, "
+            +Columns.FUERZA+" integer not null, "
+            +Columns.DESTREZA+" integer not null, "
+            +Columns.INTELIGENCIA+" integer not null)";
 
-    public boolean insert(String nombre,String nivel,int exp,String nmisiones,String fuerza,String destreza,String inteligencia)
+    public boolean insert(String nombre,int nivel,int exp,int nmisiones,int fuerza,int destreza,int inteligencia)
     {
         ContentValues Values=new ContentValues();
         Values.put(Columns.NOMBRE,nombre);

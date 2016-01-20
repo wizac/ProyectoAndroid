@@ -65,6 +65,11 @@ public class MisionAdapter {
         String[] columns={Columns.TITULO};
         return sqlDB.query(NAME,columns,null,null,null,null,null);
     }
+    public Cursor getIdmision()
+    {
+        String[] columns={Columns.ID};
+        return sqlDB.query(NAME,columns,null,null,null,null,null);
+    }
 
     public String getName()
     {

@@ -47,10 +47,10 @@ public class PreguntasAdapter {
             +Columns.RESPUESTA+" text not null)";
 
 
-    public boolean insert(String idpregunta,String desc,String opciona, String opcionb,String opcionc,String respuesta)
+    public boolean insert(String desc,String opciona, String opcionb,String opcionc,String respuesta)
     {
         ContentValues Values=new ContentValues();
-        Values.put(Columns.ID,idpregunta);
+
         Values.put(Columns.DESCRIPCION,desc);
         Values.put(Columns.OPCIONA,opciona);
         Values.put(Columns.OPCIONB,opcionb);
@@ -120,6 +120,12 @@ public class PreguntasAdapter {
         clsPregunta c =new clsPregunta(mis.getInt(0),mis.getString(1),mis.getString(2),mis.getString(3),mis.getString(4),mis.getString(5));
 
         return c;
+    }
+
+    public Cursor getIdPregunta()
+    {
+        String[] columns={Columns.ID};
+        return sqlDB.query(NAME,columns,null,null,null,null,null);
     }
 
 
