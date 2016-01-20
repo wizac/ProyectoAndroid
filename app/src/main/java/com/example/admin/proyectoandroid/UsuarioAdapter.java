@@ -44,7 +44,7 @@ public class UsuarioAdapter {
             +Columns.DESTREZA+" text not null, "
             +Columns.INTELIGENCIA+" text not null)";
 
-    public boolean insert(String nombre,String nivel, int exp,String nmisiones,String fuerza,String destreza,String inteligencia)
+    public boolean insert(String nombre,String nivel,int exp,String nmisiones,String fuerza,String destreza,String inteligencia)
     {
         ContentValues Values=new ContentValues();
         Values.put(Columns.NOMBRE,nombre);
@@ -85,5 +85,19 @@ public class UsuarioAdapter {
     public Cursor getDatos()
     {
         return sqlDB.query(NAME,COLUMNS,null,null,null,null,null);
+    }
+
+    public void subirlvl()
+    {
+        Cursor var;
+       var= sqlDB.query(NAME,COLUMNS,null,null,null,null,null);
+
+        if (var.moveToFirst()) {
+            //me muevo al usuario que solo deberia haber uno
+                String id= var.getString(0);
+                int nivel = var.getInt(2);
+                int exp = var.getInt(3);
+
+        }
     }
 }

@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
+import java.util.Random;
+
 /**
  * Created by sebyc on 17/01/2016.
  */
@@ -45,10 +47,11 @@ public class PreguntasAdapter {
             +Columns.RESPUESTA+" text not null)";
 
 
-    public boolean insert(String idpregunta,String opciona, String opcionb,String opcionc,String respuesta)
+    public boolean insert(String idpregunta,String desc,String opciona, String opcionb,String opcionc,String respuesta)
     {
         ContentValues Values=new ContentValues();
         Values.put(Columns.ID,idpregunta);
+        Values.put(Columns.DESCRIPCION,desc);
         Values.put(Columns.OPCIONA,opciona);
         Values.put(Columns.OPCIONB,opcionb);
         Values.put(Columns.OPCIONC,opcionc);
@@ -58,6 +61,8 @@ public class PreguntasAdapter {
 
         return sqlDB.insert(NAME,null,Values)>0;
     }
+
+
 
     public boolean delete(int id)
     {
@@ -87,4 +92,35 @@ public class PreguntasAdapter {
     {
         return sqlDB.query(NAME,COLUMNS,null,null,null,null,null);
     }
+
+    public clsPregunta preguntaRandom ()
+    {
+        //cantidad calcula la cantidad de misiones , lo asigno a un cursor y despues
+        // salto a la posicion que le diga el random para elegir una mision
+
+        Cursor cantidad;
+        Cursor mis;
+
+        int cant;
+        cantidad= sqlDB.rawQuery("Select count(*) from pregunta",null);
+
+        cantidad.moveToFirst();
+        cant=cantidad.getInt(0);
+
+        int min = 1;
+        int max = cant;
+
+        Random r = new Random();
+        int rand = r.nextInt(max - min + 1) + min;
+
+        mis=sqlDB.rawQuery("select * from pregunta",null);
+
+        mis.moveToPosition(rand);
+
+        clsPregunta c =new clsPregunta(mis.getInt(0),mis.getString(1),mis.getString(2),mis.getString(3),mis.getString(4),mis.getString(5));
+
+        return c;
+    }
+
+
 }

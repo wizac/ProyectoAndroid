@@ -5,9 +5,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
+import java.util.Random;
+
 /**
  * Created by sebyc on 17/01/2016.
  */
+
 public class MisionAdapter {
     private static final String NAME="mision";
     private SQLiteDatabase sqlDB;
@@ -78,5 +81,34 @@ public class MisionAdapter {
     public Cursor getDatos()
     {
         return sqlDB.query(NAME,COLUMNS,null,null,null,null,null);
+    }
+
+    public clsMision misionRandom ()
+    {
+        //cantidad calcula la cantidad de misiones , lo asigno a un cursor y despues
+        // salto a la posicion que le diga el random para elegir una mision
+
+        Cursor cantidad;
+        Cursor mis;
+
+        int cant;
+        cantidad= sqlDB.rawQuery("Select count(*) from mision",null);
+
+        cantidad.moveToFirst();
+        cant=cantidad.getInt(0);
+
+        int min = 1;
+        int max = cant;
+
+        Random r = new Random();
+        int rand = r.nextInt(max - min + 1) + min;
+
+        mis=sqlDB.rawQuery("select * from mision",null);
+
+        mis.moveToPosition(rand);
+
+        clsMision c =new clsMision(mis.getInt(0),mis.getInt(4),mis.getInt(1),mis.getString(2),mis.getString(3));
+
+        return c;
     }
 }

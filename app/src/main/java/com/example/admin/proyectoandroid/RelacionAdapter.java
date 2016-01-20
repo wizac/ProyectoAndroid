@@ -78,5 +78,9 @@ public class RelacionAdapter {
     {
         return sqlDB.query(NAME,COLUMNS,null,null,null,null,null);
     }
+    public void aumentarprogreso(int progreso)
+    {
+
+    }
 
 }
