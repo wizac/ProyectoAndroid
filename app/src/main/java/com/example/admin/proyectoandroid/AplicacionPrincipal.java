@@ -31,19 +31,25 @@ public class AplicacionPrincipal extends Application {
         return new clsMision();
     }
 
-    public void subirNivel()
+    public void subirNivel(int fuerza, int destreza, int inteligencia)
     {
 
     }
 
     public clsMision[] getMisionesDelDia()
     {
-        return new clsMision[1];
+        clsMision[] misiones = new clsMision[4];
+
+        for (int i = 0; i < 4; i++) {
+            misiones[i] = dbAdapter.randomMision();
+        }
+
+        return misiones;
     }
 
     public clsPregunta getPreguntaDiaria()
     {
-        return new clsPregunta();
+        return dbAdapter.randomPregunta();
     }
 
 
