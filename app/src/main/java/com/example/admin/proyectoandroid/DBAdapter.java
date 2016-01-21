@@ -109,22 +109,29 @@ public class DBAdapter {
 
 
     //misiones
-    public Cursor getMisionesTitulo()
+    public clsMision getMisionesTitulo()
     {
-        return misionA.getNombres();
+        misionA.getNombres();
+        clsMision x=new clsMision();
+        return x;
     }
-    public Cursor getDatosMision()
+    public clsMision getDatosMision()
     {
-        return misionA.getDatos();
+        misionA.getDatos();
+        clsMision x=new clsMision();
+        return x;
     }
 
     public boolean borrarMision(int id)
     {
         return misionA.delete(id);
     }
-    public Cursor getIdmision()
+    public clsMision getIdmision()
     {
-        return misionA.getIdmision();
+        misionA.getIdmision();
+        clsMision x=new clsMision();
+        return x;
+
     }
     public clsMision randomMision()
     {
@@ -133,23 +140,33 @@ public class DBAdapter {
 
 
 
+
+
     //preguntas
-    public Cursor getPreguntaDescripcion()
+    public clsPregunta getPreguntaDescripcion()
         {
-        return preguntasA.getNombres();
-    }
-    public Cursor getDatospregunta()
+            preguntasA.getNombres();
+            clsPregunta x=new clsPregunta();
+            return x;
+
+
+        }
+    public clsPregunta getDatospregunta()
     {
-        return preguntasA.getDatos();
+        preguntasA.getDatos();
+        clsPregunta x=new clsPregunta();
+        return x;
     }
 
     public boolean borrarpregunta(int id)
     {
         return preguntasA.delete(id);
     }
-    public Cursor getIdPregunta()
+    public clsPregunta getIdPregunta()
     {
-        return preguntasA.getIdPregunta();
+        preguntasA.getIdPregunta();
+        clsPregunta x=new clsPregunta();
+        return x;
     }
 
     public clsPregunta randomPregunta()
@@ -158,13 +175,24 @@ public class DBAdapter {
     }
 
     //Relacion
-    public Cursor getIdrelacionXmision()
+    public clsRelacion getIdrelacionXmision()
     {
-        return relacionA.getNombres();
+
+        relacionA.getNombres();
+        clsRelacion x=new clsRelacion();
+        return x;
+
     }
-    public Cursor getDatosRelacion()
+    public clsRelacion getDatosRelacion()
     {
-        return relacionA.getDatos();
+        relacionA.getDatos();
+        clsRelacion x=new clsRelacion();
+        return x;
+    }
+
+    public void aumentarProgreso(int idmision,int cantidad )
+    {
+
     }
 
     public boolean borrarRelacion(int id)
