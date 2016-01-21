@@ -10,6 +10,7 @@ public class clsMision {
     private String titulo;
     private String descripcion;
     private int exp;
+    private int progresoActual;
 
 
     public int getId() {
@@ -57,13 +58,21 @@ public class clsMision {
 
     }
 
-    public clsMision(int id ,int exp,int progreso,String titulo,String descripcion)
+    public clsMision(int id ,int exp,int progreso,String titulo,String descripcion,int progresoActual)
     {
         this.id=id;
         this.exp=exp;
         this.descripcion=descripcion;
         this.progreso=progreso;
         this.titulo=titulo;
+        this.progresoActual=progresoActual;
     }
 
+    public int getProgresoActual() {
+        return progresoActual;
+    }
+
+    public void setProgresoActual(int progresoActual) {
+        this.progresoActual = progresoActual;
+    }
 }

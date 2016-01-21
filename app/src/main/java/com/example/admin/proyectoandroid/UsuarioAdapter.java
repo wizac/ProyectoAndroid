@@ -87,17 +87,32 @@ public class UsuarioAdapter {
         return sqlDB.query(NAME,COLUMNS,null,null,null,null,null);
     }
 
-    public void subirlvl()
+    public void subirlvl(int Fuerza,int Destreza,int Inteligencia)
     {
+        int id=0;
+        int nivel=0;
+        int str=0;
+        int dex=0;
+        int wis=0;
+
         Cursor var;
        var= sqlDB.query(NAME,COLUMNS,null,null,null,null,null);
 
         if (var.moveToFirst()) {
             //me muevo al usuario que solo deberia haber uno
-                String id= var.getString(0);
-                int nivel = var.getInt(2);
-                int exp = var.getInt(3);
-
+                id= var.getInt(0);
+                nivel = var.getInt(2);
+                nivel=nivel+1;
+                str=var.getInt(5)+Fuerza;
+                dex=var.getInt(6)+Destreza;
+                wis=var.getInt(7)+Inteligencia;
+                sqlDB.execSQL("update usuario set nivel="+nivel+",exp=0,fuerza="+str+",destreza="+dex+",intligencia="+wis+" where id="+id);
         }
+
+
+
+
+
+
     }
 }

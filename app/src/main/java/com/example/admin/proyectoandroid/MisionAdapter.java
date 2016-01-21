@@ -112,7 +112,7 @@ public class MisionAdapter {
 
         mis.moveToPosition(rand);
 
-        clsMision c =new clsMision(mis.getInt(0),mis.getInt(4),mis.getInt(1),mis.getString(2),mis.getString(3));
+        clsMision c =new clsMision(mis.getInt(0),mis.getInt(4),mis.getInt(1),mis.getString(2),mis.getString(3),0);
 
         return c;
     }

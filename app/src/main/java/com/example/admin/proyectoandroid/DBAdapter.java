@@ -44,41 +44,62 @@ public class DBAdapter {
     }
 
 
-    public boolean misionInsert(int progreso,String titulo,String descripcion,int exp)
+    public boolean misionInsert(clsMision a )
     {
 
-        return misionA.insert(progreso, titulo, descripcion, exp);
+        return misionA.insert(a.getProgreso(), a.getTitulo(), a.getDescripcion(), a.getExp());
     }
 
-    public boolean preguntaInsert(String descripcion,String opa,String opb,String opc,String resp)
+    public boolean preguntaInsert(clsPregunta a)
     {
 
-       return preguntasA.insert(descripcion,opa,opb,opc,resp);
+       return preguntasA.insert(a.getDescripcion(),a.getOpA(),a.getOpB(),a.getOpC(),a.getResp());
     }
 
-    public boolean relacionInsert(String idmision,String nombre,int progreso)
+    public boolean relacionInsert(String idmision,String nombre)
     {
 
-        return relacionA.insert(idmision, nombre, progreso);
+        return relacionA.insert(idmision,nombre, 0);
     }
-    public boolean usuarioInsert(String nombre,int nivel,int exp,int nmisiones,int fuerza,int destreza,int inteligencia)
+    public boolean usuarioInsert(String nombre)
     {
 
-        return usuarioA.insert(nombre, nivel, exp, nmisiones, fuerza, destreza, inteligencia);
+        return usuarioA.insert(nombre, 0, 0, 0, 0, 0, 0);
     }
 
 
 
     //usuarios
 
-    public Cursor getNombreUsuario()
+    public clsUsuario getNombreUsuario()
     {
-        return usuarioA.getNombres();
+        Cursor x=usuarioA.getNombres();
+        clsUsuario y= new clsUsuario();
+
+
+        y.setNombre(x.getString(1));
+
+
+        return y;
     }
-    public Cursor getDatosUsuario()
+    public clsUsuario getDatosUsuario()
     {
-        return usuarioA.getDatos();
+        Cursor x=usuarioA.getDatos();
+        clsUsuario y= new clsUsuario();
+
+        y.setId(x.getInt(0));
+        y.setNombre(x.getString(1));
+        y.setNivel(x.getInt(2));
+        y.setExp(x.getInt(3));
+        y.setNmisiones(x.getInt(4));
+        y.setFuerza(x.getInt(5));
+        y.setDestreza(x.getInt(6));
+        y.setInteligencia(x.getInt(7));
+
+        return y;
     }
+
+
 
     public boolean borrarUsuario(int id)
     {
