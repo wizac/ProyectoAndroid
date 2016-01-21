@@ -152,7 +152,10 @@ public class DBAdapter {
     }
 
 
+    public void aumentarExp(int exp)
+    {
 
+    }
 
 
 

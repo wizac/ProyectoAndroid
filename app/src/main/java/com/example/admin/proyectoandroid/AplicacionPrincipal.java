@@ -28,6 +28,7 @@ public class AplicacionPrincipal extends Application {
 
     public clsMision aumentarProgreso(int idMision)
     {
+        clsMision mision;
         return new clsMision();
     }
 
@@ -36,7 +37,7 @@ public class AplicacionPrincipal extends Application {
 
     }
 
-    public clsMision[] getMisionesDelDia()
+    public clsMision[] getMisionesDiarias()
     {
         clsMision[] misiones = new clsMision[4];
 
@@ -52,5 +53,16 @@ public class AplicacionPrincipal extends Application {
         return dbAdapter.randomPregunta();
     }
 
-
+    public boolean responderPregunta (clsPregunta pregunta, String respuesta)
+    {
+        if (pregunta.getResp() == respuesta)
+        {
+            dbAdapter.aumentarExp(10);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
