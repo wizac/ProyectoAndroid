@@ -12,7 +12,7 @@ public class DBAdapter {
     private DBHelper dbHelper;
     private SQLiteDatabase sqlDB;
     private final static int DB_VERSION=1;
-    private final static String DB_NAME="AdminSoft";
+    private final static String DB_NAME="QuestLog";
 
     private MisionAdapter misionA;
     private PreguntasAdapter preguntasA;
