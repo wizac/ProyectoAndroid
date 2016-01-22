@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 /**
  * Created by sebyc on 17/01/2016.
  */
@@ -109,23 +111,51 @@ public class DBAdapter {
 
 
     //misiones
-    public clsMision getMisionesTitulo()
+    public ArrayList<clsMision> getMisionesTitulo()
     {
-        misionA.getNombres();
-        clsMision x=new clsMision();
-        return x;
+        Cursor M=misionA.getNombres();
+
+        ArrayList<clsMision> listamis=new ArrayList<clsMision>();
+
+        while (M.moveToNext())
+        {
+            clsMision x=new clsMision();
+            x.setId(M.getInt(0));
+            x.setTitulo(M.getString(2));
+            listamis.add(x);
+        }
+
+        return listamis;
     }
-    public clsMision getDatosMision()
+    public ArrayList<clsMision> getDatosMision()
     {
-        misionA.getDatos();
-        clsMision x=new clsMision();
-        return x;
+        Cursor M=misionA.getNombres();
+
+        ArrayList<clsMision> listamis=new ArrayList<clsMision>();
+
+        while (M.moveToNext())
+        {
+            clsMision x=new clsMision();
+            x.setId(M.getInt(0));
+            x.setProgreso(M.getInt(1));
+            x.setTitulo(M.getString(2));
+            x.setDescripcion(M.getString(3));
+            x.setExp(M.getInt(4));
+            x.setProgresoActual(M.getInt(5));
+
+
+
+            listamis.add(x);
+        }
+
+        return listamis;
     }
 
     public boolean borrarMision(int id)
     {
         return misionA.delete(id);
     }
+
     public clsMision getIdmision()
     {
         misionA.getIdmision();
@@ -192,7 +222,7 @@ public class DBAdapter {
 
     public void aumentarProgreso(int idmision,int cantidad )
     {
-
+        relacionA.aumentarProgreso(idmision,cantidad);
     }
 
     public boolean borrarRelacion(int id)

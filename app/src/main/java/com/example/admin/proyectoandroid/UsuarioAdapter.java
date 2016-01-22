@@ -107,7 +107,7 @@ public class UsuarioAdapter {
                 dex=var.getInt(6)+Destreza;
                 wis=var.getInt(7)+Inteligencia;
                 sqlDB.execSQL("update usuario set nivel="+nivel+",exp=0,fuerza="+str+",destreza="+dex+",intligencia="+wis+" where id="+id);
-        }
+    }
 
 
 

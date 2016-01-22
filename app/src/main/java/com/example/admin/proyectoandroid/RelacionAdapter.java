@@ -78,8 +78,15 @@ public class RelacionAdapter {
     {
         return sqlDB.query(NAME,COLUMNS,null,null,null,null,null);
     }
-    public void aumentarprogreso(int progreso)
+
+
+    public void aumentarProgreso(int idmision,int cant)
     {
+        Cursor mis;
+        int progreso=0;
+        mis=sqlDB.rawQuery("select * from relacion",null);
+        progreso=progreso+mis.getInt(2);
+        sqlDB.execSQL("update relacion set progreso="+progreso+" where idmision="+idmision);
 
     }
 

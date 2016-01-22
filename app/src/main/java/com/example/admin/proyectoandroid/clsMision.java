@@ -68,11 +68,13 @@ public class clsMision {
         this.progresoActual=progresoActual;
     }
 
-    public int getProgresoActual() {
+    public int getProgresoActual()
+    {
         return progresoActual;
     }
 
-    public void setProgresoActual(int progresoActual) {
+    public void setProgresoActual(int progresoActual)
+    {
         this.progresoActual = progresoActual;
     }
 }
