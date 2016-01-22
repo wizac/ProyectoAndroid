@@ -33,7 +33,6 @@ public class MainActivity extends ActionBarActivity {
     ViewPager viewPager;
     public String[] slideshow;
 
-
     protected static Integer[] misImagenes = {
             R.drawable.img1,
             R.drawable.img2,
