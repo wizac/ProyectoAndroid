@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
+import java.util.ArrayList;
+
 /**
  * Created by sebyc on 17/01/2016.
  */
@@ -88,6 +90,39 @@ public class RelacionAdapter {
         progreso=progreso+mis.getInt(2);
         sqlDB.execSQL("update relacion set progreso="+progreso+" where idmision="+idmision);
 
+    }
+
+    public ArrayList<clsMision> misionesActuales()
+    {
+        Cursor mis;
+        Cursor dos;
+        ArrayList<clsMision> asd=new ArrayList<>();
+
+
+        mis=sqlDB.rawQuery("select * from relacion",null);
+
+
+        while (mis.moveToNext())
+        {
+
+            clsMision x=new clsMision();
+            x.setId(mis.getInt(0));
+            x.setProgresoActual(mis.getInt(2));
+
+            dos=sqlDB.rawQuery("select * from mision where idmision="+mis.getInt(0),null);
+
+            x.setProgreso(dos.getInt(1));
+            x.setTitulo(dos.getString(2));
+            x.setDescripcion(dos.getString(3));
+            x.setExp(dos.getInt(4));
+
+
+
+
+            asd.add(x);
+        }
+
+        return asd;
     }
 
 }

@@ -213,16 +213,27 @@ public class DBAdapter {
         return x;
 
     }
-    public clsRelacion getDatosRelacion()
+    public ArrayList<clsRelacion> getDatosRelacion()
     {
-        relacionA.getDatos();
-        clsRelacion x=new clsRelacion();
-        return x;
+
+        Cursor x=relacionA.getDatos();
+        ArrayList<clsRelacion> lista=new ArrayList<clsRelacion>();
+
+        while (x.moveToNext())
+        {
+            clsRelacion p = new clsRelacion();
+            p.setIdmision(x.getInt(0));
+            p.setNombre(x.getString(1));
+            p.setProgreso(x.getInt(2));
+
+            lista.add(p);
+        }
+        return lista;
     }
 
     public void aumentarProgreso(int idmision,int cantidad )
     {
-        relacionA.aumentarProgreso(idmision,cantidad);
+        relacionA.aumentarProgreso(idmision, cantidad);
     }
 
     public boolean borrarRelacion(int id)
@@ -235,6 +246,16 @@ public class DBAdapter {
     {
         usuarioA.subirExp(exp);
 
+    }
+
+    public ArrayList<clsMision> misionesActivas()
+    {
+
+
+        ArrayList<clsMision> listamis=relacionA.misionesActuales();
+
+
+        return listamis;
     }
 
 
