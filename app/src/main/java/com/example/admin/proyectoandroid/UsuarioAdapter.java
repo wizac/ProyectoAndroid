@@ -110,9 +110,20 @@ public class UsuarioAdapter {
     }
 
 
+    }
 
+    public void subirExp(int exp)
+    {
+        int id=0;
+        int xp=0;
+        Cursor var;
+        var= sqlDB.query(NAME,COLUMNS,null,null,null,null,null);
 
+        if (var.moveToFirst()) {
+            id= var.getInt(0);
+            xp =xp+var.getInt(3);
 
-
+            sqlDB.execSQL("update usuario set exp="+xp +"where id=" + id);
+        }
     }
 }

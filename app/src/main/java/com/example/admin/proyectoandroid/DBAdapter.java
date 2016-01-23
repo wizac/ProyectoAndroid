@@ -233,6 +233,7 @@ public class DBAdapter {
 
     public void aumentarExp(int exp)
     {
+        usuarioA.subirExp(exp);
 
     }
 
