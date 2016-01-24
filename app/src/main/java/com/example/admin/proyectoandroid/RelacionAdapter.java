@@ -40,7 +40,7 @@ public class RelacionAdapter {
             +Columns.PROGRESO +" int not null FOREIGN KEY REFERENCES mision(progreso) ";
 
 
-    public boolean insert(String idmision,String nombre, int progreso)
+    public boolean insert(int idmision,String nombre, int progreso)
     {
         ContentValues Values=new ContentValues();
         Values.put(Columns.ID,idmision);

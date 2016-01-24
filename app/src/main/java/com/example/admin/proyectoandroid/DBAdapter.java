@@ -58,7 +58,7 @@ public class DBAdapter {
        return preguntasA.insert(a.getDescripcion(),a.getOpA(),a.getOpB(),a.getOpC(),a.getResp());
     }
 
-    public boolean relacionInsert(String idmision,String nombre)
+    public boolean relacionInsert(int idmision,String nombre)
     {
 
         return relacionA.insert(idmision,nombre, 0);
