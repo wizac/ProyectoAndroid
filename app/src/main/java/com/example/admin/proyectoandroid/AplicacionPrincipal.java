@@ -35,7 +35,7 @@ public class AplicacionPrincipal extends Application {
 
     public boolean aumentarProgreso(int idMision, int cantidad)
     {
-        clsMision m = new clsMision();//dbAdapter.buscarMision(idMision);
+        clsMision m = dbAdapter.buscarMisionPorId(idMision);
 
         if(m.getProgresoActual() + cantidad >= m.getProgreso())
         {
@@ -55,7 +55,7 @@ public class AplicacionPrincipal extends Application {
 
     public void subirNivel(int fuerza, int destreza, int inteligencia)
     {
-        //dbAdapter.subirNivel(fuerza, destreza, inteligencia);
+        dbAdapter.subirlvl(fuerza, destreza, inteligencia);
     }
 
     public ArrayList<clsMision> llenarMisionesDiarias()
