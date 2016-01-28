@@ -2,6 +2,8 @@ package com.example.admin.proyectoandroid;
 
 import android.app.Application;
 
+import java.util.ArrayList;
+
 /**
  * Created by Pablo on 21/01/2016.
  */
@@ -26,29 +28,56 @@ public class AplicacionPrincipal extends Application {
         super.onTerminate();
     }
 
-    public clsMision aumentarProgreso(int idMision)
+    public clsUsuario getUsuario()
     {
-        clsMision mision;
-        return new clsMision();
+        return dbAdapter.getDatosUsuario();
+    }
+
+    public boolean aumentarProgreso(int idMision, int cantidad)
+    {
+        clsMision m = new clsMision();//dbAdapter.buscarMision(idMision);
+
+        if(m.getProgresoActual() + cantidad >= m.getProgreso())
+        {
+            dbAdapter.aumentarExp(m.getExp());
+            if(dbAdapter.getDatosUsuario().getExp() >= (dbAdapter.getDatosUsuario().getNivel()*10+(dbAdapter.getDatosUsuario().getNivel()%10)*10))
+            {
+                return true;
+            }
+            return false;
+        }
+        else
+        {
+            dbAdapter.aumentarProgreso(idMision, cantidad);
+            return false;
+        }
     }
 
     public void subirNivel(int fuerza, int destreza, int inteligencia)
     {
-
+        //dbAdapter.subirNivel(fuerza, destreza, inteligencia);
     }
 
-    public clsMision[] getMisionesDiarias()
+    public ArrayList<clsMision> llenarMisionesDiarias()
     {
-        clsMision[] misiones = new clsMision[4];
+        ArrayList<clsMision> misiones = new ArrayList<clsMision>();
+        clsMision m = new clsMision();
 
-        for (int i = 0; i < 4; i++) {
-            misiones[i] = dbAdapter.randomMision();
+        for (int i = 0; i < 5; i++) {
+            m = dbAdapter.randomMision();
+            misiones.add(m);
+            dbAdapter.relacionInsert(m.getId(), dbAdapter.getNombreUsuario().getNombre());
         }
 
         return misiones;
     }
 
-    public clsPregunta getPreguntaDiaria()
+    public ArrayList<clsMision> getMisionesActivas()
+    {
+        return dbAdapter.misionesActivas();
+    }
+
+    public clsPregunta getPregunta()
     {
         return dbAdapter.randomPregunta();
     }
