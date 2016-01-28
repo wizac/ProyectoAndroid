@@ -258,8 +258,19 @@ public class DBAdapter {
         return listamis;
     }
 
+    public void subirlvl(int fuerza,int destr,int inte)
+    {
+        usuarioA.subirlvl(fuerza,destr,inte);
+    }
 
 
+ public clsMision buscarMisionPorId(int id)
+ {
+     clsMision asd=new clsMision();
+     asd=misionA.buscarMisionPorId(id);
+
+     return asd;
+ }
 
     private class DBHelper extends SQLiteOpenHelper {
         public DBHelper(Context context)

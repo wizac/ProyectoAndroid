@@ -117,4 +117,36 @@ public class MisionAdapter {
         return c;
     }
 
+    public clsMision buscarMisionPorId(int id)
+    {
+        clsMision asd = new clsMision();
+        Cursor cur1;
+        Cursor cur2;
+
+        cur1=sqlDB.rawQuery("select * from mision where idmision="+id,null);
+        cur2=sqlDB.rawQuery("select progreso from relacion where idmision="+id,null);
+        if(cur1.moveToFirst())
+        {
+            asd.setExp(cur1.getInt(1));
+            asd.setId(cur1.getInt(0));
+            asd.setDescripcion(cur1.getString(2));
+            asd.setProgreso(cur1.getInt(3));
+            asd.setTitulo(cur1.getString(4));
+
+        }
+
+        if (cur2.moveToFirst())
+        {
+            asd.setProgresoActual(cur2.getInt(0));
+        }
+        else
+        {
+            asd.setProgresoActual(0);
+        }
+
+
+
+
+        return asd;
+    }
 }
