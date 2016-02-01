@@ -271,6 +271,10 @@ public class DBAdapter {
 
      return asd;
  }
+    public void misionprueba()
+    {
+        misionA.misionprueba();
+    }
 
     private class DBHelper extends SQLiteOpenHelper {
         public DBHelper(Context context)
