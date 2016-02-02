@@ -3,9 +3,9 @@
     <string name="action_settings">Settings</string>
 
     <string-array name="misiones">
-        <item> MISIONES FACIL </item>
-        <item> MISIONES NORMAL </item>
-        <item> MISIONES DIFICIL </item>
+        <item> RETOS </item>
+        <item> MISIONES </item>
+        <item> PREGUNTAS </item>
     </string-array>
 
     <!-- **************** MODALIDAD FACIL  ****************** -->

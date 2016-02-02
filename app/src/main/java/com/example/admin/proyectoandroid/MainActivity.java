@@ -51,9 +51,9 @@ public class MainActivity extends ActionBarActivity {
 
         viewPager = (ViewPager) findViewById(R.id.pager);
 
-        viewPagerAdapter.addFragment(Fragmentos.newInstance(0, "MODALIDAD FACIL", misImagenes[0]));
-        viewPagerAdapter.addFragment(Fragmentos.newInstance(1, "MODALIDAD NORMAL", misImagenes[1]));
-        viewPagerAdapter.addFragment(Fragmentos.newInstance(2, "MODALIDAD DIFICIL", misImagenes[2]));
+        viewPagerAdapter.addFragment(Fragmentos.newInstance(0, "RETOS", misImagenes[0]));
+        viewPagerAdapter.addFragment(Fragmentos.newInstance(1, "MISIONES", misImagenes[1]));
+        viewPagerAdapter.addFragment(Fragmentos.newInstance(2, "PREGUNTAS", misImagenes[2]));
 
         viewPager.setAdapter(viewPagerAdapter);
         //FIN VIEWPAGER
@@ -164,7 +164,7 @@ public class MainActivity extends ActionBarActivity {
             frg_image.setImageResource(image);
 
             //ANIMACION AYUDA
-            if(nombre_modalidad == "MODALIDAD FACIL" && !ayudaMostrada) {
+            if(nombre_modalidad == "RETOS" && !ayudaMostrada) {
                 helpTextView = (TextView) rootView.findViewById(R.id.titulo_ayuda);
                 animationView = (ImageView) rootView.findViewById(R.id.animacion);
                 animationView.setBackgroundResource(R.drawable.animacion_desplazamiento);
