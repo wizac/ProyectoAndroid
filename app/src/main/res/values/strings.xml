@@ -80,4 +80,23 @@
         <item>Aca va la descripcion de la mision 4 de la modalidad dificil, o cualquier otra categoria que se les ocurra</item>
     </string-array>
 
+    <!-- Nombres de los items -->
+    <string-array name="nav_drawer_items">
+        <item >Favoritos</item>
+        <item >Pedidos</item>
+        <item >Catologo</item>
+        <item >Contacto</item>
+    </string-array>
+
+    <!-- Iconos de los items -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_whats_hot</item>
+        <item>@drawable/ic_people</item>
+        <item>@drawable/ic_photos</item>
+        <item>@drawable/ic_communities</item>
+    </array>
+
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Item Icon</string>
+
 </resources>
