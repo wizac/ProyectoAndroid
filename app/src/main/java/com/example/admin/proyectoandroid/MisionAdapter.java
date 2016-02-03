@@ -153,6 +153,6 @@ public class MisionAdapter {
     public void misionprueba()
     {
         sqlDB.execSQL(CR_TABLE);
-        sqlDB.execSQL("insert into mision values(1,1,'texto','mas texto',5,0)");
+        sqlDB.execSQL("insert into mision values(1,'texto','mas texto',5)");
     }
 }

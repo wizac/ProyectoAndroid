@@ -288,6 +288,10 @@ public class DBAdapter {
             db.execSQL(MisionAdapter.CR_TABLE);
             db.execSQL(RelacionAdapter.CR_TABLE);
             db.execSQL(PreguntasAdapter.CR_TABLE);
+
+            db.rawQuery("insert into mision values(1,'texto','mas texto',5)", null);
+            db.rawQuery("insert into pregunta values('es una pregunta?', 'si', 'no', 'tal vez', 'no lo se')", null);
+            db.rawQuery("insert into usuario values('Juan', 1, 0, 0, 0, 0, 0)", null);
         }
         @Override
         public void onUpgrade(SQLiteDatabase db,int oldVersion,int newVersion)
