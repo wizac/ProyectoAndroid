@@ -94,4 +94,9 @@ public class AplicacionPrincipal extends Application {
             return false;
         }
     }
+
+    public void misionPrueba()
+    {
+        dbAdapter.misionprueba();
+    }
 }
