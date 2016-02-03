@@ -63,8 +63,14 @@ public class AplicacionPrincipal extends Application {
         ArrayList<clsMision> misiones = new ArrayList<clsMision>();
         clsMision m = new clsMision();
 
-        for (int i = 0; i < 5; i++) {
-            m = dbAdapter.randomMision();
+        for (int i = 0; i < 5; i++)
+        {
+            do
+            {
+                m = dbAdapter.randomMision();
+            }
+            while(misiones.contains(m));
+
             misiones.add(m);
             dbAdapter.relacionInsert(m.getId(), dbAdapter.getNombreUsuario().getNombre());
         }
