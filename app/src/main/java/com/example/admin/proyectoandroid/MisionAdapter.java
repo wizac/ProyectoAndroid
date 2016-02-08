@@ -159,4 +159,14 @@ public class MisionAdapter {
         sqlDB.execSQL(CR_TABLE);
         sqlDB.execSQL("insert into mision values(1,'texto','mas texto',5)");
     }
+
+    public void completarMision(String attr)
+    {
+        if(attr=="F")
+            sqlDB.execSQL("update usuario set fuerza=fuerza+1");
+        if(attr=="D")
+            sqlDB.execSQL("update usuario set destreza=destreza+1");
+        if(attr=="I")
+            sqlDB.execSQL("update usuario set inteligencia=inteligencia+1");
+    }
 }

@@ -258,11 +258,15 @@ public class DBAdapter {
         return listamis;
     }
 
-    public void subirlvl(int fuerza,int destr,int inte)
+    public void subirlvl()
     {
-        usuarioA.subirlvl(fuerza,destr,inte);
+        usuarioA.subirlvl();
     }
 
+    public void completarMision(String attr)
+    {
+        misionA.completarMision(attr);
+    }
 
  public clsMision buscarMisionPorId(int id)
  {
