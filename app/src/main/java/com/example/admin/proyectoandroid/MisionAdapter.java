@@ -27,6 +27,7 @@ public class MisionAdapter {
         public final static String TITULO="titulo";
         public final static String DESCRIPCION="descripcion";
         public final static String EXP="exp";
+        public final static String TIPO="tipo";
 
     }
 
@@ -40,15 +41,17 @@ public class MisionAdapter {
             +Columns.PROGRESO +" integer not null, "
             +Columns.TITULO +" text not null, "
             +Columns.DESCRIPCION+" text not null, "
-            +Columns.EXP+" integer not null)";
+            +Columns.EXP+" integer not null, "
+            +Columns.TIPO+"text not null)";
 
-    public boolean insert(int progreso,String titulo, String descripcion,int exp)
+    public boolean insert(int progreso,String titulo, String descripcion,int exp,String tipo)
     {
         ContentValues Values=new ContentValues();
         Values.put(Columns.PROGRESO,progreso);
         Values.put(Columns.TITULO,titulo);
         Values.put(Columns.DESCRIPCION,descripcion);
         Values.put(Columns.EXP,exp);
+        Values.put(Columns.TIPO,tipo);
 
 
         return sqlDB.insert(NAME,null,Values)>0;
@@ -112,7 +115,7 @@ public class MisionAdapter {
 
         mis.moveToPosition(rand);
 
-        clsMision c =new clsMision(mis.getInt(0),mis.getInt(4),mis.getInt(1),mis.getString(2),mis.getString(3),0);
+        clsMision c =new clsMision(mis.getInt(0),mis.getInt(4),mis.getInt(1),mis.getString(2),mis.getString(3),0,mis.getString(5));
 
         return c;
     }
@@ -132,6 +135,7 @@ public class MisionAdapter {
             asd.setDescripcion(cur1.getString(2));
             asd.setProgreso(cur1.getInt(3));
             asd.setTitulo(cur1.getString(4));
+            asd.setTipo(cur1.getString(5));
 
         }
 

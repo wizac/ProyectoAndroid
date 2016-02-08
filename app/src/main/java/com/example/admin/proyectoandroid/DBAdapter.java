@@ -49,7 +49,7 @@ public class DBAdapter {
     public boolean misionInsert(clsMision a )
     {
 
-        return misionA.insert(a.getProgreso(), a.getTitulo(), a.getDescripcion(), a.getExp());
+        return misionA.insert(a.getProgreso(), a.getTitulo(), a.getDescripcion(), a.getExp(),a.getTipo());
     }
 
     public boolean preguntaInsert(clsPregunta a)
