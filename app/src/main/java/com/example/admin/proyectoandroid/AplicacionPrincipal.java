@@ -40,12 +40,12 @@ public class AplicacionPrincipal extends Application {
         if(m.getProgresoActual() + cantidad >= m.getProgreso())
         {
             dbAdapter.aumentarExp(m.getExp());
-
+            dbAdapter.borrarRelacion(m.getId());
             
             if(dbAdapter.getDatosUsuario().getExp() >= (dbAdapter.getDatosUsuario().getNivel()*10+(dbAdapter.getDatosUsuario().getNivel()%10)*10))
             {
-                //dbAdapter.subirlvl();
-                //dbAdapter.completarMision();
+                dbAdapter.subirlvl();
+                dbAdapter.completarMision(m.getTipo());
                 return true;
             }
             return false;
@@ -110,8 +110,8 @@ public class AplicacionPrincipal extends Application {
         }
     }
 
-    public void misionPrueba()
+    /*public void misionPrueba()
     {
         dbAdapter.misionprueba();
-    }
+    }*/
 }

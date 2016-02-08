@@ -293,11 +293,11 @@ public class DBAdapter {
             db.execSQL(RelacionAdapter.CR_TABLE);
             db.execSQL(PreguntasAdapter.CR_TABLE);
 
-            db.rawQuery("insert into mision values(1,'texto','mas texto',5)", null);
-            db.rawQuery("insert into mision values(2,'texto2','mas texto2',10)", null);
-            db.rawQuery("insert into mision values(3,'texto3','mas texto3',15)", null);
-            db.rawQuery("insert into mision values(4,'texto4','mas texto4',20)", null);
-            db.rawQuery("insert into mision values(5,'texto5','mas texto5',25)", null);
+            db.rawQuery("insert into mision values(1,'texto','mas texto',5,'F')", null);
+            db.rawQuery("insert into mision values(2,'texto2','mas texto2',10,'D')", null);
+            db.rawQuery("insert into mision values(3,'texto3','mas texto3',15,'I')", null);
+            db.rawQuery("insert into mision values(4,'texto4','mas texto4',20,'F')", null);
+            db.rawQuery("insert into mision values(5,'texto5','mas texto5',25,'D')", null);
 
             db.rawQuery("insert into pregunta values('es una pregunta?', 'si', 'no', 'tal vez', 'no lo se')", null);
             db.rawQuery("insert into usuario values('Juan', 1, 0, 0, 0, 0, 0)", null);
