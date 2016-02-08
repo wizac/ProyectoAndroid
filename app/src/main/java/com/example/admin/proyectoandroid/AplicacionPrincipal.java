@@ -40,8 +40,12 @@ public class AplicacionPrincipal extends Application {
         if(m.getProgresoActual() + cantidad >= m.getProgreso())
         {
             dbAdapter.aumentarExp(m.getExp());
+
+            
             if(dbAdapter.getDatosUsuario().getExp() >= (dbAdapter.getDatosUsuario().getNivel()*10+(dbAdapter.getDatosUsuario().getNivel()%10)*10))
             {
+                //dbAdapter.subirlvl();
+                //dbAdapter.completarMision();
                 return true;
             }
             return false;
@@ -53,13 +57,18 @@ public class AplicacionPrincipal extends Application {
         }
     }
 
-    public void subirNivel(int fuerza, int destreza, int inteligencia)
+    /*public void subirNivel(int fuerza, int destreza, int inteligencia)
     {
         dbAdapter.subirlvl(fuerza, destreza, inteligencia);
-    }
+    }*/
 
     public ArrayList<clsMision> llenarMisionesDiarias()
     {
+        for (clsMision m : dbAdapter.misionesActivas())
+        {
+            dbAdapter.borrarRelacion(m.getId());
+        }
+
         ArrayList<clsMision> misiones = new ArrayList<clsMision>();
         clsMision m = new clsMision();
 
