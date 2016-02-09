@@ -40,8 +40,12 @@ public class AplicacionPrincipal extends Application {
         if(m.getProgresoActual() + cantidad >= m.getProgreso())
         {
             dbAdapter.aumentarExp(m.getExp());
+            dbAdapter.borrarRelacion(m.getId());
+            
             if(dbAdapter.getDatosUsuario().getExp() >= (dbAdapter.getDatosUsuario().getNivel()*10+(dbAdapter.getDatosUsuario().getNivel()%10)*10))
             {
+                dbAdapter.subirlvl();
+                dbAdapter.completarMision(m.getTipo());
                 return true;
             }
             return false;
@@ -53,18 +57,29 @@ public class AplicacionPrincipal extends Application {
         }
     }
 
-    public void subirNivel(int fuerza, int destreza, int inteligencia)
+    /*public void subirNivel(int fuerza, int destreza, int inteligencia)
     {
         dbAdapter.subirlvl(fuerza, destreza, inteligencia);
-    }
+    }*/
 
     public ArrayList<clsMision> llenarMisionesDiarias()
     {
+        for (clsMision m : dbAdapter.misionesActivas())
+        {
+            dbAdapter.borrarRelacion(m.getId());
+        }
+
         ArrayList<clsMision> misiones = new ArrayList<clsMision>();
         clsMision m = new clsMision();
 
-        for (int i = 0; i < 5; i++) {
-            m = dbAdapter.randomMision();
+        for (int i = 0; i < 5; i++)
+        {
+            do
+            {
+                m = dbAdapter.randomMision();
+            }
+            while(misiones.contains(m));
+
             misiones.add(m);
             dbAdapter.relacionInsert(m.getId(), dbAdapter.getNombreUsuario().getNombre());
         }
@@ -95,8 +110,8 @@ public class AplicacionPrincipal extends Application {
         }
     }
 
-    public void misionPrueba()
+    /*public void misionPrueba()
     {
         dbAdapter.misionprueba();
-    }
+    }*/
 }

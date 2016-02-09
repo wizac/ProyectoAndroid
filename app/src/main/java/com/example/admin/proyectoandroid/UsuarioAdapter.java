@@ -87,7 +87,7 @@ public class UsuarioAdapter {
         return sqlDB.query(NAME,COLUMNS,null,null,null,null,null);
     }
 
-    public void subirlvl(int Fuerza,int Destreza,int Inteligencia)
+    public void subirlvl()
     {
         int id=0;
         int nivel=0;
@@ -103,10 +103,8 @@ public class UsuarioAdapter {
                 id= var.getInt(0);
                 nivel = var.getInt(2);
                 nivel=nivel+1;
-                str=var.getInt(5)+Fuerza;
-                dex=var.getInt(6)+Destreza;
-                wis=var.getInt(7)+Inteligencia;
-                sqlDB.execSQL("update usuario set nivel="+nivel+",exp=0,fuerza="+str+",destreza="+dex+",intligencia="+wis+" where id="+id);
+
+                sqlDB.execSQL("update usuario set nivel="+nivel+",exp=0 where id="+id);
     }
 
 

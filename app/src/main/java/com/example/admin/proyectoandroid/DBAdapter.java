@@ -49,7 +49,7 @@ public class DBAdapter {
     public boolean misionInsert(clsMision a )
     {
 
-        return misionA.insert(a.getProgreso(), a.getTitulo(), a.getDescripcion(), a.getExp());
+        return misionA.insert(a.getProgreso(), a.getTitulo(), a.getDescripcion(), a.getExp(),a.getTipo());
     }
 
     public boolean preguntaInsert(clsPregunta a)
@@ -258,11 +258,15 @@ public class DBAdapter {
         return listamis;
     }
 
-    public void subirlvl(int fuerza,int destr,int inte)
+    public void subirlvl()
     {
-        usuarioA.subirlvl(fuerza,destr,inte);
+        usuarioA.subirlvl();
     }
 
+    public void completarMision(String attr)
+    {
+        misionA.completarMision(attr);
+    }
 
  public clsMision buscarMisionPorId(int id)
  {
@@ -288,6 +292,15 @@ public class DBAdapter {
             db.execSQL(MisionAdapter.CR_TABLE);
             db.execSQL(RelacionAdapter.CR_TABLE);
             db.execSQL(PreguntasAdapter.CR_TABLE);
+
+            db.rawQuery("insert into mision values(1,'texto','mas texto',5,'F')", null);
+            db.rawQuery("insert into mision values(2,'texto2','mas texto2',10,'D')", null);
+            db.rawQuery("insert into mision values(3,'texto3','mas texto3',15,'I')", null);
+            db.rawQuery("insert into mision values(4,'texto4','mas texto4',20,'F')", null);
+            db.rawQuery("insert into mision values(5,'texto5','mas texto5',25,'D')", null);
+
+            db.rawQuery("insert into pregunta values('es una pregunta?', 'si', 'no', 'tal vez', 'no lo se')", null);
+            db.rawQuery("insert into usuario values('Juan', 1, 0, 0, 0, 0, 0)", null);
         }
         @Override
         public void onUpgrade(SQLiteDatabase db,int oldVersion,int newVersion)
