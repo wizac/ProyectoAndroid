@@ -1,102 +1,14 @@
 <resources>
-    <string name="app_name">PROYECTO ANDROID</string>
+    <string name="app_name">Mission Accomplished</string>
     <string name="action_settings">Settings</string>
 
-    <string-array name="misiones">
-        <item> RETOS </item>
-        <item> MISIONES </item>
-        <item> PREGUNTAS </item>
-    </string-array>
+    <string name="opcion_inicio">Inicio</string>
+    <string name="opcion_estadisticas">Estadísticas</string>
+    <string name="opcion_logros">Logros</string>
+    <string name="opcion_creditos">Créditos</string>
+    <string name="opcion_contacto">Contacto</string>
 
-    <!-- **************** MODALIDAD FACIL  ****************** -->
-
-    <string-array name="modalidad_facil_titulo">
-        <item>Mision del dia</item>
-        <item>Reto de velocidad</item>
-        <item>Te animas?</item>
-        <item>Nadia es capaz</item>
-        <item>Reto del palomo</item>
-    </string-array>
-
-
-    <string-array name="modalidad_facil_contenido">
-        <item>Progreso</item>
-        <item>Progreso</item>
-        <item>Progreso</item>
-        <item>Progreso</item>
-        <item>Progreso</item>
-    </string-array>
-
-    <string-array name="modalidad_facil_contenido_completo">
-        <item>Aca va la descripcion de la mision 1 de la modalidad facil, o cualquier otra categoria que se les ocurra</item>
-        <item>Aca va la descripcion de la mision 2 de la modalidad facil, o cualquier otra categoria que se les ocurra.</item>
-        <item>Aca va la descripcion de la mision 3 de la modalidad facil, o cualquier otra categoria que se les ocurra</item>
-        <item>Aca va la descripcion de la mision 4 de la modalidad facil, o cualquier otra categoria que se les ocurra</item>
-        <item>Aca va la descripcion de la mision 5 de la modalidad facil, o cualquier otra categoria que se les ocurra</item>
-    </string-array>
-
-    <!-- **************** MODALIDAD NORMAL ****************** -->
-
-    <string-array name="modalidad_normal_titulo">
-        <item>Modo normal</item>
-        <item>Putabida challenge</item>
-        <item>No se que poner?</item>
-    </string-array>
-
-
-    <string-array name="modalidad_normal_contenido">
-        <item>Progreso</item>
-        <item>Progreso</item>
-        <item>Progreso</item>
-    </string-array>
-
-    <string-array name="modalidad_normal_contenido_completo">
-        <item>Aca va la descripcion de la mision 1 de la modalidad normal, o cualquier otra categoria que se les ocurra</item>
-        <item>Aca va la descripcion de la mision 2 de la modalidad normal, o cualquier otra categoria que se les ocurra.</item>
-        <item>Aca va la descripcion de la mision 3 de la modalidad normal, o cualquier otra categoria que se les ocurra</item>
-    </string-array>
-
-    <!-- **************** MODALIDAD DIFICIL  ****************** -->
-
-    <string-array name="modalidad_dificil_titulo">
-        <item>Mision animador</item>
-        <item>Necesito imagenes</item>
-        <item>Se puede?</item>
-        <item>Imposible</item>
-    </string-array>
-
-
-    <string-array name="modalidad_dificil_contenido">
-        <item>Progreso</item>
-        <item>Progreso</item>
-        <item>Progreso</item>
-        <item>Progreso</item>
-    </string-array>
-
-    <string-array name="modalidad_dificil_contenido_completo">
-        <item>Aca va la descripcion de la mision 1 de la modalidad dificil, o cualquier otra categoria que se les ocurra</item>
-        <item>Aca va la descripcion de la mision 2 de la modalidad dificil, o cualquier otra categoria que se les ocurra.</item>
-        <item>Aca va la descripcion de la mision 3 de la modalidad dificil, o cualquier otra categoria que se les ocurra</item>
-        <item>Aca va la descripcion de la mision 4 de la modalidad dificil, o cualquier otra categoria que se les ocurra</item>
-    </string-array>
-
-    <!-- Nombres de los items -->
-    <string-array name="nav_drawer_items">
-        <item >Favoritos</item>
-        <item >Pedidos</item>
-        <item >Catologo</item>
-        <item >Contacto</item>
-    </string-array>
-
-    <!-- Iconos de los items -->
-    <array name="nav_drawer_icons">
-        <item>@drawable/ic_whats_hot</item>
-        <item>@drawable/ic_people</item>
-        <item>@drawable/ic_photos</item>
-        <item>@drawable/ic_communities</item>
-    </array>
-
-    <!-- Content Description -->
-    <string name="desc_list_item_icon">Item Icon</string>
+    <string name="titulo_tab_misiones">MISIONES</string>
+    <string name="titulo_tab_preguntas">PREGUNTAS</string>
 
 </resources>
