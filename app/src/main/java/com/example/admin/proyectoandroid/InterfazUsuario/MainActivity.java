@@ -18,6 +18,7 @@ import com.example.admin.proyectoandroid.R;
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
+    private boolean viewIsAtHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         if (navigationView != null) {
             prepararDrawer(navigationView);
             // Seleccionar item por defecto
-            seleccionarItem(navigationView.getMenu().getItem(0));
+            seleccionarItem(navigationView.getMenu().getItem(0).getItemId());
         }
     }
 
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         menuItem.setChecked(true);
-                        seleccionarItem(menuItem);
+                        seleccionarItem(menuItem.getItemId());
                         drawerLayout.closeDrawers();
                         return true;
                     }
@@ -62,25 +63,36 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void seleccionarItem(MenuItem itemDrawer) {
+    private void seleccionarItem(int idView) {
         Fragment fragmento = null;
         FragmentManager fragmentManager = getSupportFragmentManager();
+        String title = getString(R.string.app_name);
 
-        switch (itemDrawer.getItemId()) {
+        switch (idView) {
             case R.id.opcion_inicio:
                 fragmento= new FragmentInicio();
+                title = "Inicio";
+                viewIsAtHome = true;
                 break;
             case R.id.opcion_estadisticas:
                 fragmento = new FragmentEstadisticas();
+                title = "Estadísticas";
+                viewIsAtHome = false;
                 break;
             case R.id.opcion_logros:
                 fragmento = new FragmentLogros();
+                title = "Logros";
+                viewIsAtHome = false;
                 break;
             case R.id.opcion_creditos:
                 startActivity(new Intent(this, Creditos.class));
+                title = "Créditos";
+                viewIsAtHome = false;
                 break;
             case R.id.opcion_contacto:
                 startActivity(new Intent(this, Contacto.class));
+                title = "Contacto";
+                viewIsAtHome = false;
                 break;
         }
         if (fragmento != null) {
@@ -91,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Setear título actual
-        setTitle(itemDrawer.getTitle());
+        setTitle(title);
     }
 
     @Override
@@ -107,5 +119,17 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        if (!viewIsAtHome) {
+            seleccionarItem(R.id.opcion_inicio);
+        } else {
+            moveTaskToBack(true);
+        }
     }
 }
