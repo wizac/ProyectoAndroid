@@ -11,4 +11,36 @@
     <string name="titulo_tab_misiones">MISIONES</string>
     <string name="titulo_tab_preguntas">PREGUNTAS</string>
 
+    <string-array name="titulo_misiones">
+        <item>Lo lograras?</item>
+        <item>Cube challenge</item>
+        <item>No se que poner?</item>
+        <item>Mision Extreme</item>
+        <item>Mision Insane</item>
+    </string-array>
+
+    <string-array name="contenido_misiones">
+        <item>Esta es la mision 1 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es la mision 2 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es la mision 3 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es la mision 4 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es la mision 5 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+    </string-array>
+
+    <string-array name="dificultad_misiones">
+        <item>facil</item>
+        <item>dificil</item>
+        <item>insano</item>
+        <item>extremo</item>
+        <item>normal</item>
+    </string-array>
+
+    <integer-array name="progreso_misiones">
+        <item>30</item>
+        <item>80</item>
+        <item>10</item>
+        <item>50</item>
+        <item>100</item>
+    </integer-array>
+
 </resources>

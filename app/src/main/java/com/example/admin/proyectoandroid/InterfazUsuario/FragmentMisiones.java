@@ -7,11 +7,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.admin.proyectoandroid.AplicacionPrincipal;
 import com.example.admin.proyectoandroid.clsMision;
 import com.example.admin.proyectoandroid.R;
@@ -23,17 +26,13 @@ public class FragmentMisiones extends Fragment {
 
     ListViewAdapter adapter;
     AplicacionPrincipal AP;
-    /*ArrayList<clsMision> misiones = AP.getMisionesActivas();
+    ArrayList<clsMision> misiones = AP.llenarMisionesDiarias();
     int cantidadMisiones = misiones.size();
 
     String[] titulos = new String[cantidadMisiones];
     int[] imagenes = new int[cantidadMisiones];
-    int[] progresos = new int[cantidadMisiones];*/
+    int[] progresos = new int[cantidadMisiones];
 
-    /* BORRAR ESTO CUANDO LA BASE ESTE FUNCIONANDO */
-    String[] titulos = new String[] {"Titulo 1", "Titulo 2", "Titulo 3", "Titulo 4", "Titulo 5"};
-    int[] imagenes = new int[] {R.drawable.bob, R.drawable.bob, R.drawable.bob, R.drawable.bob, R.drawable.bob};
-    int[] progresos = new int[] {20,50,100,80,30};
 
 
     @Override
@@ -42,27 +41,30 @@ public class FragmentMisiones extends Fragment {
         View rootView =  inflater.inflate(R.layout.fragment_misiones, container, false);
 
         ListView lista = (ListView) rootView.findViewById(R.id.listView_listarMisiones);
+        misiones = AP.llenarMisionesDiarias();
 
-        /*for(int i = 0; i < cantidadMisiones; i++)
+        for(int i = 0; i < cantidadMisiones; i++)
         {
             titulos[i] = ((clsMision)misiones.get(i)).getTitulo();
             imagenes[i] = R.drawable.bob;
             progresos[i] = ((clsMision)misiones.get(i)).getProgreso();
-        }*/
+        }
+
+
 
         adapter = new ListViewAdapter(getContext(), titulos, imagenes, progresos);
         lista.setAdapter(adapter);
 
-        /*lista.setOnClickListener(new View.OnClickListener() {
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(getActivity(), ListarUnaMision.class);
-                i.putExtra("currentViewPager", currentViewPager);
-                i.putExtra("nombreModalidad", nombre_modalidad);
+                i.putExtra("position", position);
                 startActivity(i);
-            }
-        });*/
 
+
+            }
+        });
         return rootView;
     }
 
