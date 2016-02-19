@@ -111,9 +111,10 @@ public class MisionAdapter {
         Random r = new Random();
         int rand = r.nextInt(max - min + 1) + min;
 
-        mis=sqlDB.rawQuery("select * from mision",null);
+        mis=sqlDB.rawQuery("select * from mision where idmision = " + rand,null);
 
-        mis.moveToPosition(rand);
+        //mis.moveToPosition(rand);
+        mis.moveToFirst();
 
         clsMision c =new clsMision(mis.getInt(0),mis.getInt(4),mis.getInt(1),mis.getString(2),mis.getString(3),0,mis.getString(5));
 
