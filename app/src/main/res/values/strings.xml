@@ -1,83 +1,46 @@
 <resources>
-    <string name="app_name">PROYECTO ANDROID</string>
+    <string name="app_name">Mission Accomplished</string>
     <string name="action_settings">Settings</string>
 
-    <string-array name="misiones">
-        <item> MISIONES FACIL </item>
-        <item> MISIONES NORMAL </item>
-        <item> MISIONES DIFICIL </item>
-    </string-array>
+    <string name="opcion_inicio">Inicio</string>
+    <string name="opcion_estadisticas">Estadísticas</string>
+    <string name="opcion_logros">Logros</string>
+    <string name="opcion_creditos">Créditos</string>
+    <string name="opcion_contacto">Contacto</string>
 
-    <!-- **************** MODALIDAD FACIL  ****************** -->
+    <string name="titulo_tab_misiones">MISIONES</string>
+    <string name="titulo_tab_preguntas">PREGUNTAS</string>
 
-    <string-array name="modalidad_facil_titulo">
-        <item>Mision del dia</item>
-        <item>Reto de velocidad</item>
-        <item>Te animas?</item>
-        <item>Nadia es capaz</item>
-        <item>Reto del palomo</item>
-    </string-array>
-
-
-    <string-array name="modalidad_facil_contenido">
-        <item>Progreso</item>
-        <item>Progreso</item>
-        <item>Progreso</item>
-        <item>Progreso</item>
-        <item>Progreso</item>
-    </string-array>
-
-    <string-array name="modalidad_facil_contenido_completo">
-        <item>Aca va la descripcion de la mision 1 de la modalidad facil, o cualquier otra categoria que se les ocurra</item>
-        <item>Aca va la descripcion de la mision 2 de la modalidad facil, o cualquier otra categoria que se les ocurra.</item>
-        <item>Aca va la descripcion de la mision 3 de la modalidad facil, o cualquier otra categoria que se les ocurra</item>
-        <item>Aca va la descripcion de la mision 4 de la modalidad facil, o cualquier otra categoria que se les ocurra</item>
-        <item>Aca va la descripcion de la mision 5 de la modalidad facil, o cualquier otra categoria que se les ocurra</item>
-    </string-array>
-
-    <!-- **************** MODALIDAD NORMAL ****************** -->
-
-    <string-array name="modalidad_normal_titulo">
-        <item>Modo normal</item>
-        <item>Putabida challenge</item>
+    <string-array name="titulo_misiones">
+        <item>Lo lograras?</item>
+        <item>Cube challenge</item>
         <item>No se que poner?</item>
+        <item>Mision Extreme</item>
+        <item>Mision Insane</item>
     </string-array>
 
-
-    <string-array name="modalidad_normal_contenido">
-        <item>Progreso</item>
-        <item>Progreso</item>
-        <item>Progreso</item>
+    <string-array name="contenido_misiones">
+        <item>Esta es la mision 1 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es la mision 2 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es la mision 3 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es la mision 4 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es la mision 5 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
     </string-array>
 
-    <string-array name="modalidad_normal_contenido_completo">
-        <item>Aca va la descripcion de la mision 1 de la modalidad normal, o cualquier otra categoria que se les ocurra</item>
-        <item>Aca va la descripcion de la mision 2 de la modalidad normal, o cualquier otra categoria que se les ocurra.</item>
-        <item>Aca va la descripcion de la mision 3 de la modalidad normal, o cualquier otra categoria que se les ocurra</item>
+    <string-array name="dificultad_misiones">
+        <item>facil</item>
+        <item>dificil</item>
+        <item>insano</item>
+        <item>extremo</item>
+        <item>normal</item>
     </string-array>
 
-    <!-- **************** MODALIDAD DIFICIL  ****************** -->
-
-    <string-array name="modalidad_dificil_titulo">
-        <item>Mision animador</item>
-        <item>Necesito imagenes</item>
-        <item>Se puede?</item>
-        <item>Imposible</item>
-    </string-array>
-
-
-    <string-array name="modalidad_dificil_contenido">
-        <item>Progreso</item>
-        <item>Progreso</item>
-        <item>Progreso</item>
-        <item>Progreso</item>
-    </string-array>
-
-    <string-array name="modalidad_dificil_contenido_completo">
-        <item>Aca va la descripcion de la mision 1 de la modalidad dificil, o cualquier otra categoria que se les ocurra</item>
-        <item>Aca va la descripcion de la mision 2 de la modalidad dificil, o cualquier otra categoria que se les ocurra.</item>
-        <item>Aca va la descripcion de la mision 3 de la modalidad dificil, o cualquier otra categoria que se les ocurra</item>
-        <item>Aca va la descripcion de la mision 4 de la modalidad dificil, o cualquier otra categoria que se les ocurra</item>
-    </string-array>
+    <integer-array name="progreso_misiones">
+        <item>30</item>
+        <item>80</item>
+        <item>10</item>
+        <item>50</item>
+        <item>100</item>
+    </integer-array>
 
 </resources>
