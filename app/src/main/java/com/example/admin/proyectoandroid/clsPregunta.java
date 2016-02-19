@@ -11,7 +11,15 @@ public class clsPregunta {
         private String opB;
         private String opC;
         private String resp;
+        private String categoria;
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
 
     public int getId() {
         return id;
@@ -66,7 +74,7 @@ public class clsPregunta {
 
     }
 
-    public clsPregunta(int id,String desc,String a,String b,String c,String resp)
+    public clsPregunta(int id,String desc,String a,String b,String c,String resp,String categoria)
     {
         this.id=id;
         this.descripcion=desc;
@@ -74,6 +82,7 @@ public class clsPregunta {
         this.opB=b;
         this.opC=c;
         this.resp=resp;
+        this.categoria=categoria;
     }
 
 
