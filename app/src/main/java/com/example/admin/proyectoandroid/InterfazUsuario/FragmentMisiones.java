@@ -23,12 +23,17 @@ public class FragmentMisiones extends Fragment {
 
     ListViewAdapter adapter;
     AplicacionPrincipal AP;
-    ArrayList<clsMision> misiones = AP.getMisionesActivas();
+    /*ArrayList<clsMision> misiones = AP.getMisionesActivas();
     int cantidadMisiones = misiones.size();
 
     String[] titulos = new String[cantidadMisiones];
     int[] imagenes = new int[cantidadMisiones];
-    int[] progresos = new int[cantidadMisiones];
+    int[] progresos = new int[cantidadMisiones];*/
+
+    /* BORRAR ESTO CUANDO LA BASE ESTE FUNCIONANDO */
+    String[] titulos = new String[] {"Titulo 1", "Titulo 2", "Titulo 3", "Titulo 4", "Titulo 5"};
+    int[] imagenes = new int[] {R.drawable.bob, R.drawable.bob, R.drawable.bob, R.drawable.bob, R.drawable.bob};
+    int[] progresos = new int[] {20,50,100,80,30};
 
 
     @Override
@@ -38,12 +43,12 @@ public class FragmentMisiones extends Fragment {
 
         ListView lista = (ListView) rootView.findViewById(R.id.listView_listarMisiones);
 
-        for(int i = 0; i < cantidadMisiones; i++)
+        /*for(int i = 0; i < cantidadMisiones; i++)
         {
             titulos[i] = ((clsMision)misiones.get(i)).getTitulo();
             imagenes[i] = R.drawable.bob;
             progresos[i] = ((clsMision)misiones.get(i)).getProgreso();
-        }
+        }*/
 
         adapter = new ListViewAdapter(getContext(), titulos, imagenes, progresos);
         lista.setAdapter(adapter);
