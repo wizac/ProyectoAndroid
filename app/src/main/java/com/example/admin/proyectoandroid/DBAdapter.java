@@ -55,7 +55,7 @@ public class DBAdapter {
     public boolean preguntaInsert(clsPregunta a)
     {
 
-       return preguntasA.insert(a.getDescripcion(),a.getOpA(),a.getOpB(),a.getOpC(),a.getResp());
+       return preguntasA.insert(a.getDescripcion(),a.getOpA(),a.getOpB(),a.getOpC(),a.getResp(),a.getCategoria());
     }
 
     public boolean relacionInsert(int idmision,String nombre)
@@ -304,8 +304,8 @@ public class DBAdapter {
             db.rawQuery("insert into mision values(2,'Piedra, papel o tijeras','Juega piedra, papel o tijeras con alguien y ganale 2 veces',50,'D')", null);
             db.rawQuery("insert into mision values(5,'Cara o cruz','Tira una modena y saca 5 caras, no deberia ser muy dificil...',20,'D')", null);
 
+            db.rawQuery("insert into pregunta values('es una pregunta?', 'si', 'no', 'tal vez', 'no lo se', 'cine')", null);
 
-            db.rawQuery("insert into pregunta values('es una pregunta?', 'si', 'no', 'tal vez', 'no lo se')", null);
             db.rawQuery("insert into usuario values('', 1, 0, 0, 0, 0, 0)", null);
         }
         @Override

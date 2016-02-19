@@ -29,13 +29,14 @@ public class PreguntasAdapter {
         public final static String OPCIONB="opcionb";
         public final static String OPCIONC="opcionc";
         public final static String RESPUESTA="respuesta";
+        public final static String CATEGORIA="categoria";
 
 
     }
 
     private final static String[] COLUMNS= {
 
-            Columns.ID,Columns.DESCRIPCION,Columns.OPCIONA,Columns.OPCIONB,Columns.OPCIONC,Columns.RESPUESTA
+            Columns.ID,Columns.DESCRIPCION,Columns.OPCIONA,Columns.OPCIONB,Columns.OPCIONC,Columns.RESPUESTA,Columns.CATEGORIA
     };
 
     public final static String CR_TABLE="create table if not exists " +
@@ -44,10 +45,11 @@ public class PreguntasAdapter {
             +Columns.OPCIONA +" text not null, "
             +Columns.OPCIONB+" text not null, "
             +Columns.OPCIONC+" text not null, "
-            +Columns.RESPUESTA+" text not null)";
+            +Columns.RESPUESTA+" text not null, "
+            +Columns.CATEGORIA+" text not null)";
 
 
-    public boolean insert(String desc,String opciona, String opcionb,String opcionc,String respuesta)
+    public boolean insert(String desc,String opciona, String opcionb,String opcionc,String respuesta,String categoria)
     {
         ContentValues Values=new ContentValues();
 
@@ -56,6 +58,7 @@ public class PreguntasAdapter {
         Values.put(Columns.OPCIONB,opcionb);
         Values.put(Columns.OPCIONC,opcionc);
         Values.put(Columns.RESPUESTA,respuesta);
+        Values.put(Columns.CATEGORIA,categoria);
 
 
 
@@ -117,7 +120,7 @@ public class PreguntasAdapter {
 
         mis.moveToPosition(rand);
 
-        clsPregunta c =new clsPregunta(mis.getInt(0),mis.getString(1),mis.getString(2),mis.getString(3),mis.getString(4),mis.getString(5));
+        clsPregunta c =new clsPregunta(mis.getInt(0),mis.getString(1),mis.getString(2),mis.getString(3),mis.getString(4),mis.getString(5),mis.getString(6));
 
         return c;
     }

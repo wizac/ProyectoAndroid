@@ -40,7 +40,7 @@ public class AplicacionPrincipal extends Application {
         if(m.getProgresoActual() + cantidad >= m.getProgreso())
         {
             dbAdapter.aumentarExp(m.getExp());
-            dbAdapter.borrarRelacion(m.getId());
+            dbAdapter.aumentarProgreso(idMision, cantidad);
             
             if(dbAdapter.getDatosUsuario().getExp() >= (dbAdapter.getDatosUsuario().getNivel()*10+(dbAdapter.getDatosUsuario().getNivel()%10)*10))
             {
