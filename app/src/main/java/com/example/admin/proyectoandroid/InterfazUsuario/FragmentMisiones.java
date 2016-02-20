@@ -25,14 +25,34 @@ import java.util.ArrayList;
 public class FragmentMisiones extends Fragment {
 
     ListViewAdapter adapter;
-    AplicacionPrincipal AP;
+    /*AplicacionPrincipal AP;
     ArrayList<clsMision> misiones = AP.llenarMisionesDiarias();
     int cantidadMisiones = misiones.size();
 
     String[] titulos = new String[cantidadMisiones];
     int[] imagenes = new int[cantidadMisiones];
-    int[] progresos = new int[cantidadMisiones];
+    int[] progresos = new int[cantidadMisiones];*/
 
+    /* BORRAR ESTO CUANDO LA BASE ESTE FUNCIONANDO */
+    String[] titulos = new String[] {
+            "Lo lograras?",
+            "Cube challenge",
+            "No se que poner?",
+            "Mision Extreme",
+            "Mision Insane"
+    };
+
+    int[] imagenes = new int[] {
+            R.drawable.estrellas_1llenas_2vacias,
+            R.drawable.estrellas_2llenas_1vacias,
+            R.drawable.estrellas_3llenas_0vacias,
+            R.drawable.estrellas_2llenas_1vacias,
+            R.drawable.estrellas_1llenas_2vacias
+    };
+
+    int[] progresos = new int[] {
+            20,50,100,80,30
+    };
 
 
     @Override
@@ -41,14 +61,13 @@ public class FragmentMisiones extends Fragment {
         View rootView =  inflater.inflate(R.layout.fragment_misiones, container, false);
 
         ListView lista = (ListView) rootView.findViewById(R.id.listView_listarMisiones);
-        misiones = AP.llenarMisionesDiarias();
 
-        for(int i = 0; i < cantidadMisiones; i++)
+        /*for(int i = 0; i < cantidadMisiones; i++)
         {
             titulos[i] = ((clsMision)misiones.get(i)).getTitulo();
             imagenes[i] = R.drawable.bob;
             progresos[i] = ((clsMision)misiones.get(i)).getProgreso();
-        }
+        }*/
 
 
 

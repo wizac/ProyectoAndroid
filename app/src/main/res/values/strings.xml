@@ -19,6 +19,14 @@
         <item>Mision Insane</item>
     </string-array>
 
+    <string-array name="titulo_preguntas">
+        <item>Genero Arte</item>
+        <item>Genero Deporte</item>
+        <item>Genero Entretenim..</item>
+        <item>Genero Ciencia</item>
+        <item>Genero Historia</item>
+    </string-array>
+
     <string-array name="contenido_misiones">
         <item>Esta es la mision 1 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
         <item>Esta es la mision 2 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
@@ -27,12 +35,29 @@
         <item>Esta es la mision 5 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
     </string-array>
 
+    <string-array name="contenido_preguntas">
+        <item>Esta es la pregunta 1 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es la pregunta 2 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es la pregunta 3 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es la pregunta 4 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es la pregunta5 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+    </string-array>
+
     <string-array name="dificultad_misiones">
         <item>facil</item>
         <item>dificil</item>
         <item>insano</item>
         <item>extremo</item>
         <item>normal</item>
+    </string-array>
+
+    <string-array name="genero_pregunta">
+        <item>arte</item>
+        <item>entretenimiento</item>
+        <item>deporte</item>
+        <item>ciencia</item>
+        <item>historia</item>
+        <item>geografia</item>
     </string-array>
 
     <integer-array name="progreso_misiones">

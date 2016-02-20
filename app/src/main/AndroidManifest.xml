@@ -18,6 +18,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".InterfazUsuario.ListarUnaMision"/>
-
+        <activity android:name=".InterfazUsuario.ListarUnaPregunta"/>
     </application>
 </manifest>
