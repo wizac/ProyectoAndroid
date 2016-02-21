@@ -3,13 +3,16 @@
     <string name="action_settings">Settings</string>
 
     <string name="opcion_inicio">Inicio</string>
-    <string name="opcion_estadisticas">Estadísticas</string>
+    <string name="opcion_cuenta">Mi Cuenta</string>
     <string name="opcion_logros">Logros</string>
     <string name="opcion_creditos">Créditos</string>
     <string name="opcion_contacto">Contacto</string>
 
     <string name="titulo_tab_misiones">MISIONES</string>
     <string name="titulo_tab_preguntas">PREGUNTAS</string>
+
+    <string name="titulo_tab_perfil">PERFIL</string>
+    <string name="titulo_tab_estadisticas">ESTADISTICAS</string>
 
     <string-array name="titulo_misiones">
         <item>Lo lograras?</item>

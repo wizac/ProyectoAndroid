@@ -16,7 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class FragmentInicio extends Fragment {
+public class FragmentCuenta extends Fragment {
+
 
     private AppBarLayout appBar;
     private TabLayout pestanas;
@@ -50,8 +51,8 @@ public class FragmentInicio extends Fragment {
 
     private void poblarViewPager(ViewPager viewPager) {
         AdaptadorSecciones adapter = new AdaptadorSecciones(getFragmentManager());
-        adapter.addFragment(new FragmentMisiones(), getString(R.string.titulo_tab_misiones));
-        adapter.addFragment(new FragmentPreguntas(), getString(R.string.titulo_tab_preguntas));
+        adapter.addFragment(new FragmentPerfil(), getString(R.string.titulo_tab_perfil));
+        adapter.addFragment(new FragmentEstadisticas(), getString(R.string.titulo_tab_estadisticas));
         viewPager.setAdapter(adapter);
     }
 

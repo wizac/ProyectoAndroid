@@ -74,9 +74,9 @@ public class MainActivity extends AppCompatActivity {
                 title = "Inicio";
                 viewIsAtHome = true;
                 break;
-            case R.id.opcion_estadisticas:
-                fragmento = new FragmentEstadisticas();
-                title = "Estadísticas";
+            case R.id.opcion_cuenta:
+                fragmento = new FragmentCuenta();
+                title = "Mi Cuenta";
                 viewIsAtHome = false;
                 break;
             case R.id.opcion_logros:
@@ -85,12 +85,12 @@ public class MainActivity extends AppCompatActivity {
                 viewIsAtHome = false;
                 break;
             case R.id.opcion_creditos:
-                startActivity(new Intent(this, Creditos.class));
+                fragmento = new FragmentCreditos();
                 title = "Créditos";
                 viewIsAtHome = false;
                 break;
             case R.id.opcion_contacto:
-                startActivity(new Intent(this, Contacto.class));
+                fragmento = new FragmentContacto();
                 title = "Contacto";
                 viewIsAtHome = false;
                 break;

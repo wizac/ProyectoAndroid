@@ -8,12 +8,12 @@
             android:icon="@drawable/ic_home"
             android:title="@string/opcion_inicio" />
         <item
-            android:id="@+id/opcion_estadisticas"
-            android:icon="@drawable/ic_trending_up"
-            android:title="@string/opcion_estadisticas" />
+            android:id="@+id/opcion_cuenta"
+            android:icon="@drawable/ic_person"
+            android:title="@string/opcion_cuenta" />
         <item
             android:id="@+id/opcion_logros"
-            android:icon="@drawable/cup"
+            android:icon="@drawable/ic_cup"
             android:title="@string/opcion_logros" />
     </group>
 
