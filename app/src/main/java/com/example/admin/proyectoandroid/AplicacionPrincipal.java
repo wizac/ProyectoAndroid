@@ -30,13 +30,11 @@ public class AplicacionPrincipal extends Application {
 
     public clsUsuario getUsuario()
     {
-        dbAdapter.open();
         return dbAdapter.getDatosUsuario();
     }
 
     public boolean aumentarProgreso(int idMision, int cantidad)
     {
-        dbAdapter.open();
         clsMision m = dbAdapter.buscarMisionPorId(idMision);
 
         if(m.getProgresoActual() + cantidad >= m.getProgreso())
@@ -66,7 +64,6 @@ public class AplicacionPrincipal extends Application {
 
     public ArrayList<clsMision> llenarMisionesDiarias()
     {
-        dbAdapter.open();
         for (clsMision m : dbAdapter.misionesActivas())
         {
             dbAdapter.borrarRelacion(m.getId());
@@ -92,19 +89,16 @@ public class AplicacionPrincipal extends Application {
 
     public ArrayList<clsMision> getMisionesActivas()
     {
-        dbAdapter.open();
         return dbAdapter.misionesActivas();
     }
 
     public clsPregunta getPregunta()
     {
-        dbAdapter.open();
         return dbAdapter.randomPregunta();
     }
 
     public boolean responderPregunta (clsPregunta pregunta, String respuesta)
     {
-        dbAdapter.open();
         if (pregunta.getResp() == respuesta)
         {
             dbAdapter.aumentarExp(10);
