@@ -42,7 +42,7 @@ public class MisionAdapter {
             +Columns.TITULO +" text not null, "
             +Columns.DESCRIPCION+" text not null, "
             +Columns.EXP+" integer not null, "
-            +Columns.TIPO+"text not null)";
+            +Columns.TIPO+" text not null)";
 
     public boolean insert(int progreso,String titulo, String descripcion,int exp,String tipo)
     {
