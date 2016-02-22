@@ -35,9 +35,13 @@ public class RelacionAdapter {
     };
 
     public final static String CR_TABLE="create table if not exists " +
-            NAME +"("+Columns.ID +" integer not null FOREIGN KEY REFERENCES mision(idmision) ,"
-            +Columns.NOMBRE +" integer not null FOREIGN KEY REFERENCES usuario(idusuario), "
-            +Columns.PROGRESO +" int not null FOREIGN KEY REFERENCES mision(progreso) ";
+            NAME +"("+ Columns.ID + " integer not null , "
+            +Columns.NOMBRE +" integer not null , "
+            +Columns.PROGRESO +" integer not null ,"
+            +"FOREIGN KEY(idmision) REFERENCES mision(idmision), "
+            +"FOREIGN KEY(nombre) REFERENCES usuario(nombre))";
+
+
 
 
     public boolean insert(int idmision,String nombre, int progreso)
