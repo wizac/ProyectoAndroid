@@ -25,11 +25,11 @@ import java.util.ArrayList;
 public class FragmentMisiones extends Fragment {
 
     ListViewAdapter adapter;
-    /*AplicacionPrincipal AP;
+    AplicacionPrincipal AP;
     ArrayList<clsMision> misiones = AP.llenarMisionesDiarias();
     int cantidadMisiones = misiones.size();
 
-    String[] titulos = new String[cantidadMisiones];
+    /*String[] titulos = new String[cantidadMisiones];
     int[] imagenes = new int[cantidadMisiones];
     int[] progresos = new int[cantidadMisiones];*/
 
@@ -69,6 +69,7 @@ public class FragmentMisiones extends Fragment {
             progresos[i] = ((clsMision)misiones.get(i)).getProgreso();
         }*/
 
+        Toast.makeText(getContext(),cantidadMisiones + "",Toast.LENGTH_LONG).show();
 
 
         adapter = new ListViewAdapter(getContext(), titulos, imagenes, progresos);
