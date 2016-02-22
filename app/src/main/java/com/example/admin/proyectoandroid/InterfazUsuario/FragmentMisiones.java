@@ -26,8 +26,7 @@ public class FragmentMisiones extends Fragment {
 
     ListViewAdapter adapter;
     AplicacionPrincipal AP;
-    ArrayList<clsMision> misiones = AP.llenarMisionesDiarias();
-    int cantidadMisiones = misiones.size();
+    ArrayList<clsMision> misiones = new ArrayList<clsMision>();
 
     /*String[] titulos = new String[cantidadMisiones];
     int[] imagenes = new int[cantidadMisiones];
@@ -69,6 +68,8 @@ public class FragmentMisiones extends Fragment {
             progresos[i] = ((clsMision)misiones.get(i)).getProgreso();
         }*/
 
+        int cantidadMisiones = misiones.size();
+        misiones = AP.llenarMisionesDiarias();
         Toast.makeText(getContext(),cantidadMisiones + "",Toast.LENGTH_LONG).show();
 
 
