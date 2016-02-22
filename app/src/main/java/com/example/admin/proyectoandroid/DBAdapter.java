@@ -306,7 +306,7 @@ public class DBAdapter {
 
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria) values('es una pregunta?', 'si', 'no', 'tal vez', 'no lo se', 'cine')");
 
-            db.execSQL("insert into usuario values('', 1, 0, 0, 0, 0, 0)");
+            db.execSQL("insert into usuario values(0, '', 1, 0, 0, 0, 0, 0)");
         }
         @Override
         public void onUpgrade(SQLiteDatabase db,int oldVersion,int newVersion)
