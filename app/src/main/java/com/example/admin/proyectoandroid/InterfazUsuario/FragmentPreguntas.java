@@ -13,13 +13,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.admin.proyectoandroid.AplicacionPrincipal;
-import com.example.admin.proyectoandroid.clsMision;
 import com.example.admin.proyectoandroid.R;
-
-import java.util.ArrayList;
 
 
 public class FragmentPreguntas extends Fragment {
@@ -68,8 +63,6 @@ public class FragmentPreguntas extends Fragment {
             imagenes[i] = R.drawable.bob;
             progresos[i] = ((clsMision)misiones.get(i)).getProgreso();
         }*/
-
-
 
         adapter = new ListViewAdapter(getContext(), titulos, imagenes, progresos);
         lista.setAdapter(adapter);

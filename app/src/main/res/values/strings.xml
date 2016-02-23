@@ -30,6 +30,14 @@
         <item>Genero Historia</item>
     </string-array>
 
+    <string-array name="titulo_logros">
+        <item>El logro más dificil</item>
+        <item>Te atreves a completarlo?</item>
+        <item>Mision imposible</item>
+        <item>Generoso</item>
+        <item>El más listo</item>
+    </string-array>
+
     <string-array name="contenido_misiones">
         <item>Esta es la mision 1 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
         <item>Esta es la mision 2 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
@@ -44,6 +52,14 @@
         <item>Esta es la pregunta 3 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
         <item>Esta es la pregunta 4 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
         <item>Esta es la pregunta5 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+    </string-array>
+
+    <string-array name="contenido_logros">
+        <item>Esta es el logro 1 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es el logro 2 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es el logro 3 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es el logro 4 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
+        <item>Esta es el logro la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
     </string-array>
 
     <string-array name="dificultad_misiones">
@@ -61,6 +77,15 @@
         <item>ciencia</item>
         <item>historia</item>
         <item>geografia</item>
+    </string-array>
+
+    <string-array name="estado_logro">
+        <item>Completo</item>
+        <item>En progreso</item>
+        <item>En progreso</item>
+        <item>En progreso</item>
+        <item>En progreso</item>
+        <item>En progreso</item>
     </string-array>
 
     <integer-array name="progreso_misiones">

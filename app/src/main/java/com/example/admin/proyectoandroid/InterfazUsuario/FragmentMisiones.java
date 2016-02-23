@@ -13,22 +13,17 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.admin.proyectoandroid.AplicacionPrincipal;
-import com.example.admin.proyectoandroid.clsMision;
 import com.example.admin.proyectoandroid.R;
-
-import java.util.ArrayList;
 
 
 public class FragmentMisiones extends Fragment {
 
     ListViewAdapter adapter;
-    AplicacionPrincipal AP;
+    /*AplicacionPrincipal AP;
     ArrayList<clsMision> misiones = new ArrayList<clsMision>();
 
-    /*String[] titulos = new String[cantidadMisiones];
+    String[] titulos = new String[cantidadMisiones];
     int[] imagenes = new int[cantidadMisiones];
     int[] progresos = new int[cantidadMisiones];*/
 
@@ -68,9 +63,6 @@ public class FragmentMisiones extends Fragment {
             progresos[i] = ((clsMision)misiones.get(i)).getProgreso();
         }*/
 
-        int cantidadMisiones = misiones.size();
-        misiones = AP.llenarMisionesDiarias();
-        Toast.makeText(getContext(),cantidadMisiones + "",Toast.LENGTH_LONG).show();
 
 
         adapter = new ListViewAdapter(getContext(), titulos, imagenes, progresos);
