@@ -20,5 +20,6 @@
         </activity>
         <activity android:name=".InterfazUsuario.ListarUnaMision"/>
         <activity android:name=".InterfazUsuario.ListarUnaPregunta"/>
+        <activity android:name=".InterfazUsuario.ListarUnLogro"/>
     </application>
 </manifest>
