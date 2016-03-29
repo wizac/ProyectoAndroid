@@ -131,13 +131,12 @@ public class MisionAdapter {
         cur2=sqlDB.rawQuery("select progreso from relacion where idmision="+id,null);
         if(cur1.moveToFirst())
         {
-            asd.setExp(cur1.getInt(1));
             asd.setId(cur1.getInt(0));
-            asd.setDescripcion(cur1.getString(2));
-            asd.setProgreso(cur1.getInt(3));
-            asd.setTitulo(cur1.getString(4));
+            asd.setProgreso(cur1.getInt(1));
+            asd.setTitulo(cur1.getString(2));
+            asd.setDescripcion(cur1.getString(3));
+            asd.setExp(cur1.getInt(4));
             asd.setTipo(cur1.getString(5));
-
         }
 
         if (cur2.moveToFirst())
@@ -148,9 +147,6 @@ public class MisionAdapter {
         {
             asd.setProgresoActual(0);
         }
-
-
-
 
         return asd;
     }

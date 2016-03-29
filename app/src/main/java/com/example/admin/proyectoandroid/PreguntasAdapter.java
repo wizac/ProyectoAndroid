@@ -114,7 +114,7 @@ public class PreguntasAdapter {
         int max = cant;
 
         Random r = new Random();
-        int rand = r.nextInt(max - min + 1) + min;
+        int rand = r.nextInt(max - min + 1);
 
         mis=sqlDB.rawQuery("select * from pregunta",null);
 

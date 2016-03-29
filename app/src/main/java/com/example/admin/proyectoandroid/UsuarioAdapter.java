@@ -104,7 +104,7 @@ public class UsuarioAdapter {
                 nivel = var.getInt(2);
                 nivel=nivel+1;
 
-                sqlDB.execSQL("update usuario set nivel="+nivel+",exp=0 where id="+id);
+                sqlDB.execSQL("update usuario set nivel="+nivel+",exp=0 where idusuario="+id);
     }
 
 
@@ -121,7 +121,7 @@ public class UsuarioAdapter {
             id= var.getInt(0);
             xp =xp+var.getInt(3);
 
-            sqlDB.execSQL("update usuario set exp="+xp +"where id=" + id);
+            sqlDB.execSQL("update usuario set exp="+xp +"where idusuario=" + id);
         }
     }
 }

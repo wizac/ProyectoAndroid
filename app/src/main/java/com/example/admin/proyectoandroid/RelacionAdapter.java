@@ -91,6 +91,7 @@ public class RelacionAdapter {
         Cursor mis;
         int progreso=0;
         mis=sqlDB.rawQuery("select * from relacion",null);
+        mis.moveToFirst();
         progreso=progreso+mis.getInt(2);
         sqlDB.execSQL("update relacion set progreso="+progreso+" where idmision="+idmision);
 
@@ -104,7 +105,7 @@ public class RelacionAdapter {
 
 
         mis=sqlDB.rawQuery("select * from relacion",null);
-
+        mis.moveToFirst();
 
         while (mis.moveToNext())
         {
@@ -114,14 +115,12 @@ public class RelacionAdapter {
             x.setProgresoActual(mis.getInt(2));
 
             dos=sqlDB.rawQuery("select * from mision where idmision="+mis.getInt(0),null);
+            dos.moveToFirst();
 
             x.setProgreso(dos.getInt(1));
             x.setTitulo(dos.getString(2));
             x.setDescripcion(dos.getString(3));
             x.setExp(dos.getInt(4));
-
-
-
 
             asd.add(x);
         }

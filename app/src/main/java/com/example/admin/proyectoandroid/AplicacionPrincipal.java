@@ -45,9 +45,13 @@ public class AplicacionPrincipal extends Application {
             if(dbAdapter.getDatosUsuario().getExp() >= (dbAdapter.getDatosUsuario().getNivel()*10+(dbAdapter.getDatosUsuario().getNivel()%10)*10))
             {
                 dbAdapter.subirlvl();
-                dbAdapter.completarMision(m.getTipo());
+
                 return true;
             }
+
+            dbAdapter.completarMision(m.getTipo());
+            dbAdapter.borrarRelacion(m.getId());
+
             return false;
         }
         else
@@ -55,6 +59,13 @@ public class AplicacionPrincipal extends Application {
             dbAdapter.aumentarProgreso(idMision, cantidad);
             return false;
         }
+    }
+
+    public clsMision buscarMisionPorId(int idMision)
+    {
+        clsMision m = dbAdapter.buscarMisionPorId(idMision);
+
+        return m;
     }
 
     /*public void subirNivel(int fuerza, int destreza, int inteligencia)
@@ -70,7 +81,7 @@ public class AplicacionPrincipal extends Application {
         }
 
         ArrayList<clsMision> misiones = new ArrayList<clsMision>();
-        clsMision m = new clsMision();
+        clsMision m;
 
         for (int i = 0; i < 5; i++)
         {

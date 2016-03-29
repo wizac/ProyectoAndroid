@@ -88,6 +88,7 @@ public class DBAdapter {
     {
         Cursor x=usuarioA.getDatos();
         clsUsuario y= new clsUsuario();
+        x.moveToFirst();
 
         y.setId(x.getInt(0));
         y.setNombre(x.getString(1));
@@ -169,9 +170,6 @@ public class DBAdapter {
     }
 
 
-
-
-
     //preguntas
     public clsPregunta getPreguntaDescripcion()
         {
@@ -250,10 +248,7 @@ public class DBAdapter {
 
     public ArrayList<clsMision> misionesActivas()
     {
-
-
         ArrayList<clsMision> listamis=relacionA.misionesActuales();
-
 
         return listamis;
     }
