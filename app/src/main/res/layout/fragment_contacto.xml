@@ -36,7 +36,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="Para comunicarse con nosotros, reportar un error, realizar una consulta o duda. Porfavor use alguno de los siguientes medios"
-                        android:textAppearance="?android:attr/textAppearance" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 </GridLayout>
             </android.support.v7.widget.CardView>

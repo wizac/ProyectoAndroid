@@ -1,5 +1,6 @@
 package com.example.admin.proyectoandroid.InterfazUsuario;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,23 +14,27 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.admin.proyectoandroid.AplicacionPrincipal;
 import com.example.admin.proyectoandroid.R;
+import com.example.admin.proyectoandroid.clsMision;
+
+import java.util.ArrayList;
 
 
 public class FragmentMisiones extends Fragment {
 
     ListViewAdapter adapter;
-    /*AplicacionPrincipal AP;
     ArrayList<clsMision> misiones = new ArrayList<clsMision>();
 
-    String[] titulos = new String[cantidadMisiones];
+    /*String[] titulos = new String[5];
     int[] imagenes = new int[cantidadMisiones];
     int[] progresos = new int[cantidadMisiones];*/
 
     /* BORRAR ESTO CUANDO LA BASE ESTE FUNCIONANDO */
     String[] titulos = new String[] {
-            "Lo lograras?",
+            "Lo lograrasss?",
             "Cube challenge",
             "No se que poner?",
             "Mision Extreme",
@@ -55,14 +60,15 @@ public class FragmentMisiones extends Fragment {
         View rootView =  inflater.inflate(R.layout.fragment_misiones, container, false);
 
         ListView lista = (ListView) rootView.findViewById(R.id.listView_listarMisiones);
+        ((AplicacionPrincipal)getActivity().getApplication()).llenarMisionesDiarias();
+        misiones = ((AplicacionPrincipal)getActivity().getApplication()).getMisionesActivas();
 
-        /*for(int i = 0; i < cantidadMisiones; i++)
+        /*for(int i = 0; i < 5; i++)
         {
             titulos[i] = ((clsMision)misiones.get(i)).getTitulo();
-            imagenes[i] = R.drawable.bob;
-            progresos[i] = ((clsMision)misiones.get(i)).getProgreso();
         }*/
 
+        Toast.makeText(getContext(),"cantidad = "+misiones.size(),Toast.LENGTH_LONG).show();
 
 
         adapter = new ListViewAdapter(getContext(), titulos, imagenes, progresos);
