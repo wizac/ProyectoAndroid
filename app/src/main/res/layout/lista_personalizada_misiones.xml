@@ -53,6 +53,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Mision todos los dias"
+                        android:singleLine="true"
                         android:id="@+id/tv_titulo_lista_personalizada_mision"
                         android:layout_marginLeft="5dp"
                         android:textColor="#ff000000" />

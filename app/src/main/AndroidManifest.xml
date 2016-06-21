@@ -21,5 +21,10 @@
         <activity android:name=".InterfazUsuario.ListarUnaMision"/>
         <activity android:name=".InterfazUsuario.ListarUnaPregunta"/>
         <activity android:name=".InterfazUsuario.ListarUnLogro"/>
+        <receiver android:name=".Servicios.LlenarMisionesDiarias" >
+        <intent-filter>
+            <action android:name="android.intent.action.DATE_CHANGED" />
+        </intent-filter>
+    </receiver>
     </application>
 </manifest>

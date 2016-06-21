@@ -27,32 +27,9 @@ public class FragmentMisiones extends Fragment {
 
     ListViewAdapter adapter;
     ArrayList<clsMision> misiones = new ArrayList<clsMision>();
-
-    /*String[] titulos = new String[5];
-    int[] imagenes = new int[cantidadMisiones];
-    int[] progresos = new int[cantidadMisiones];*/
-
-    /* BORRAR ESTO CUANDO LA BASE ESTE FUNCIONANDO */
-    String[] titulos = new String[] {
-            "Lo lograrasss?",
-            "Cube challenge",
-            "No se que poner?",
-            "Mision Extreme",
-            "Mision Insane"
-    };
-
-    int[] imagenes = new int[] {
-            R.drawable.estrellas_1llenas_2vacias,
-            R.drawable.estrellas_2llenas_1vacias,
-            R.drawable.estrellas_3llenas_0vacias,
-            R.drawable.estrellas_2llenas_1vacias,
-            R.drawable.estrellas_1llenas_2vacias
-    };
-
-    int[] progresos = new int[] {
-            20,50,100,80,30
-    };
-
+    String[] titulos;
+    int[] imagenes;
+    int[] progresos;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,16 +37,33 @@ public class FragmentMisiones extends Fragment {
         View rootView =  inflater.inflate(R.layout.fragment_misiones, container, false);
 
         ListView lista = (ListView) rootView.findViewById(R.id.listView_listarMisiones);
-        ((AplicacionPrincipal)getActivity().getApplication()).llenarMisionesDiarias();
-        misiones = ((AplicacionPrincipal)getActivity().getApplication()).getMisionesActivas();
 
-        /*for(int i = 0; i < 5; i++)
+        if(((AplicacionPrincipal)getActivity().getApplication()).getMisionesActivas().size() == 0){
+            ((AplicacionPrincipal)getActivity().getApplication()).llenarMisionesDiarias();
+        }
+
+        misiones = ((AplicacionPrincipal)getActivity().getApplication()).getMisionesActivas();
+        titulos = new String[misiones.size()];
+        imagenes = new int[misiones.size()];
+        progresos = new int[misiones.size()];
+
+        for(int i = 0; i < misiones.size(); i++)
         {
             titulos[i] = ((clsMision)misiones.get(i)).getTitulo();
-        }*/
-
-        Toast.makeText(getContext(),"cantidad = "+misiones.size(),Toast.LENGTH_LONG).show();
-
+            progresos[i] = ((clsMision)misiones.get(i)).getProgreso();
+            if(progresos[i] >= 30 && progresos[i] < 50){
+                imagenes[i] = R.drawable.estrellas_1llenas_2vacias;
+            }
+            else if(progresos[i] >= 50 && progresos[i] < 80){
+                imagenes[i] = R.drawable.estrellas_2llenas_1vacias;
+            }
+            else if(progresos[i] >= 80){
+                imagenes[i] = R.drawable.estrellas_3llenas_0vacias;
+            }
+            else{
+                imagenes[i] = R.drawable.estrellas_0llenas_3vacias;
+            }
+        }
 
         adapter = new ListViewAdapter(getContext(), titulos, imagenes, progresos);
         lista.setAdapter(adapter);
