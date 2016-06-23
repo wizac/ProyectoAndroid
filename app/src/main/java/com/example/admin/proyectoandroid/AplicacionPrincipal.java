@@ -154,10 +154,12 @@ public class AplicacionPrincipal extends Application {
         {
             dbAdapter.aumentarExp(10);
             dbAdapter.completarPregunta(pregunta);
+            dbAdapter.borrarRelPregunta(pregunta.getId());
             return true;
         }
         else
         {
+            dbAdapter.borrarRelPregunta(pregunta.getId());
             return false;
         }
     }
