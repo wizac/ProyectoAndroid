@@ -21,7 +21,7 @@
             android:orientation="horizontal" >
 
             <LinearLayout
-                android:id="@+id/single_post_circuito_linearbox_mision"
+                android:id="@+id/una_mision"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -63,7 +63,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="Progreso"
-                        android:id="@+id/tv_contenido_lista_personalizada_mision"
+                        android:id="@+id/tv_titulo_progreso"
                         android:layout_marginLeft="5dp"
                         android:textColor="#ff868686" />
 

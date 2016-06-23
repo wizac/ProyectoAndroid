@@ -7,16 +7,21 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.admin.proyectoandroid.AplicacionPrincipal;
 import com.example.admin.proyectoandroid.R;
+import com.example.admin.proyectoandroid.clsMision;
+
+import java.util.ArrayList;
 
 /**
  * Created by Admin on 12/1/2016.
  */
 public class ListarUnaMision extends ActionBarActivity {
-    private ImageView imgImagen;
-    private TextView txtTitulo, txtContenido;
-    String[] titulo;
-    String[] contenido;
+
+    ArrayList<clsMision> misiones = new ArrayList<clsMision>();
+    private TextView txtContenido;
+    String[] titulos;
+    String[] contenidos;
 
 
     @Override
@@ -31,8 +36,19 @@ public class ListarUnaMision extends ActionBarActivity {
         Bundle  extras = getIntent().getExtras();
         int idMision= extras.getInt("idMision");
         final int position = extras.getInt("position");
-        String tituloMision = getResources().getStringArray(R.array.titulo_misiones)[position];
-        String dificultadMision = getResources().getStringArray(R.array.dificultad_misiones)[position];
+
+        misiones = ((AplicacionPrincipal)getApplication()).getMisionesActivas();
+        titulos = new String[misiones.size()];
+        contenidos = new String[misiones.size()];
+
+        for(int i = 0; i < misiones.size(); i++)
+        {
+            titulos[i] = ((clsMision)misiones.get(i)).getTitulo();
+            contenidos[i] = ((clsMision)misiones.get(i)).getDescripcion();
+        }
+        String tituloMision = titulos[position];
+        // CORREGIR
+        String dificultadMision = "normal";
 
         /*INDICAR TITULO Y SUBTITULO*/
         if (ab != null) {
@@ -40,16 +56,8 @@ public class ListarUnaMision extends ActionBarActivity {
             ab.setSubtitle("Dificultad: " + dificultadMision);
         }
 
-        txtTitulo = (TextView) findViewById(R.id.tv_titulo_listarUnaMision);
         txtContenido = (TextView) findViewById(R.id.tv_contenido_ListarUnaMision);
-        imgImagen = (ImageView) findViewById(R.id.iv_imagen_listarUnaMision);
-
-        titulo = getResources().getStringArray(R.array.titulo_misiones);
-        contenido = getResources().getStringArray(R.array.contenido_misiones);
-        imgImagen.setImageResource(R.drawable.estrellas_0llenas_3vacias);
-
-        txtTitulo.setText(titulo[position]);
-        txtContenido.setText(contenido[position]);
+        txtContenido.setText(contenidos[position]);
 
     }
 

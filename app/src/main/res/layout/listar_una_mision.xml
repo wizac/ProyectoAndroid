@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#fffbfff9">
+    android:background="#dee4ee"
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbarMision"
@@ -22,16 +23,6 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
-        android:id="@+id/linearMapsMision"
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:visibility="gone"
-        android:animateLayoutChanges="true"
-        android:layout_below="@+id/linearlayout_localizacion"
-        android:layout_height="wrap_content">
-
-    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -39,46 +30,74 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
 
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="200dp"
-                android:id="@+id/iv_imagen_listarUnaMision"
-                android:src="@drawable/estrellas_0llenas_3vacias"
-                android:scaleType="centerCrop" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Mision todos los dias"
-                    android:id="@+id/tv_titulo_listarUnaMision"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="#ff000000"
-                    android:visibility="visible"
-                    android:layout_gravity="center_vertical"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp" />
-
-            </LinearLayout>
-
-            <TextView
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_misiones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per."
-                android:id="@+id/tv_contenido_ListarUnaMision"
-                android:layout_margin="5dp"
-                android:textColor="#ff868686" />
+                android:layout_gravity="center"
+                card_view:cardCornerRadius="2dp"
+                android:layout_margin="10dp"
+                card_view:cardBackgroundColor="#A9BCF5">
+
+                <GridLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:padding="15dp"
+                    android:rowCount="2">
+
+                    <TextView
+                        android:id="@+id/tv_contenido_ListarUnaMision"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="20dp"
+                        android:text="Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500"
+                        android:fontFamily="arial"
+                        android:textStyle="bold"
+                         />
+
+                </GridLayout>
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/texto_etapas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Etapa 0/0"
+                android:textStyle="bold"
+                android:background="@drawable/background_etapas"
+                android:textColor="#fff"/>
+
+            <Button
+                android:id="@+id/boton_siguiente_etapa"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:text="SIGUIENTE ETAPA"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/boton_siguiente"
+                android:textColor="#fff"
+                android:textSize="25dp"/>
+
+            <Button
+                android:id="@+id/boton_abandonar_etapa"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:text="ABANDONAR ETAPA"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/boton_siguiente"
+                android:textColor="#fff"
+                android:textSize="25dp"/>
 
         </LinearLayout>
     </ScrollView>
+
+
 </LinearLayout>

@@ -28,10 +28,10 @@ public class ListarUnaPregunta extends ActionBarActivity {
 
         Bundle  extras = getIntent().getExtras();
         final int position = extras.getInt("position");
-        String tituloPregunta = getResources().getStringArray(R.array.titulo_preguntas)[position];
-        String generoPregunta = getResources().getStringArray(R.array.genero_pregunta)[position];
+        /*String tituloPregunta = getResources().getStringArray(R.array.titulo_preguntas)[position];
+        String generoPregunta = getResources().getStringArray(R.array.genero_pregunta)[position];*/
 
-        /*INDICAR TITULO Y SUBTITULO*/
+        /*INDICAR TITULO Y SUBTITULO
         if (ab != null) {
             ab.setTitle(tituloPregunta);
             ab.setSubtitle("Categoria : " + generoPregunta);
@@ -46,7 +46,7 @@ public class ListarUnaPregunta extends ActionBarActivity {
         imgImagen.setImageResource(R.drawable.preguntas_categoria_arte);
 
         txtTitulo.setText(titulo[position]);
-        txtContenido.setText(contenido[position]);
+        txtContenido.setText(contenido[position]);*/
 
     }
 

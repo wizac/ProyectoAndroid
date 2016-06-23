@@ -29,10 +29,10 @@ public class ListarUnLogro extends ActionBarActivity {
 
         Bundle  extras = getIntent().getExtras();
         final int position = extras.getInt("position");
-        String tituloLogro = getResources().getStringArray(R.array.titulo_logros)[position];
-        String estadoLogro = getResources().getStringArray(R.array.estado_logro)[position];
+        /*String tituloLogro = getResources().getStringArray(R.array.titulo_logros)[position];
+        String estadoLogro = getResources().getStringArray(R.array.estado_logro)[position];*/
 
-        /*INDICAR TITULO Y SUBTITULO*/
+        /*INDICAR TITULO Y SUBTITULO
         if (ab != null) {
             ab.setTitle(tituloLogro);
             ab.setSubtitle("Estado : " + estadoLogro);
@@ -47,7 +47,7 @@ public class ListarUnLogro extends ActionBarActivity {
         imgImagen.setImageResource(R.drawable.ic_logro_ejemplo);
 
         txtTitulo.setText(titulo[position]);
-        txtContenido.setText(contenido[position]);
+        txtContenido.setText(contenido[position]);*/
 
     }
 

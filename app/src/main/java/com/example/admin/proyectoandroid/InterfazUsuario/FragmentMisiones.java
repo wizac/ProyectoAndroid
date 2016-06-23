@@ -3,6 +3,7 @@ package com.example.admin.proyectoandroid.InterfazUsuario;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -71,11 +73,11 @@ public class FragmentMisiones extends Fragment {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(getActivity(), ListarUnaMision.class);
-                i.putExtra("position", position);
-                startActivity(i);
-
-
+                if(progresos[position] != 100) {
+                    Intent i = new Intent(getActivity(), ListarUnaMision.class);
+                    i.putExtra("position", position);
+                    startActivity(i);
+                }
             }
         });
         return rootView;
@@ -113,23 +115,30 @@ public class FragmentMisiones extends Fragment {
 
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            // Declare Variables
-            TextView txtTitle;
-            ImageView imgImg;
+            TextView tvTitulo;
+            ImageView ivEstrellas;
             ProgressBar pbProgreso;
+            LinearLayout linearL_una_mision;
+            TextView tvTituloProgreso;
 
-            //http://developer.android.com/intl/es/reference/android/view/LayoutInflater.html
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             View itemView = inflater.inflate(R.layout.lista_personalizada_misiones, parent, false);
 
-            imgImg = (ImageView) itemView.findViewById(R.id.imagen_lista_personalizada_mision);
-            txtTitle = (TextView) itemView.findViewById(R.id.tv_titulo_lista_personalizada_mision);
+            tvTitulo = (TextView) itemView.findViewById(R.id.tv_titulo_lista_personalizada_mision);
+            ivEstrellas = (ImageView) itemView.findViewById(R.id.imagen_lista_personalizada_mision);
             pbProgreso = (ProgressBar) itemView.findViewById(R.id.progresoMision);
+            linearL_una_mision = (LinearLayout) itemView.findViewById(R.id.una_mision);
+            tvTituloProgreso = (TextView) itemView.findViewById(R.id.tv_titulo_progreso);
 
-            imgImg.setImageResource(imagenes[position]);
-            txtTitle.setText(titulos[position]);
+            ivEstrellas.setImageResource(imagenes[position]);
+            tvTitulo.setText(titulos[position]);
             pbProgreso.setProgress(progresos[position]);
+
+            if(progresos[position] == 100){
+                linearL_una_mision.setBackgroundColor(Color.parseColor("#D6E4D5"));
+                tvTituloProgreso.setText("Completado!");
+            }
 
             return itemView;
         }

@@ -14,37 +14,7 @@
     <string name="titulo_tab_perfil">PERFIL</string>
     <string name="titulo_tab_estadisticas">ESTADISTICAS</string>
 
-    <string-array name="titulo_misiones">
-        <item>Lo lograras?</item>
-        <item>Cube challenge</item>
-        <item>No se que poner?</item>
-        <item>Mision Extreme</item>
-        <item>Mision Insane</item>
-    </string-array>
 
-    <string-array name="titulo_preguntas">
-        <item>Genero Arte</item>
-        <item>Genero Deporte</item>
-        <item>Genero Entretenim..</item>
-        <item>Genero Ciencia</item>
-        <item>Genero Historia</item>
-    </string-array>
-
-    <string-array name="titulo_logros">
-        <item>El logro más dificil</item>
-        <item>Te atreves a completarlo?</item>
-        <item>Mision imposible</item>
-        <item>Generoso</item>
-        <item>El más listo</item>
-    </string-array>
-
-    <string-array name="contenido_misiones">
-        <item>Esta es la mision 1 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
-        <item>Esta es la mision 2 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
-        <item>Esta es la mision 3 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
-        <item>Esta es la mision 4 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
-        <item>Esta es la mision 5 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
-    </string-array>
 
     <string-array name="contenido_preguntas">
         <item>Esta es la pregunta 1 la cual al completar una etapa deberas darle al boton etapa finalizada hasta completar la mision</item>
