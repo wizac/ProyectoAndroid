@@ -85,11 +85,21 @@ public class AplicacionPrincipal extends Application {
 
         for (int i = 0; i < 5; i++)
         {
-            do
-            {
-                m = dbAdapter.randomMision();
+            m = dbAdapter.randomMision();
+
+            for (clsMision mis: misiones) {
+
+                if(m.getId()==mis.getId())
+                {
+                    do
+                    {
+                        m = dbAdapter.randomMision();
+                    }
+                    while(misiones.contains(m));
+                }
             }
-            while(misiones.contains(m));
+
+
 
             misiones.add(m);
             dbAdapter.relMisionInsert(m.getId(), dbAdapter.getDatosUsuario().getId());
