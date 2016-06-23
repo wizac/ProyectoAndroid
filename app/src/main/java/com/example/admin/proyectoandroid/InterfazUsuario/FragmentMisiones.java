@@ -51,8 +51,8 @@ public class FragmentMisiones extends Fragment {
 
         for(int i = 0; i < misiones.size(); i++)
         {
-            titulos[i] = ((clsMision)misiones.get(i)).getTitulo();
-            progresos[i] = ((clsMision)misiones.get(i)).getProgreso();
+            titulos[i] = misiones.get(i).getTitulo();
+            progresos[i] = misiones.get(i).getProgreso();
             if(progresos[i] >= 30 && progresos[i] < 50){
                 imagenes[i] = R.drawable.estrellas_1llenas_2vacias;
             }

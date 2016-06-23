@@ -13,6 +13,8 @@ public class clsPregunta {
         private String resp;
         private String categoria;
         private int fuerza;
+        private int destreza;
+        private int inteligencia;
 
     public int getFuerza() {
         return fuerza;
@@ -37,9 +39,6 @@ public class clsPregunta {
     public void setInteligencia(int inteligencia) {
         this.inteligencia = inteligencia;
     }
-
-    private int destreza;
-        private int inteligencia;
 
     public String getCategoria() {
         return categoria;

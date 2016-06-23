@@ -14,41 +14,22 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.admin.proyectoandroid.AplicacionPrincipal;
 import com.example.admin.proyectoandroid.R;
+import com.example.admin.proyectoandroid.clsPregunta;
+
+import java.util.ArrayList;
 
 
 public class FragmentPreguntas extends Fragment {
 
     ListViewAdapter adapter;
-    /*AplicacionPrincipal AP;
-    ArrayList<clsMision> misiones = AP.llenarMisionesDiarias();
-    int cantidadMisiones = misiones.size();
-
-    String[] titulos = new String[cantidadMisiones];
-    int[] imagenes = new int[cantidadMisiones];
-    int[] progresos = new int[cantidadMisiones];*/
-
-    /* BORRAR ESTO CUANDO LA BASE ESTE FUNCIONANDO */
-    String[] titulos = new String[] {
-            "Genero Arte",
-            "Genero Deporte",
-            "Genero Entretenim..",
-            "Genero Ciencia",
-            "Genero Historia"
-    };
-
-    int[] imagenes = new int[] {
-            R.drawable.preguntas_categoria_arte,
-            R.drawable.preguntas_categoria_deporte,
-            R.drawable.preguntas_categoria_entretenimiento,
-            R.drawable.preguntas_categoria_ciencia,
-            R.drawable.preguntas_categoria_historia
-    };
-
-    int[] progresos = new int[] {
-            20,50,100,80,30
-    };
-
+    ArrayList<clsPregunta> preguntas = new ArrayList<clsPregunta>();
+    int[] imagenes;
+    String[] genero;
+    int[] fuerza;
+    int[] destreza;
+    int[] inteligencia;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,14 +38,28 @@ public class FragmentPreguntas extends Fragment {
 
         ListView lista = (ListView) rootView.findViewById(R.id.listView_listarPreguntas);
 
-        /*for(int i = 0; i < cantidadMisiones; i++)
-        {
-            titulos[i] = ((clsMision)misiones.get(i)).getTitulo();
-            imagenes[i] = R.drawable.bob;
-            progresos[i] = ((clsMision)misiones.get(i)).getProgreso();
-        }*/
+        if(((AplicacionPrincipal)getActivity().getApplication()).getPreguntasActivas().size() == 0){
+            ((AplicacionPrincipal)getActivity().getApplication()).llenarPreguntasDiarias();
+        }
 
-        adapter = new ListViewAdapter(getContext(), titulos, imagenes, progresos);
+        preguntas = ((AplicacionPrincipal)getActivity().getApplication()).llenarPreguntasDiarias();
+        imagenes = new int[preguntas.size()];
+        genero = new String[preguntas.size()];
+        fuerza =  new int[preguntas.size()];
+        destreza =  new int[preguntas.size()];
+        inteligencia =  new int[preguntas.size()];
+
+        for(int i = 0; i < preguntas.size(); i++)
+        {
+            genero[i] = preguntas.get(i).getCategoria();
+            fuerza[i] = preguntas.get(i).getFuerza();
+            destreza[i] = preguntas.get(i).getDestreza();
+            inteligencia[i] = preguntas.get(i).getInteligencia();
+            
+
+        }
+
+        adapter = new ListViewAdapter(getContext(), titulos, imagenes, genero);
         lista.setAdapter(adapter);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {

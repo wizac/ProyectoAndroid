@@ -52,7 +52,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Mision todos los dias"
+                        android:text="Categoria: accion"
+                        android:singleLine="true"
                         android:id="@+id/tv_titulo_lista_personalizada_pregunta"
                         android:layout_marginLeft="5dp"
                         android:textColor="#ff000000" />
@@ -61,20 +62,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Progreso"
-                        android:id="@+id/tv_contenido_lista_personalizada_pregunta"
+                        android:text="Fuerza: +1"
+                        android:id="@+id/tv_fuerza"
                         android:layout_marginLeft="5dp"
-                        android:textColor="#ff868686" />
+                        android:textColor="#ff868686"/>
 
-                    <ProgressBar
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="212dp"
-                        android:layout_height="30dp"
-                        android:id="@+id/progresoPregunta"
-                        android:layout_marginLeft="7dp"
-                        android:progress="40"
-                        android:indeterminateOnly="false"
-                        android:longClickable="false" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Destreza: +0"
+                        android:id="@+id/tv_destreza"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="#ff868686"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Inteligencia +2"
+                        android:id="@+id/tv_inteligencia"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="#ff868686"/>
+
 
                 </LinearLayout>
 
