@@ -34,6 +34,7 @@ public class DBAdapter {
         misionA=new MisionAdapter(sqlDB);
         preguntasA = new PreguntasAdapter(sqlDB);
         relMisionA=new RelMisionAdapter(sqlDB);
+        relPreguntaA=new RelPreguntaAdapter(sqlDB);
         usuarioA=new UsuarioAdapter(sqlDB);
         logroA=new LogroAdapter(sqlDB);
     }
@@ -52,7 +53,7 @@ public class DBAdapter {
     public boolean misionInsert(clsMision a )
     {
 
-        return misionA.insert(a.getProgreso(), a.getTitulo(), a.getDescripcion(), a.getExp(),a.getTipo());
+        return misionA.insert(a.getProgreso(), a.getTitulo(), a.getDescripcion(), a.getExp(), a.getTipo());
     }
 
     public boolean preguntaInsert(clsPregunta a)
@@ -65,6 +66,11 @@ public class DBAdapter {
     {
 
         return relMisionA.insert(idmision,idusuario, 0);
+    }
+    public boolean relPreguntaInsert(int idpregunta,int idusuario)
+    {
+
+        return relPreguntaA.insert(idpregunta,idusuario);
     }
     public boolean usuarioInsert(String nombre)
     {
@@ -309,6 +315,11 @@ public class DBAdapter {
         misionA.completarMision(attr);
     }
 
+    public void completarPregunta(clsPregunta pr)
+    {
+        preguntasA.completarPregunta(pr);
+    }
+
  public clsMision buscarMisionPorId(int id)
  {
      clsMision asd=new clsMision();
@@ -334,6 +345,7 @@ public class DBAdapter {
             db.execSQL(LogroAdapter.CR_TABLE);
             db.execSQL(RelMisionAdapter.CR_TABLE);
             db.execSQL(PreguntasAdapter.CR_TABLE);
+            db.execSQL(RelPreguntaAdapter.CR_TABLE);
 
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(5,'Saluda a todos','Dile hola a 5 personas y consigue que ellos te devuelvan el saludo.',20,'I')");
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(20,'A ejercitar','Ejercita haciendo 20 abdominales',35,'F')");
@@ -372,6 +384,7 @@ public class DBAdapter {
             db.execSQL("drop table if exists "+MisionAdapter.CR_TABLE);
             db.execSQL("drop table if exists "+RelMisionAdapter.CR_TABLE);
             db.execSQL("drop table if exists "+PreguntasAdapter.CR_TABLE);
+            db.execSQL("drop table if exists "+RelPreguntaAdapter.CR_TABLE);
             onCreate(db);
 
         }
