@@ -1,12 +1,12 @@
 package com.example.admin.proyectoandroid;
 
 /**
- * Created by sebyc on 21/01/2016.
+ * Created by Pablo on 23/06/2016.
  */
-public class clsRelacion {
+public class clsRelMision {
 
     private int idmision;
-    private String nombre;
+    private int idusuario;
     private int progreso;
 
     public int getIdmision() {
@@ -17,12 +17,12 @@ public class clsRelacion {
         this.idmision = idmision;
     }
 
-    public String getNombre() {
-        return nombre;
+    public int getIdusuario() {
+        return idusuario;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setIdusuario(int idusuario) {
+        this.idusuario = idusuario;
     }
 
     public int getProgreso() {
@@ -33,14 +33,14 @@ public class clsRelacion {
         this.progreso = progreso;
     }
 
-    public clsRelacion()
+    public clsRelMision()
     {
 
     }
-    public clsRelacion(int idmision,String nombre,int progreso)
+    public clsRelMision(int idmision,int idusuario,int progreso)
     {
         this.idmision=idmision;
-        this.nombre=nombre;
+        this.idusuario=idusuario;
         this.progreso=progreso;
     }
 }

@@ -50,7 +50,7 @@ public class AplicacionPrincipal extends Application {
             }
 
             dbAdapter.completarMision(m.getTipo());
-            dbAdapter.borrarRelacion(m.getId());
+            dbAdapter.borrarRelPregunta(m.getId());
 
             return false;
         }
@@ -77,7 +77,7 @@ public class AplicacionPrincipal extends Application {
     {
         for (clsMision m : dbAdapter.misionesActivas())
         {
-            dbAdapter.borrarRelacion(m.getId());
+            dbAdapter.borrarRelPregunta(m.getId());
         }
 
         ArrayList<clsMision> misiones = new ArrayList<clsMision>();
@@ -92,15 +92,45 @@ public class AplicacionPrincipal extends Application {
             while(misiones.contains(m));
 
             misiones.add(m);
-            dbAdapter.relacionInsert(m.getId(), dbAdapter.getNombreUsuario().getNombre());
+            dbAdapter.relMisionInsert(m.getId(), dbAdapter.getDatosUsuario().getId());
         }
 
         return misiones;
     }
 
+    public ArrayList<clsPregunta> llenarPreguntasDiarias()
+    {
+        for (clsPregunta p : dbAdapter.preguntasActivas())
+        {
+            dbAdapter.borrarRelPregunta(p.getId());
+        }
+
+        ArrayList<clsPregunta> preguntas = new ArrayList<clsPregunta>();
+        clsPregunta p;
+
+        for (int i = 0; i < 5; i++)
+        {
+            do
+            {
+                p = dbAdapter.randomPregunta();
+            }
+            while(preguntas.contains(p));
+
+            preguntas.add(p);
+            dbAdapter.relMisionInsert(p.getId(), dbAdapter.getDatosUsuario().getId());
+        }
+
+        return preguntas;
+    }
+
     public ArrayList<clsMision> getMisionesActivas()
     {
         return dbAdapter.misionesActivas();
+    }
+
+    public ArrayList<clsPregunta> getPreguntasActivas()
+    {
+        return dbAdapter.preguntasActivas();
     }
 
     public clsPregunta getPregunta()

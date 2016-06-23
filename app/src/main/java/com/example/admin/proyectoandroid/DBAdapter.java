@@ -18,7 +18,8 @@ public class DBAdapter {
 
     private MisionAdapter misionA;
     private PreguntasAdapter preguntasA;
-    private RelacionAdapter relacionA;
+    private RelMisionAdapter relMisionA;
+    private RelPreguntaAdapter relPreguntaA;
     private UsuarioAdapter usuarioA;
 
     public DBAdapter(Context context)
@@ -31,7 +32,7 @@ public class DBAdapter {
         sqlDB=dbHelper.getWritableDatabase();
         misionA=new MisionAdapter(sqlDB);
         preguntasA = new PreguntasAdapter(sqlDB);
-        relacionA=new RelacionAdapter(sqlDB);
+        relMisionA=new RelMisionAdapter(sqlDB);
         usuarioA=new UsuarioAdapter(sqlDB);
     }
     public void close()
@@ -55,13 +56,13 @@ public class DBAdapter {
     public boolean preguntaInsert(clsPregunta a)
     {
 
-       return preguntasA.insert(a.getDescripcion(),a.getOpA(),a.getOpB(),a.getOpC(),a.getResp(),a.getCategoria());
+       return preguntasA.insert(a.getDescripcion(),a.getOpA(),a.getOpB(),a.getOpC(),a.getResp(),a.getCategoria(),a.getFuerza(),a.getDestreza(),a.getInteligencia());
     }
 
-    public boolean relacionInsert(int idmision,String nombre)
+    public boolean relMisionInsert(int idmision,int idusuario)
     {
 
-        return relacionA.insert(idmision,nombre, 0);
+        return relMisionA.insert(idmision,idusuario, 0);
     }
     public boolean usuarioInsert(String nombre)
     {
@@ -204,25 +205,25 @@ public class DBAdapter {
     }
 
     //Relacion
-    public clsRelacion getIdrelacionXmision()
+    public clsRelMision getIdrelacionXmision()
     {
 
-        relacionA.getNombres();
-        clsRelacion x=new clsRelacion();
+        relMisionA.getNombres();
+        clsRelMision x=new clsRelMision();
         return x;
 
     }
-    public ArrayList<clsRelacion> getDatosRelacion()
+    public ArrayList<clsRelMision> getDatosRelMision()
     {
 
-        Cursor x=relacionA.getDatos();
-        ArrayList<clsRelacion> lista=new ArrayList<clsRelacion>();
+        Cursor x=relMisionA.getDatos();
+        ArrayList<clsRelMision> lista=new ArrayList<clsRelMision>();
 
         while (x.moveToNext())
         {
-            clsRelacion p = new clsRelacion();
+            clsRelMision p = new clsRelMision();
             p.setIdmision(x.getInt(0));
-            p.setNombre(x.getString(1));
+            p.setIdusuario(x.getInt(1));
             p.setProgreso(x.getInt(2));
 
             lista.add(p);
@@ -232,14 +233,18 @@ public class DBAdapter {
 
     public void aumentarProgreso(int idmision,int cantidad )
     {
-        relacionA.aumentarProgreso(idmision, cantidad);
+        relMisionA.aumentarProgreso(idmision, cantidad);
     }
 
-    public boolean borrarRelacion(int id)
+    public boolean borrarRelMision(int id)
     {
-        return relacionA.delete(id);
+        return relMisionA.delete(id);
     }
 
+    public boolean borrarRelPregunta(int id)
+    {
+        return relPreguntaA.delete(id);
+    }
 
     public void aumentarExp(int exp)
     {
@@ -249,9 +254,16 @@ public class DBAdapter {
 
     public ArrayList<clsMision> misionesActivas()
     {
-        ArrayList<clsMision> listamis=relacionA.misionesActuales();
+        ArrayList<clsMision> listamis=relMisionA.misionesActuales();
 
         return listamis;
+    }
+
+    public ArrayList<clsPregunta> preguntasActivas()
+    {
+        ArrayList<clsPregunta> listapre=relPreguntaA.preguntasActuales();
+
+        return listapre;
     }
 
     public void subirlvl()
@@ -286,7 +298,7 @@ public class DBAdapter {
         {
             db.execSQL(UsuarioAdapter.CR_TABLE);
             db.execSQL(MisionAdapter.CR_TABLE);
-            db.execSQL(RelacionAdapter.CR_TABLE);
+            db.execSQL(RelMisionAdapter.CR_TABLE);
             db.execSQL(PreguntasAdapter.CR_TABLE);
 
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(5,'Saluda a todos','Dile hola a 5 personas y consigue que ellos te devuelvan el saludo.',20,'I')");
@@ -309,7 +321,7 @@ public class DBAdapter {
         {
             db.execSQL("drop table if exists "+UsuarioAdapter.CR_TABLE);
             db.execSQL("drop table if exists "+MisionAdapter.CR_TABLE);
-            db.execSQL("drop table if exists "+RelacionAdapter.CR_TABLE);
+            db.execSQL("drop table if exists "+RelMisionAdapter.CR_TABLE);
             db.execSQL("drop table if exists "+PreguntasAdapter.CR_TABLE);
             onCreate(db);
 

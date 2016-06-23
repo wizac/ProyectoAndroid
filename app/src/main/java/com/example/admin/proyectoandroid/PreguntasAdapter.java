@@ -30,13 +30,15 @@ public class PreguntasAdapter {
         public final static String OPCIONC="opcionc";
         public final static String RESPUESTA="respuesta";
         public final static String CATEGORIA="categoria";
-
+        public final static String FUERZA="fuerza";
+        public final static String DESTREZA="destreza";
+        public final static String INTELIGENCIA="inteligencia";
 
     }
 
     private final static String[] COLUMNS= {
 
-            Columns.ID,Columns.DESCRIPCION,Columns.OPCIONA,Columns.OPCIONB,Columns.OPCIONC,Columns.RESPUESTA,Columns.CATEGORIA
+            Columns.ID,Columns.DESCRIPCION,Columns.OPCIONA,Columns.OPCIONB,Columns.OPCIONC,Columns.RESPUESTA,Columns.CATEGORIA,Columns.FUERZA,Columns.DESTREZA,Columns.INTELIGENCIA
     };
 
     public final static String CR_TABLE="create table if not exists " +
@@ -46,10 +48,13 @@ public class PreguntasAdapter {
             +Columns.OPCIONB+" text not null, "
             +Columns.OPCIONC+" text not null, "
             +Columns.RESPUESTA+" text not null, "
-            +Columns.CATEGORIA+" text not null)";
+            +Columns.CATEGORIA+" text not null, "
+            +Columns.FUERZA+" integer not null, "
+            +Columns.DESTREZA+" integer not null, "
+            +Columns.INTELIGENCIA+" integer not null)";
 
 
-    public boolean insert(String desc,String opciona, String opcionb,String opcionc,String respuesta,String categoria)
+    public boolean insert(String desc,String opciona, String opcionb,String opcionc,String respuesta,String categoria,int fuerza,int destreza,int inteligencia)
     {
         ContentValues Values=new ContentValues();
 
@@ -59,8 +64,9 @@ public class PreguntasAdapter {
         Values.put(Columns.OPCIONC,opcionc);
         Values.put(Columns.RESPUESTA,respuesta);
         Values.put(Columns.CATEGORIA,categoria);
-
-
+        Values.put(Columns.FUERZA,fuerza);
+        Values.put(Columns.DESTREZA,destreza);
+        Values.put(Columns.INTELIGENCIA,inteligencia);
 
         return sqlDB.insert(NAME,null,Values)>0;
     }
@@ -120,7 +126,7 @@ public class PreguntasAdapter {
 
         mis.moveToPosition(rand);
 
-        clsPregunta c =new clsPregunta(mis.getInt(0),mis.getString(1),mis.getString(2),mis.getString(3),mis.getString(4),mis.getString(5),mis.getString(6));
+        clsPregunta c =new clsPregunta(mis.getInt(0),mis.getString(1),mis.getString(2),mis.getString(3),mis.getString(4),mis.getString(5),mis.getString(6),mis.getInt(7),mis.getInt(8),mis.getInt(9));
 
         return c;
     }

@@ -12,6 +12,34 @@ public class clsPregunta {
         private String opC;
         private String resp;
         private String categoria;
+        private int fuerza;
+
+    public int getFuerza() {
+        return fuerza;
+    }
+
+    public void setFuerza(int fuerza) {
+        this.fuerza = fuerza;
+    }
+
+    public int getDestreza() {
+        return destreza;
+    }
+
+    public void setDestreza(int destreza) {
+        this.destreza = destreza;
+    }
+
+    public int getInteligencia() {
+        return inteligencia;
+    }
+
+    public void setInteligencia(int inteligencia) {
+        this.inteligencia = inteligencia;
+    }
+
+    private int destreza;
+        private int inteligencia;
 
     public String getCategoria() {
         return categoria;
@@ -74,7 +102,7 @@ public class clsPregunta {
 
     }
 
-    public clsPregunta(int id,String desc,String a,String b,String c,String resp,String categoria)
+    public clsPregunta(int id,String desc,String a,String b,String c,String resp,String categoria,int fuerza,int destreza,int inteligencia)
     {
         this.id=id;
         this.descripcion=desc;
@@ -83,6 +111,9 @@ public class clsPregunta {
         this.opC=c;
         this.resp=resp;
         this.categoria=categoria;
+        this.fuerza=fuerza;
+        this.destreza=destreza;
+        this.inteligencia=inteligencia;
     }
 
 

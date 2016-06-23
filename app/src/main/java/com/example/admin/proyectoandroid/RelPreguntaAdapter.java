@@ -8,57 +8,51 @@ import android.provider.BaseColumns;
 import java.util.ArrayList;
 
 /**
- * Created by sebyc on 17/01/2016.
+ * Created by Pablo on 23/06/2016.
  */
-public class RelacionAdapter {
+public class RelPreguntaAdapter {
 
-    private static final String NAME="relacion";
+    private static final String NAME="relPregunta";
     private SQLiteDatabase sqlDB;
 
-    public RelacionAdapter (SQLiteDatabase sqlDB)
+    public RelPreguntaAdapter (SQLiteDatabase sqlDB)
     {
         this.sqlDB=sqlDB;
     }
     private class Columns implements BaseColumns
     {
 
-        public final static String ID="idmision";
-        public final static String NOMBRE="nombre";
-        public final static String PROGRESO="progreso";
-
+        public final static String ID="idpregunta";
+        public final static String USUARIO="idusuario";
 
     }
 
     private final static String[] COLUMNS= {
 
-            Columns.ID,Columns.NOMBRE,Columns.PROGRESO
+            Columns.ID,Columns.USUARIO
     };
 
     public final static String CR_TABLE="create table if not exists " +
             NAME +"("+ Columns.ID + " integer not null , "
-            +Columns.NOMBRE +" integer not null , "
-            +Columns.PROGRESO +" integer not null ,"
-            +"FOREIGN KEY(idmision) REFERENCES mision(idmision), "
-            +"FOREIGN KEY(nombre) REFERENCES usuario(nombre))";
+            +Columns.USUARIO +" integer not null , "
+            +"FOREIGN KEY(idpregunta) REFERENCES pregunta(idpregunta), "
+            +"FOREIGN KEY(idusuario) REFERENCES usuario(idusuario))";
 
 
 
 
-    public boolean insert(int idmision,String nombre, int progreso)
+    public boolean insert(int idmision,int idusuario)
     {
         ContentValues Values=new ContentValues();
         Values.put(Columns.ID,idmision);
-        Values.put(Columns.NOMBRE,nombre);
-        Values.put(Columns.PROGRESO,progreso);
-
-
+        Values.put(Columns.USUARIO,idusuario);
 
         return sqlDB.insert(NAME,null,Values)>0;
     }
 
     public boolean delete(int id)
     {
-        String whereClause="idmision=?";
+        String whereClause="idpregunta=?";
         String[] whereArgs={String.valueOf(id)};
         return sqlDB.delete(NAME, whereClause, whereArgs)>0;
     }
@@ -86,46 +80,49 @@ public class RelacionAdapter {
     }
 
 
-    public void aumentarProgreso(int idmision,int cant)
+    /*public void aumentarProgreso(int idmision,int cant)
     {
         Cursor mis;
         int progreso=0;
-        mis=sqlDB.rawQuery("select * from relacion",null);
+        mis=sqlDB.rawQuery("select * from relPregunta",null);
         mis.moveToFirst();
         progreso=progreso+mis.getInt(2);
-        sqlDB.execSQL("update relacion set progreso="+progreso+" where idmision="+idmision);
+        sqlDB.execSQL("update relPregunta set progreso="+progreso+" where idpregunta="+idmision);
 
-    }
+    }*/
 
-    public ArrayList<clsMision> misionesActuales()
+    public ArrayList<clsPregunta> preguntasActuales()
     {
         Cursor mis;
         Cursor dos;
-        ArrayList<clsMision> asd=new ArrayList<>();
+        ArrayList<clsPregunta> asd=new ArrayList<>();
 
 
-        mis=sqlDB.rawQuery("select * from relacion",null);
+        mis=sqlDB.rawQuery("select * from relPregunta",null);
         mis.moveToFirst();
 
         while (mis.moveToNext())
         {
 
-            clsMision x=new clsMision();
+            clsPregunta x=new clsPregunta();
             x.setId(mis.getInt(0));
-            x.setProgresoActual(mis.getInt(2));
 
-            dos=sqlDB.rawQuery("select * from mision where idmision="+mis.getInt(0),null);
+            dos=sqlDB.rawQuery("select * from pregunta where idpregunta="+mis.getInt(0),null);
             dos.moveToFirst();
 
-            x.setProgreso(dos.getInt(1));
-            x.setTitulo(dos.getString(2));
-            x.setDescripcion(dos.getString(3));
-            x.setExp(dos.getInt(4));
+            x.setDescripcion(dos.getString(1));
+            x.setOpA(dos.getString(2));
+            x.setOpB(dos.getString(3));
+            x.setOpC(dos.getString(4));
+            x.setResp(dos.getString(5));
+            x.setCategoria(dos.getString(6));
+            x.setFuerza(dos.getInt(7));
+            x.setDestreza(dos.getInt(8));
+            x.setInteligencia(dos.getInt(9));
 
             asd.add(x);
         }
 
         return asd;
     }
-
 }
