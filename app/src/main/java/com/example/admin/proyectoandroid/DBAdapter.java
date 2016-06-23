@@ -312,7 +312,12 @@ public class DBAdapter {
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(2,'Piedra, papel o tijeras','Juega piedra, papel o tijeras con alguien y ganale 2 veces',50,'D')");
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(100,'Cara o cruz','Tira una modena y saca 5 caras, no deberia ser muy dificil...',20,'D')");
 
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria) values('es una pregunta?', 'si', 'no', 'tal vez', 'no lo se', 'cine')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria) values('pregunta1?', 'opcionA', 'opcionB', 'opcionC', 'respuesta', 'cine',1,1,1)");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria) values('pregunta2?', 'si', 'no', 'tal vez', 'no lo se', 'cine',2,2,2)");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria) values('pregunta3?', 'A', 'B', 'C', 'R', 'cine',3,3,3)");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria) values('pregunta4?', 'A', 'B', 'C', 'R', 'cine',1,0,1)");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria) values('pregunta5?', 'A', 'B', 'C', 'R', 'cine',0,0,1)");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria) values('pregunta6?', 'A', 'B', 'C', 'R', 'cine',4,0,0)");
 
             db.execSQL("insert into usuario values(0, 'pablo', 1, 0, 0, 0, 0, 0)");
         }
