@@ -42,7 +42,7 @@ public class FragmentPreguntas extends Fragment {
             ((AplicacionPrincipal)getActivity().getApplication()).llenarPreguntasDiarias();
         }
 
-        preguntas = ((AplicacionPrincipal)getActivity().getApplication()).llenarPreguntasDiarias();
+        preguntas = ((AplicacionPrincipal)getActivity().getApplication()).getPreguntasActivas();
         imagenes = new int[preguntas.size()];
         categoria = new String[preguntas.size()];
         fuerza =  new int[preguntas.size()];
@@ -56,22 +56,22 @@ public class FragmentPreguntas extends Fragment {
             destreza[i] = preguntas.get(i).getDestreza();
             inteligencia[i] = preguntas.get(i).getInteligencia();
 
-            if(preguntas.get(i).getCategoria() == "arte"){
+            if(preguntas.get(i).getCategoria().toString().compareTo("arte") == 0){
                 imagenes[i] = R.drawable.preguntas_categoria_arte;
             }
-            else if(preguntas.get(i).getCategoria() == "entretenimiento"){
+            else if(preguntas.get(i).getCategoria().toString().compareTo("entretenimiento") == 0){
                 imagenes[i] = R.drawable.preguntas_categoria_entretenimiento;
             }
-            else if(preguntas.get(i).getCategoria() == "deporte"){
+            else if(preguntas.get(i).getCategoria().toString().compareTo("deporte") == 0){
                 imagenes[i] = R.drawable.preguntas_categoria_deporte;
             }
-            else if(preguntas.get(i).getCategoria() == "geografia"){
+            else if(preguntas.get(i).getCategoria().toString().compareTo("geografia") == 0){
                 imagenes[i] = R.drawable.preguntas_categoria_geografia;
             }
-            else if(preguntas.get(i).getCategoria() == "ciencia"){
+            else if(preguntas.get(i).getCategoria().toString().compareTo("ciencia") == 0){
                 imagenes[i] = R.drawable.preguntas_categoria_ciencia;
             }
-            else if(preguntas.get(i).getCategoria() == "historia"){
+            else if(preguntas.get(i).getCategoria().compareTo("historia") == 0){
                 imagenes[i] = R.drawable.preguntas_categoria_historia;
             }
             else{
@@ -151,9 +151,9 @@ public class FragmentPreguntas extends Fragment {
 
             ivImagen.setImageResource(imagenes[position]);
             tvCategoria.setText(categoria[position]);
-            tvFuerza.setText(fuerza[position]);
-            tvFuerza.setText(destreza[position]);
-            tvFuerza.setText(inteligencia[position]);
+            tvFuerza.setText("Fuerza: +"+fuerza[position]);
+            tvDestreza.setText("Destreza: +" + destreza[position]);
+            tvInteligencia.setText("Inteligencia: +"+inteligencia[position]);
 
             return itemView;
         }

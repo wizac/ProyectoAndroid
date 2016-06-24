@@ -41,7 +41,7 @@ public class ListarUnaPregunta extends ActionBarActivity {
         int idPregunta= extras.getInt("idPregunta");
         final int position = extras.getInt("position");
 
-        preguntas = ((AplicacionPrincipal)getApplication()).llenarPreguntasDiarias();
+        preguntas = ((AplicacionPrincipal)getApplication()).getPreguntasActivas();
         descripcion = new String[preguntas.size()];
         categoria = new String[preguntas.size()];
         opcionA = new String[preguntas.size()];
