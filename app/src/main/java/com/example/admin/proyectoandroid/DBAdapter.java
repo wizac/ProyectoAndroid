@@ -187,7 +187,7 @@ public class DBAdapter {
 
     public ArrayList<clsLogro> getDatosLogro()
     {
-        Cursor M=logroA.getNombres();
+        Cursor M=logroA.getDatos();
 
         ArrayList<clsLogro> listalog=new ArrayList<clsLogro>();
 
