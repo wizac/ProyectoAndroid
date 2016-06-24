@@ -114,7 +114,6 @@ public class FragmentLogros extends Fragment {
             tvTitulo = (TextView) itemView.findViewById(R.id.tv_titulo_logro);
             tvEstado = (TextView) itemView.findViewById(R.id.tv_estado_logro);
             tvDescripcion = (TextView) itemView.findViewById(R.id.tv_descripcion_logro);
-
             ivImagen.setImageResource(imagenes[position]);
             tvTitulo.setText(titulos[position]);
             tvEstado.setText(estados[position]);
