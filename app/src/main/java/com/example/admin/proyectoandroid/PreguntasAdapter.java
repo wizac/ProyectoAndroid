@@ -137,5 +137,11 @@ public class PreguntasAdapter {
         return sqlDB.query(NAME,columns,null,null,null,null,null);
     }
 
+    public void completarPregunta(clsPregunta pr)
+    {
+        sqlDB.execSQL("update usuario set fuerza=fuerza+"+pr.getFuerza());
+        sqlDB.execSQL("update usuario set destreza=destreza+"+pr.getDestreza());
+        sqlDB.execSQL("update usuario set inteligencia=inteligencia+"+pr.getInteligencia());
+    }
 
 }

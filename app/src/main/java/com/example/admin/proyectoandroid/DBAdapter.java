@@ -21,6 +21,7 @@ public class DBAdapter {
     private RelMisionAdapter relMisionA;
     private RelPreguntaAdapter relPreguntaA;
     private UsuarioAdapter usuarioA;
+    private LogroAdapter logroA;
 
     public DBAdapter(Context context)
     {
@@ -33,7 +34,9 @@ public class DBAdapter {
         misionA=new MisionAdapter(sqlDB);
         preguntasA = new PreguntasAdapter(sqlDB);
         relMisionA=new RelMisionAdapter(sqlDB);
+        relPreguntaA=new RelPreguntaAdapter(sqlDB);
         usuarioA=new UsuarioAdapter(sqlDB);
+        logroA=new LogroAdapter(sqlDB);
     }
     public void close()
     {
@@ -50,7 +53,7 @@ public class DBAdapter {
     public boolean misionInsert(clsMision a )
     {
 
-        return misionA.insert(a.getProgreso(), a.getTitulo(), a.getDescripcion(), a.getExp(),a.getTipo());
+        return misionA.insert(a.getProgreso(), a.getTitulo(), a.getDescripcion(), a.getExp(), a.getTipo());
     }
 
     public boolean preguntaInsert(clsPregunta a)
@@ -63,6 +66,11 @@ public class DBAdapter {
     {
 
         return relMisionA.insert(idmision,idusuario, 0);
+    }
+    public boolean relPreguntaInsert(int idpregunta,int idusuario)
+    {
+
+        return relPreguntaA.insert(idpregunta,idusuario);
     }
     public boolean usuarioInsert(String nombre)
     {
@@ -171,6 +179,37 @@ public class DBAdapter {
         return  misionA.misionRandom();
     }
 
+    //logros
+    public void cumplirLogro(int id)
+    {
+        logroA.completarLogro(id);
+    }
+
+    public ArrayList<clsLogro> getDatosLogro()
+    {
+        Cursor M=logroA.getNombres();
+
+        ArrayList<clsLogro> listalog=new ArrayList<clsLogro>();
+
+        while (M.moveToNext())
+        {
+            clsLogro x=new clsLogro();
+            x.setId(M.getInt(0));
+            x.setNombre(M.getString(1));
+            x.setEstado(M.getString(2));
+            x.setDescripcion(M.getString(3));
+            x.setNombreimagen(M.getString(4));
+
+
+
+
+            listalog.add(x);
+        }
+
+        return listalog;
+    }
+
+
 
     //preguntas
     public clsPregunta getPreguntaDescripcion()
@@ -276,6 +315,11 @@ public class DBAdapter {
         misionA.completarMision(attr);
     }
 
+    public void completarPregunta(clsPregunta pr)
+    {
+        preguntasA.completarPregunta(pr);
+    }
+
  public clsMision buscarMisionPorId(int id)
  {
      clsMision asd=new clsMision();
@@ -298,8 +342,10 @@ public class DBAdapter {
         {
             db.execSQL(UsuarioAdapter.CR_TABLE);
             db.execSQL(MisionAdapter.CR_TABLE);
+            db.execSQL(LogroAdapter.CR_TABLE);
             db.execSQL(RelMisionAdapter.CR_TABLE);
             db.execSQL(PreguntasAdapter.CR_TABLE);
+            db.execSQL(RelPreguntaAdapter.CR_TABLE);
 
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(5,'Saluda a todos','Dile hola a 5 personas y consigue que ellos te devuelvan el saludo.',20,'I')");
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(20,'A ejercitar','Ejercita haciendo 20 abdominales',35,'F')");
@@ -319,15 +365,26 @@ public class DBAdapter {
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria) values('pregunta5?', 'A', 'B', 'C', 'R', 'arte',0,0,1)");
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria) values('pregunta6?', 'A', 'B', 'C', 'R', 'deporte',4,0,0)");
 
+            db.execSQL("insert int logro (nombre,descripcion,estado,nombreimagen) values('El caballero','Llegar a tener mil puntos de fuerza','incompleto','el_caballero.jpg')");
+            db.execSQL("insert int logro (nombre,descripcion,estado,nombreimagen) values('El cazador','Llegar a tener mil puntos de destreza','incompleto','el_cazador.jpg')");
+            db.execSQL("insert int logro (nombre,descripcion,estado,nombreimagen) values('El mago','Llegar a tener mil puntos de inteligencia','incompleto','el_mago.jpg')");
+            db.execSQL("insert int logro (nombre,descripcion,estado,nombreimagen) values('Nivel 10','LLega a nivel 10','incompleto','nivel_10.jpg')");
+            db.execSQL("insert int logro (nombre,descripcion,estado,nombreimagen) values('Nivel 50','LLega a nivel 50','incompleto','nivel_50.jpg')");
+            db.execSQL("insert int logro (nombre,descripcion,estado,nombreimagen) values('Nivel 100','LLega a nivel 100','incompleto','nivel_100.jpg')");
+
+
+
             db.execSQL("insert into usuario values(0, 'pablo', 1, 0, 0, 0, 0, 0)");
         }
         @Override
         public void onUpgrade(SQLiteDatabase db,int oldVersion,int newVersion)
         {
             db.execSQL("drop table if exists "+UsuarioAdapter.CR_TABLE);
+            db.execSQL("drop table if exists "+LogroAdapter.CR_TABLE);
             db.execSQL("drop table if exists "+MisionAdapter.CR_TABLE);
             db.execSQL("drop table if exists "+RelMisionAdapter.CR_TABLE);
             db.execSQL("drop table if exists "+PreguntasAdapter.CR_TABLE);
+            db.execSQL("drop table if exists "+RelPreguntaAdapter.CR_TABLE);
             onCreate(db);
 
         }

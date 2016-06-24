@@ -50,7 +50,7 @@ public class AplicacionPrincipal extends Application {
             }
 
             dbAdapter.completarMision(m.getTipo());
-            dbAdapter.borrarRelPregunta(m.getId());
+            dbAdapter.borrarRelMision(m.getId());
 
             return false;
         }
@@ -153,10 +153,13 @@ public class AplicacionPrincipal extends Application {
         if (pregunta.getResp() == respuesta)
         {
             dbAdapter.aumentarExp(10);
+            dbAdapter.completarPregunta(pregunta);
+            dbAdapter.borrarRelPregunta(pregunta.getId());
             return true;
         }
         else
         {
+            dbAdapter.borrarRelPregunta(pregunta.getId());
             return false;
         }
     }
