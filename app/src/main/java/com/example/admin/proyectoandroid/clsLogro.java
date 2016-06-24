@@ -41,7 +41,7 @@ public class clsLogro {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
+    public String getEstado() {
         return descripcion;
     }
 
@@ -49,7 +49,7 @@ public class clsLogro {
         this.descripcion = descripcion;
     }
 
-    public String getEstado() {
+    public String getDescripcion() {
         return estado;
     }
 

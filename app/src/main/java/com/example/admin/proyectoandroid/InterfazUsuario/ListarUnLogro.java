@@ -1,5 +1,6 @@
 package com.example.admin.proyectoandroid.InterfazUsuario;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -30,7 +31,7 @@ public class ListarUnLogro extends ActionBarActivity {
     String[] descripciones;
 
     private ViewGroup linearLayoutDescripcion;
-    private ImageView imageViewExpand;
+    private ImageView imageViewExpandir, imageViewLogros;
 
     private static final int DURATION = 250;
 
@@ -58,33 +59,37 @@ public class ListarUnLogro extends ActionBarActivity {
             titulos[i] = logros.get(i).getNombre();
             estados[i] = logros.get(i).getEstado();
             descripciones[i] = logros.get(i).getDescripcion();
-            imagenes[i] = getResources().getIdentifier(logros.get(i).getNombreimagen().toString() , "drawable",  getPackageName());
+            imagenes[i] = getResources().getIdentifier(logros.get(i).getNombreimagen().toString()+"_grande" , "drawable",  getPackageName());
         }
 
         /*INDICAR TITULO Y SUBTITULO */
         if (ab != null) {
             ab.setTitle(titulos[position]);
-            ab.setSubtitle("Estado : " + estados[position]);
         }
 
 
         linearLayoutDescripcion = (ViewGroup) findViewById(R.id.linearLayoutDescripcionLogros);
-        imageViewExpand = (ImageView) findViewById(R.id.imagenLogros);
+        imageViewExpandir = (ImageView) findViewById(R.id.imageViewExpandir);
+        imageViewLogros = (ImageView) findViewById(R.id.imageViewLogros);
+        tvDescripcion = (TextView) findViewById(R.id.textViewInfo);
 
         Toolbar toolbarCard = (Toolbar) findViewById(R.id.toolbarCard);
         toolbarCard.setTitle(titulos[position]);
         toolbarCard.setSubtitle("Estado: "+estados[position]);
-        imageViewExpand.setImageResource(imagenes[position]);
+        imageViewLogros.setImageResource(imagenes[position]);
+        tvDescripcion.setText(descripciones[position]);
+
+
     }
 
     public void toggleDetails(View view) {
         if (linearLayoutDescripcion.getVisibility() == View.GONE) {
             ExpandAndCollapseViewUtil.expand(linearLayoutDescripcion, DURATION);
-            imageViewExpand.setImageResource(R.mipmap.more);
+            imageViewExpandir.setImageResource(R.mipmap.more);
             rotate(-180.0f);
         } else {
             ExpandAndCollapseViewUtil.collapse(linearLayoutDescripcion, DURATION);
-            imageViewExpand.setImageResource(R.mipmap.less);
+            imageViewExpandir.setImageResource(R.mipmap.less);
             rotate(180.0f);
         }
     }
@@ -94,7 +99,7 @@ public class ListarUnLogro extends ActionBarActivity {
                 Animation.RELATIVE_TO_SELF, 0.5f);
         animation.setFillAfter(true);
         animation.setDuration(DURATION);
-        imageViewExpand.startAnimation(animation);
+        imageViewExpandir.startAnimation(animation);
     }
 
 
