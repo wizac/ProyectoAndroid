@@ -169,6 +169,10 @@ public class AplicacionPrincipal extends Application {
         return dbAdapter.getDatosLogro();
     }
 
+    public void insertarUsuario(String nombre){
+        dbAdapter.usuarioInsert(nombre);
+    }
+
     /*public void misionPrueba()
     {
         dbAdapter.misionprueba();
