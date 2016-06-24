@@ -53,7 +53,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="El logro más dificil"
-                        android:id="@+id/tv_titulo_lista_personalizada_logro"
+                        android:id="@+id/tv_titulo_logro"
                         android:layout_marginLeft="5dp"
                         android:textColor="#ff000000" />
 
@@ -61,20 +61,22 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Progreso"
-                        android:id="@+id/tv_contenido_lista_personalizada_logro"
+                        android:text="ESTADO: EN PROGRESO"
+                        android:id="@+id/tv_titulo_descripcion_logro"
                         android:layout_marginLeft="5dp"
                         android:textColor="#ff868686" />
 
-                    <ProgressBar
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="212dp"
-                        android:layout_height="30dp"
-                        android:id="@+id/progresoLogro"
-                        android:layout_marginLeft="7dp"
-                        android:progress="40"
-                        android:indeterminateOnly="false"
-                        android:longClickable="false" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:maxLines="3"
+                        android:text="Este es el relleno de la descripion de un logro que debes superar para ser el mejor!"
+                        android:id="@+id/tv_descripcion_logro"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="#ff868686" />
+
+
 
                 </LinearLayout>
 

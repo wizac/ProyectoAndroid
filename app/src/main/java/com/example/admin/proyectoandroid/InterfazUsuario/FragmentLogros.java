@@ -98,20 +98,16 @@ public class FragmentLogros extends Fragment {
             // Declare Variables
             TextView txtTitle;
             ImageView imgImg;
-            ProgressBar pbProgreso;
 
-            //http://developer.android.com/intl/es/reference/android/view/LayoutInflater.html
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             View itemView = inflater.inflate(R.layout.lista_personalizada_logros, parent, false);
 
             imgImg = (ImageView) itemView.findViewById(R.id.imagen_lista_personalizada_logro);
-            txtTitle = (TextView) itemView.findViewById(R.id.tv_titulo_lista_personalizada_logro);
-            pbProgreso = (ProgressBar) itemView.findViewById(R.id.progresoLogro);
+            txtTitle = (TextView) itemView.findViewById(R.id.tv_titulo_logro);
 
             imgImg.setImageResource(imagenes[position]);
             txtTitle.setText(titulos[position]);
-            pbProgreso.setProgress(progresos[position]);
 
             return itemView;
         }
