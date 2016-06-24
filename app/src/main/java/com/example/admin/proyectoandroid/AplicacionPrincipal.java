@@ -99,8 +99,6 @@ public class AplicacionPrincipal extends Application {
                 }
             }
 
-
-
             misiones.add(m);
             dbAdapter.relMisionInsert(m.getId(), dbAdapter.getDatosUsuario().getId());
         }
