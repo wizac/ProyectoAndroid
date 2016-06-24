@@ -59,7 +59,7 @@ public class FragmentMisiones extends Fragment {
             else if(progresos[i] >= 50 && progresos[i] < 80){
                 imagenes[i] = R.drawable.estrellas_2llenas_1vacias;
             }
-            else if(progresos[i] >= 80){
+            else if(progresos[i] == 100){
                 imagenes[i] = R.drawable.estrellas_3llenas_0vacias;
             }
             else{
@@ -136,7 +136,7 @@ public class FragmentMisiones extends Fragment {
             pbProgreso.setProgress(progresos[position]);
 
             if(progresos[position] == 100){
-                linearL_una_mision.setBackgroundColor(Color.parseColor("#D6E4D5"));
+                linearL_una_mision.setBackgroundColor(Color.parseColor("#D8D8D8"));
                 tvTituloProgreso.setText("Completado!");
             }
 
