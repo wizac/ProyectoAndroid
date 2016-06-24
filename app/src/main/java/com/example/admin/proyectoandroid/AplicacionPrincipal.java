@@ -127,7 +127,7 @@ public class AplicacionPrincipal extends Application {
             while(preguntas.contains(p));
 
             preguntas.add(p);
-            dbAdapter.relMisionInsert(p.getId(), dbAdapter.getDatosUsuario().getId());
+            dbAdapter.relPreguntaInsert(p.getId(), dbAdapter.getDatosUsuario().getId());
         }
 
         return preguntas;
