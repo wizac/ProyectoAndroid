@@ -365,12 +365,12 @@ public class DBAdapter {
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta5?', 'A', 'B', 'C', 'R', 'arte',0,0,1)");
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta6?', 'A', 'B', 'C', 'R', 'deporte',4,0,0)");
 
-            db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El caballero','Llegar a tener mil puntos de fuerza','completo','el_caballero.jpg')");
-            db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El cazador','Llegar a tener mil puntos de destreza','incompleto','el_cazador.jpg')");
-            db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El mago','Llegar a tener mil puntos de inteligencia','incompleto','el_mago.jpg')");
-            db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('Nivel 10','LLega a nivel 10','completo','nivel_10.jpg')");
-            db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('Nivel 50','LLega a nivel 50','incompleto','nivel_50.jpg')");
-            db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('Nivel 100','LLega a nivel 100','incompleto','nivel_100.jpg')");
+            db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El caballero','Llegar a tener mil puntos de fuerza','completo','el_caballero')");
+            db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El cazador','Llegar a tener mil puntos de destreza','incompleto','el_cazador_u')");
+            db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El mago','Llegar a tener mil puntos de inteligencia','incompleto','el_mago_u')");
+            db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('Nivel 10','LLega a nivel 10','completo','nivel_10')");
+            db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('Nivel 50','LLega a nivel 50','incompleto','nivel_50_u')");
+            db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('Nivel 100','LLega a nivel 100','incompleto','nivel_100_u')");
 
 
 
