@@ -77,7 +77,7 @@ public class AplicacionPrincipal extends Application {
     {
         for (clsMision m : dbAdapter.misionesActivas())
         {
-            dbAdapter.borrarRelPregunta(m.getId());
+            dbAdapter.borrarRelMision(m.getId());
         }
 
         ArrayList<clsMision> misiones = new ArrayList<clsMision>();
