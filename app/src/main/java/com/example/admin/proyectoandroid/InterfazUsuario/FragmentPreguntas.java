@@ -26,7 +26,7 @@ public class FragmentPreguntas extends Fragment {
     ListViewAdapter adapter;
     ArrayList<clsPregunta> preguntas = new ArrayList<clsPregunta>();
     int[] imagenes;
-    String[] genero;
+    String[] categoria;
     int[] fuerza;
     int[] destreza;
     int[] inteligencia;
@@ -44,22 +44,43 @@ public class FragmentPreguntas extends Fragment {
 
         preguntas = ((AplicacionPrincipal)getActivity().getApplication()).llenarPreguntasDiarias();
         imagenes = new int[preguntas.size()];
-        genero = new String[preguntas.size()];
+        categoria = new String[preguntas.size()];
         fuerza =  new int[preguntas.size()];
         destreza =  new int[preguntas.size()];
         inteligencia =  new int[preguntas.size()];
 
         for(int i = 0; i < preguntas.size(); i++)
         {
-            genero[i] = preguntas.get(i).getCategoria();
+            categoria[i] = preguntas.get(i).getCategoria();
             fuerza[i] = preguntas.get(i).getFuerza();
             destreza[i] = preguntas.get(i).getDestreza();
             inteligencia[i] = preguntas.get(i).getInteligencia();
-            
+
+            if(preguntas.get(i).getCategoria() == "arte"){
+                imagenes[i] = R.drawable.preguntas_categoria_arte;
+            }
+            else if(preguntas.get(i).getCategoria() == "entretenimiento"){
+                imagenes[i] = R.drawable.preguntas_categoria_entretenimiento;
+            }
+            else if(preguntas.get(i).getCategoria() == "deporte"){
+                imagenes[i] = R.drawable.preguntas_categoria_deporte;
+            }
+            else if(preguntas.get(i).getCategoria() == "geografia"){
+                imagenes[i] = R.drawable.preguntas_categoria_geografia;
+            }
+            else if(preguntas.get(i).getCategoria() == "ciencia"){
+                imagenes[i] = R.drawable.preguntas_categoria_ciencia;
+            }
+            else if(preguntas.get(i).getCategoria() == "historia"){
+                imagenes[i] = R.drawable.preguntas_categoria_historia;
+            }
+            else{
+                imagenes[i] = R.drawable.preguntas_categoria_entretenimiento;
+            }
 
         }
 
-        adapter = new ListViewAdapter(getContext(), titulos, imagenes, genero);
+        adapter = new ListViewAdapter(getContext(), categoria, imagenes, fuerza, destreza, inteligencia);
         lista.setAdapter(adapter);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -78,21 +99,25 @@ public class FragmentPreguntas extends Fragment {
     public class ListViewAdapter extends BaseAdapter {
         // Declare Variables
         Context context;
-        String[] titulos;
+        String[] genero;
         int[] imagenes;
-        int[] progresos;
+        int[] fuerza;
+        int[] destreza;
+        int[] inteligencia;
         LayoutInflater inflater;
 
-        public ListViewAdapter(Context context, String[] titulos, int[] imagenes, int[] progresos) {
+        public ListViewAdapter(Context context, String[] genero, int[] imagenes, int[] fuerza, int[] destreza, int[] inteligencia) {
             this.context = context;
-            this.titulos = titulos;
+            this.genero = genero;
             this.imagenes = imagenes;
-            this.progresos = progresos;
+            this.fuerza = fuerza;
+            this.destreza = destreza;
+            this.inteligencia = inteligencia;
         }
 
         @Override
         public int getCount() {
-            return titulos.length;
+            return genero.length;
         }
 
         @Override
@@ -108,22 +133,27 @@ public class FragmentPreguntas extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
 
             // Declare Variables
-            TextView txtTitle;
-            ImageView imgImg;
-            ProgressBar pbProgreso;
+            TextView tvCategoria;
+            ImageView ivImagen;
+            TextView tvFuerza;
+            TextView tvDestreza;
+            TextView tvInteligencia;
 
-            //http://developer.android.com/intl/es/reference/android/view/LayoutInflater.html
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             View itemView = inflater.inflate(R.layout.lista_personalizada_preguntas, parent, false);
 
-            imgImg = (ImageView) itemView.findViewById(R.id.imagen_lista_personalizada_pregunta);
-            txtTitle = (TextView) itemView.findViewById(R.id.tv_titulo_lista_personalizada_pregunta);
-            pbProgreso = (ProgressBar) itemView.findViewById(R.id.progresoPregunta);
+            ivImagen = (ImageView) itemView.findViewById(R.id.imagen_lista_personalizada_pregunta);
+            tvCategoria = (TextView) itemView.findViewById(R.id.tv_categoria_lista_personalizada_pregunta);
+            tvFuerza = (TextView) itemView.findViewById(R.id.tv_fuerza);
+            tvInteligencia = (TextView) itemView.findViewById(R.id.tv_inteligencia);
+            tvDestreza = (TextView) itemView.findViewById(R.id.tv_destreza);
 
-            imgImg.setImageResource(imagenes[position]);
-            txtTitle.setText(titulos[position]);
-            pbProgreso.setProgress(progresos[position]);
+            ivImagen.setImageResource(imagenes[position]);
+            tvCategoria.setText(categoria[position]);
+            tvFuerza.setText(fuerza[position]);
+            tvFuerza.setText(destreza[position]);
+            tvFuerza.setText(inteligencia[position]);
 
             return itemView;
         }

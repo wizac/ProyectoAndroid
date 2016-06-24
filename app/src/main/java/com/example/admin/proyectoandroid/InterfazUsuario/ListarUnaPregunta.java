@@ -4,17 +4,28 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.admin.proyectoandroid.AplicacionPrincipal;
 import com.example.admin.proyectoandroid.R;
+import com.example.admin.proyectoandroid.clsPregunta;
+
+import java.util.ArrayList;
 
 
 public class ListarUnaPregunta extends ActionBarActivity {
-    private ImageView imgImagen;
-    private TextView txtTitulo, txtContenido;
-    String[] titulo;
-    String[] contenido;
+    private TextView tvDescripcion;
+    private Button btnOpcionA, btnOpcionB, btnOpcionC, btnOpcionD;
+    ArrayList<clsPregunta> preguntas = new ArrayList<clsPregunta>();
+    String[] descripcion;
+    String[] categoria;
+    String[] opcionA;
+    String[] opcionB;
+    String[] opcionC;
+    String[] opcionD;
+    String[] respuesta;
 
 
     @Override
@@ -27,26 +38,46 @@ public class ListarUnaPregunta extends ActionBarActivity {
         final ActionBar ab = getSupportActionBar();
 
         Bundle  extras = getIntent().getExtras();
+        int idPregunta= extras.getInt("idPregunta");
         final int position = extras.getInt("position");
-        /*String tituloPregunta = getResources().getStringArray(R.array.titulo_preguntas)[position];
-        String generoPregunta = getResources().getStringArray(R.array.genero_pregunta)[position];*/
 
-        /*INDICAR TITULO Y SUBTITULO
-        if (ab != null) {
-            ab.setTitle(tituloPregunta);
-            ab.setSubtitle("Categoria : " + generoPregunta);
+        preguntas = ((AplicacionPrincipal)getApplication()).llenarPreguntasDiarias();
+        descripcion = new String[preguntas.size()];
+        categoria = new String[preguntas.size()];
+        opcionA = new String[preguntas.size()];
+        opcionB = new String[preguntas.size()];
+        opcionC =  new String[preguntas.size()];
+        opcionD =  new String[preguntas.size()];
+        respuesta =  new String[preguntas.size()];
+
+        for(int i = 0; i < preguntas.size(); i++)
+        {
+            descripcion[i] = preguntas.get(i).getDescripcion();
+            categoria[i] = preguntas.get(i).getCategoria();
+            opcionA[i] = preguntas.get(i).getOpA();
+            opcionB[i] = preguntas.get(i).getOpB();
+            opcionC[i] = preguntas.get(i).getOpC();
+            opcionD[i] = preguntas.get(i).getResp();
+            respuesta[i] = preguntas.get(i).getResp();
+
         }
 
-        txtTitulo = (TextView) findViewById(R.id.tv_titulo_listarUnaPregunta);
-        txtContenido = (TextView) findViewById(R.id.tv_contenido_ListarUnaPregunta);
-        imgImagen = (ImageView) findViewById(R.id.iv_imagen_listarUnaPregunta);
+        /*INDICAR TITULO*/
+        if (ab != null) {
+            ab.setTitle("Categoria: " +categoria[position]);
+        }
 
-        titulo = getResources().getStringArray(R.array.titulo_preguntas);
-        contenido = getResources().getStringArray(R.array.contenido_misiones);
-        imgImagen.setImageResource(R.drawable.preguntas_categoria_arte);
+        tvDescripcion = (TextView) findViewById(R.id.tv_contenido_ListarUnaPregunta);
+        btnOpcionA = (Button) findViewById(R.id.boton_opcionA);
+        btnOpcionB = (Button) findViewById(R.id.boton_opcionB);
+        btnOpcionC = (Button) findViewById(R.id.boton_opcionC);
+        btnOpcionD = (Button) findViewById(R.id.boton_opcionD);
 
-        txtTitulo.setText(titulo[position]);
-        txtContenido.setText(contenido[position]);*/
+        tvDescripcion.setText(descripcion[position]);
+        btnOpcionA.setText(opcionA[position]);
+        btnOpcionB.setText(opcionB[position]);
+        btnOpcionC.setText(opcionC[position]);
+        btnOpcionD.setText(opcionD[position]);
 
     }
 

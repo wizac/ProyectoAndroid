@@ -54,7 +54,7 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Categoria: accion"
                         android:singleLine="true"
-                        android:id="@+id/tv_titulo_lista_personalizada_pregunta"
+                        android:id="@+id/tv_categoria_lista_personalizada_pregunta"
                         android:layout_marginLeft="5dp"
                         android:textColor="#ff000000" />
 

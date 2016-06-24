@@ -12,6 +12,7 @@ public class LlenarMisionesDiarias extends BroadcastReceiver{
     public void onReceive(Context context, Intent intent) {
 
         ((AplicacionPrincipal)context.getApplicationContext()).llenarMisionesDiarias();
+        ((AplicacionPrincipal)context.getApplicationContext()).llenarPreguntasDiarias();
     }
 
 

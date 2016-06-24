@@ -91,7 +91,7 @@
                 />
 
             <Button
-                android:id="@+id/boton_boton_opcionC"
+                android:id="@+id/boton_opcionC"
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:text="C: opcion 3"
@@ -104,7 +104,7 @@
                 />
 
             <Button
-                android:id="@+id/boton_opcionC"
+                android:id="@+id/boton_opcionD"
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:text="D: opcion 4"
