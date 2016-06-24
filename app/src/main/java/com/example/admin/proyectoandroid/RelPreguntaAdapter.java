@@ -101,7 +101,7 @@ public class RelPreguntaAdapter {
         mis=sqlDB.rawQuery("select * from relPregunta",null);
         mis.moveToFirst();
 
-        do
+        while (mis.moveToNext())
         {
             clsPregunta x=new clsPregunta();
             x.setId(mis.getInt(0));
@@ -120,7 +120,7 @@ public class RelPreguntaAdapter {
             x.setInteligencia(dos.getInt(9));
 
             asd.add(x);
-        }while (mis.moveToNext());
+        };
 
         return asd;
     }

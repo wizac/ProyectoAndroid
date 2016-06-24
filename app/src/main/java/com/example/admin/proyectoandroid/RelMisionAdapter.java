@@ -107,7 +107,7 @@ public class RelMisionAdapter {
         mis=sqlDB.rawQuery("select * from relMision",null);
         mis.moveToFirst();
 
-        do
+        while (mis.moveToNext())
         {
             clsMision x=new clsMision();
             x.setId(mis.getInt(0));
@@ -122,7 +122,7 @@ public class RelMisionAdapter {
             x.setExp(dos.getInt(4));
 
             asd.add(x);
-        }while (mis.moveToNext());
+        };
 
         return asd;
     }
