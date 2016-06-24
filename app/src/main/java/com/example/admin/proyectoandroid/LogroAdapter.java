@@ -87,7 +87,7 @@ public class LogroAdapter {
     public void completarLogro(int id)
     {
 
-            sqlDB.execSQL("update logro set estado='Cumplido' where idlogro="+id);
+            sqlDB.execSQL("update logro set estado='completo' where idlogro="+id);
 
     }
 
