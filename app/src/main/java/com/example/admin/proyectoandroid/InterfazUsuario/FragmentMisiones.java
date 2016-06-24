@@ -59,7 +59,7 @@ public class FragmentMisiones extends Fragment {
             else if(progresos[i] >= 50 && progresos[i] < 80){
                 imagenes[i] = R.drawable.estrellas_2llenas_1vacias;
             }
-            else if(progresos[i] >= 80){
+            else if(progresos[i] == 100){
                 imagenes[i] = R.drawable.estrellas_3llenas_0vacias;
             }
             else{
