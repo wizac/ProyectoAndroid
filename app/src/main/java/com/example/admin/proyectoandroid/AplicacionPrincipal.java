@@ -164,6 +164,11 @@ public class AplicacionPrincipal extends Application {
         }
     }
 
+    public ArrayList<clsLogro> getLogros()
+    {
+        return dbAdapter.getDatosLogro();
+    }
+
     /*public void misionPrueba()
     {
         dbAdapter.misionprueba();

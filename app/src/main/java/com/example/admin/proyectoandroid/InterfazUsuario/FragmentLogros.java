@@ -14,32 +14,22 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.admin.proyectoandroid.AplicacionPrincipal;
 import com.example.admin.proyectoandroid.R;
+import com.example.admin.proyectoandroid.clsLogro;
+
+import java.util.ArrayList;
 
 
 public class FragmentLogros extends Fragment {
 
     ListViewAdapter adapter;
 
-    String[] titulos = new String[]{
-            "El logro más dificil",
-            "Te atreves?",
-            "El más listo",
-            "Mision imposible",
-            "El trotamundos"
-    };
-
-    int[] imagenes = new int[]{
-            R.drawable.ic_logro_ejemplo,
-            R.drawable.ic_logro_ejemplo,
-            R.drawable.ic_logro_ejemplo,
-            R.drawable.ic_logro_ejemplo,
-            R.drawable.ic_logro_ejemplo
-    };
-
-    int[] progresos = new int[]{
-            100, 50, 90, 80, 30
-    };
+    ArrayList<clsLogro> logros = new ArrayList<clsLogro>();
+    String[] titulos;
+    int[] imagenes;
+    String[] estados;
+    String[] descripciones;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,7 +38,20 @@ public class FragmentLogros extends Fragment {
 
         ListView lista = (ListView) rootView.findViewById(R.id.listView_listarLogros);
 
-        adapter = new ListViewAdapter(getContext(), titulos, imagenes, progresos);
+        logros =((AplicacionPrincipal) getActivity().getApplication()).getLogros();
+        titulos = new String[logros.size()];
+        imagenes = new int[logros.size()];
+        estados = new String[logros.size()];
+        descripciones = new String[logros.size()];
+
+        for(int i = 0; i < logros.size(); i++){
+            titulos[i] = logros.get(i).getNombre();
+            estados[i] = logros.get(i).getEstado();
+            descripciones[i] = logros.get(i).getDescripcion();
+            imagenes[i] = getResources().getIdentifier(logros.get(i).getNombreimagen().toString() , "drawable",  getActivity().getApplication().getPackageName());
+        }
+
+        adapter = new ListViewAdapter(getContext(), titulos, imagenes, estados, descripciones);
         lista.setAdapter(adapter);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -64,18 +67,21 @@ public class FragmentLogros extends Fragment {
         return rootView;
     }
     public class ListViewAdapter extends BaseAdapter {
-        // Declare Variables
+
         Context context;
         String[] titulos;
         int[] imagenes;
-        int[] progresos;
+        String[] estados;
+        String[] descripciones;
+
         LayoutInflater inflater;
 
-        public ListViewAdapter(Context context, String[] titulos, int[] imagenes, int[] progresos) {
+        public ListViewAdapter(Context context, String[] titulos, int[] imagenes, String[] estados, String[] descripciones) {
             this.context = context;
             this.titulos = titulos;
             this.imagenes = imagenes;
-            this.progresos = progresos;
+            this.estados = estados;
+            this.descripciones = descripciones;
         }
 
         @Override
@@ -95,19 +101,24 @@ public class FragmentLogros extends Fragment {
 
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            // Declare Variables
-            TextView txtTitle;
-            ImageView imgImg;
+            TextView tvTitulo;
+            ImageView ivImagen;
+            TextView tvEstado;
+            TextView tvDescripcion;
 
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             View itemView = inflater.inflate(R.layout.lista_personalizada_logros, parent, false);
 
-            imgImg = (ImageView) itemView.findViewById(R.id.imagen_lista_personalizada_logro);
-            txtTitle = (TextView) itemView.findViewById(R.id.tv_titulo_logro);
+            ivImagen = (ImageView) itemView.findViewById(R.id.imagen_lista_personalizada_logro);
+            tvTitulo = (TextView) itemView.findViewById(R.id.tv_titulo_logro);
+            tvEstado = (TextView) itemView.findViewById(R.id.tv_estado_logro);
+            tvDescripcion = (TextView) itemView.findViewById(R.id.tv_descripcion_logro);
 
-            imgImg.setImageResource(imagenes[position]);
-            txtTitle.setText(titulos[position]);
+            ivImagen.setImageResource(imagenes[position]);
+            tvTitulo.setText(titulos[position]);
+            tvEstado.setText(estados[position]);
+            tvDescripcion.setText(descripciones[position]);
 
             return itemView;
         }

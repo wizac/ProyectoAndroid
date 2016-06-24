@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.admin.proyectoandroid.AplicacionPrincipal;
 import com.example.admin.proyectoandroid.R;
@@ -79,6 +80,8 @@ public class FragmentPreguntas extends Fragment {
             }
 
         }
+
+        //Toast.makeText(getContext(),"cantidad: "+preguntas.size(),Toast.LENGTH_LONG).show();
 
         adapter = new ListViewAdapter(getContext(), categoria, imagenes, fuerza, destreza, inteligencia);
         lista.setAdapter(adapter);

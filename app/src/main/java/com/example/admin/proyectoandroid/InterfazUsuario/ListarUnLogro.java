@@ -9,13 +9,19 @@ import android.widget.TextView;
 
 import com.example.admin.proyectoandroid.AplicacionPrincipal;
 import com.example.admin.proyectoandroid.R;
+import com.example.admin.proyectoandroid.clsLogro;
+
+import java.util.ArrayList;
 
 
 public class ListarUnLogro extends ActionBarActivity {
-    private ImageView imgImagen;
-    private TextView txtTitulo, txtContenido;
-    String[] titulo;
-    String[] contenido;
+    private ImageView ivImagen;
+    private TextView tvTitulo, tvDescripcion;
+    ArrayList<clsLogro> logros = new ArrayList<clsLogro>();
+    String[] titulos;
+    int[] imagenes;
+    String[] estados;
+    String[] descripciones;
 
 
     @Override
@@ -29,25 +35,34 @@ public class ListarUnLogro extends ActionBarActivity {
 
         Bundle  extras = getIntent().getExtras();
         final int position = extras.getInt("position");
-        /*String tituloLogro = getResources().getStringArray(R.array.titulo_logros)[position];
-        String estadoLogro = getResources().getStringArray(R.array.estado_logro)[position];*/
 
-        /*INDICAR TITULO Y SUBTITULO
-        if (ab != null) {
-            ab.setTitle(tituloLogro);
-            ab.setSubtitle("Estado : " + estadoLogro);
+        logros =((AplicacionPrincipal) getApplication()).getLogros();
+        titulos = new String[logros.size()];
+        imagenes = new int[logros.size()];
+        estados = new String[logros.size()];
+        descripciones = new String[logros.size()];
+
+
+        for(int i = 0; i < logros.size(); i++){
+            titulos[i] = logros.get(i).getNombre();
+            estados[i] = logros.get(i).getEstado();
+            descripciones[i] = logros.get(i).getDescripcion();
+            imagenes[i] = getResources().getIdentifier(logros.get(i).getNombreimagen().toString() , "drawable",  getPackageName());
         }
 
-        txtTitulo = (TextView) findViewById(R.id.tv_titulo_listarUnLogro);
-        txtContenido = (TextView) findViewById(R.id.tv_contenido_ListarUnLogro);
-        imgImagen = (ImageView) findViewById(R.id.iv_imagen_listarUnLogro);
+        /*INDICAR TITULO Y SUBTITULO*/
+        if (ab != null) {
+            ab.setTitle(titulos[position]);
+            ab.setSubtitle("Estado : " + estados[position]);
+        }
 
-        titulo = getResources().getStringArray(R.array.titulo_logros);
-        contenido = getResources().getStringArray(R.array.contenido_logros);
-        imgImagen.setImageResource(R.drawable.ic_logro_ejemplo);
+        tvTitulo = (TextView) findViewById(R.id.tv_titulo_listarUnLogro);
+        tvDescripcion = (TextView) findViewById(R.id.tv_contenido_ListarUnLogro);
+        ivImagen = (ImageView) findViewById(R.id.iv_imagen_listarUnLogro);
 
-        txtTitulo.setText(titulo[position]);
-        txtContenido.setText(contenido[position]);*/
+        tvTitulo.setText(titulos[position]);
+        tvDescripcion.setText(descripciones[position]);
+        ivImagen.setImageResource(imagenes[position]);
 
     }
 
