@@ -136,7 +136,7 @@ public class FragmentMisiones extends Fragment {
             pbProgreso.setProgress(progresos[position]);
 
             if(progresos[position] == 100){
-                linearL_una_mision.setBackgroundColor(Color.parseColor("#D6E4D5"));
+                linearL_una_mision.setBackgroundColor(Color.parseColor("#D8D8D8"));
                 tvTituloProgreso.setText("Completado!");
             }
 
