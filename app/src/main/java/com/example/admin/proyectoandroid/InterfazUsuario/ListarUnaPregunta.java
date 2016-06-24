@@ -24,7 +24,6 @@ public class ListarUnaPregunta extends ActionBarActivity {
     String[] opcionA;
     String[] opcionB;
     String[] opcionC;
-    String[] opcionD;
     String[] respuesta;
 
 
@@ -47,7 +46,6 @@ public class ListarUnaPregunta extends ActionBarActivity {
         opcionA = new String[preguntas.size()];
         opcionB = new String[preguntas.size()];
         opcionC =  new String[preguntas.size()];
-        opcionD =  new String[preguntas.size()];
         respuesta =  new String[preguntas.size()];
 
         for(int i = 0; i < preguntas.size(); i++)
@@ -57,7 +55,6 @@ public class ListarUnaPregunta extends ActionBarActivity {
             opcionA[i] = preguntas.get(i).getOpA();
             opcionB[i] = preguntas.get(i).getOpB();
             opcionC[i] = preguntas.get(i).getOpC();
-            opcionD[i] = preguntas.get(i).getResp();
             respuesta[i] = preguntas.get(i).getResp();
 
         }
@@ -71,13 +68,11 @@ public class ListarUnaPregunta extends ActionBarActivity {
         btnOpcionA = (Button) findViewById(R.id.boton_opcionA);
         btnOpcionB = (Button) findViewById(R.id.boton_opcionB);
         btnOpcionC = (Button) findViewById(R.id.boton_opcionC);
-        btnOpcionD = (Button) findViewById(R.id.boton_opcionD);
 
         tvDescripcion.setText(descripcion[position]);
-        btnOpcionA.setText(opcionA[position]);
-        btnOpcionB.setText(opcionB[position]);
-        btnOpcionC.setText(opcionC[position]);
-        btnOpcionD.setText(opcionD[position]);
+        btnOpcionA.setText("A: " + opcionA[position]);
+        btnOpcionB.setText("B: " + opcionB[position]);
+        btnOpcionC.setText("C: "+opcionC[position]);
 
     }
 

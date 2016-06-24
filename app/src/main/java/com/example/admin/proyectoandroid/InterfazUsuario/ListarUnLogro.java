@@ -4,8 +4,14 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.admin.proyectoandroid.AplicacionPrincipal;
 import com.example.admin.proyectoandroid.R;
@@ -22,6 +28,11 @@ public class ListarUnLogro extends ActionBarActivity {
     int[] imagenes;
     String[] estados;
     String[] descripciones;
+
+    private ViewGroup linearLayoutDescripcion;
+    private ImageView imageViewExpand;
+
+    private static final int DURATION = 250;
 
 
     @Override
@@ -50,22 +61,46 @@ public class ListarUnLogro extends ActionBarActivity {
             imagenes[i] = getResources().getIdentifier(logros.get(i).getNombreimagen().toString() , "drawable",  getPackageName());
         }
 
-        /*INDICAR TITULO Y SUBTITULO*/
+        /*INDICAR TITULO Y SUBTITULO */
         if (ab != null) {
             ab.setTitle(titulos[position]);
             ab.setSubtitle("Estado : " + estados[position]);
         }
 
-        tvTitulo = (TextView) findViewById(R.id.tv_titulo_listarUnLogro);
-        tvDescripcion = (TextView) findViewById(R.id.tv_contenido_ListarUnLogro);
-        ivImagen = (ImageView) findViewById(R.id.iv_imagen_listarUnLogro);
 
-        tvTitulo.setText(titulos[position]);
-        tvDescripcion.setText(descripciones[position]);
-        ivImagen.setImageResource(imagenes[position]);
+        linearLayoutDescripcion = (ViewGroup) findViewById(R.id.linearLayoutDescripcionLogros);
+        imageViewExpand = (ImageView) findViewById(R.id.imagenLogros);
 
+        Toolbar toolbarCard = (Toolbar) findViewById(R.id.toolbarCard);
+        toolbarCard.setTitle(titulos[position]);
+        toolbarCard.setSubtitle("Estado: "+estados[position]);
+        imageViewExpand.setImageResource(imagenes[position]);
+    }
+
+    public void toggleDetails(View view) {
+        if (linearLayoutDescripcion.getVisibility() == View.GONE) {
+            ExpandAndCollapseViewUtil.expand(linearLayoutDescripcion, DURATION);
+            imageViewExpand.setImageResource(R.mipmap.more);
+            rotate(-180.0f);
+        } else {
+            ExpandAndCollapseViewUtil.collapse(linearLayoutDescripcion, DURATION);
+            imageViewExpand.setImageResource(R.mipmap.less);
+            rotate(180.0f);
+        }
+    }
+
+    private void rotate(float angle) {
+        Animation animation = new RotateAnimation(0.0f, angle, Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
+        animation.setFillAfter(true);
+        animation.setDuration(DURATION);
+        imageViewExpand.startAnimation(animation);
     }
 
 
 }
+
+
+
+
 
