@@ -1,6 +1,8 @@
 package com.example.admin.proyectoandroid;
 
 import android.app.Application;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -83,22 +85,21 @@ public class AplicacionPrincipal extends Application {
         ArrayList<clsMision> misiones = new ArrayList<clsMision>();
         clsMision m;
 
-        for (int i = 0; i < 5; i++)
-        {
+        boolean f = false;
+
+        for (int i = 0; i < 5; i++){
+            f = false;
             m = dbAdapter.randomMision();
-
-            for (clsMision mis: misiones) {
-
-                if(m.getId()==mis.getId())
-                {
-                    do
+            while(!f){
+                f = true;
+                m = dbAdapter.randomMision();
+                for (clsMision mis: misiones) {
+                    if(m.getId()==mis.getId())
                     {
-                        m = dbAdapter.randomMision();
+                        f = false;
                     }
-                    while(misiones.contains(m));
                 }
             }
-
             misiones.add(m);
             dbAdapter.relMisionInsert(m.getId(), dbAdapter.getDatosUsuario().getId());
         }
@@ -116,14 +117,23 @@ public class AplicacionPrincipal extends Application {
         ArrayList<clsPregunta> preguntas = new ArrayList<clsPregunta>();
         clsPregunta p;
 
-        for (int i = 0; i < 5; i++)
-        {
-            do
-            {
-                p = dbAdapter.randomPregunta();
-            }
-            while(preguntas.contains(p));
+        boolean f = false;
 
+        for (int i = 0; i < 5; i++){
+            f = false;
+            p = dbAdapter.randomPregunta();
+            while(!f){
+                f = true;
+                p = dbAdapter.randomPregunta();
+                for (int j = 0; j < preguntas.size(); j++) {
+                    //Log.d("pregunta", preguntas.get(j).getId() + "  --  " + p.getId());
+                    if(p.getId()==preguntas.get(j).getId())
+                    {
+                        //Log.d("pregunta", "NO  -  " + p.getDescripcion() );
+                        f = false;
+                    }
+                }
+            }
             preguntas.add(p);
             dbAdapter.relPreguntaInsert(p.getId(), dbAdapter.getDatosUsuario().getId());
         }
