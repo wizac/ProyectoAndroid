@@ -107,7 +107,7 @@
                     android:layout_marginBottom="20dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="8dp"
-                    android:src="@drawable/ic_email" />
+                    android:src="@drawable/icono_correcta" />
 
                     <TextView
                         android:id="@+id/texto_misiones_finalizadas"
@@ -127,6 +127,7 @@
                         android:layout_marginLeft="25dp"
                         android:layout_gravity="center_vertical"
                         android:text="0"
+                        android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <ImageView
@@ -136,7 +137,7 @@
                         android:layout_marginBottom="20dp"
                         android:layout_gravity="center"
                         android:layout_marginRight="8dp"
-                        android:src="@drawable/ic_email" />
+                        android:src="@drawable/icono_incorrecta" />
 
                     <TextView
                         android:id="@+id/texto_misiones_incompletas"
@@ -156,6 +157,7 @@
                         android:layout_marginLeft="25dp"
                         android:layout_gravity="center_vertical"
                         android:text="0"
+                        android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                     <ImageView
                         android:id="@+id/img_preguntas_superadas"
@@ -164,7 +166,7 @@
                         android:layout_marginBottom="20dp"
                         android:layout_gravity="center"
                         android:layout_marginRight="8dp"
-                        android:src="@drawable/ic_email" />
+                        android:src="@drawable/icono_correcta" />
 
                     <TextView
                         android:id="@+id/texto_preguntas_superadas"
@@ -184,6 +186,7 @@
                         android:layout_marginLeft="25dp"
                         android:layout_gravity="center_vertical"
                         android:text="0"
+                        android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <ImageView
@@ -193,7 +196,7 @@
                         android:layout_marginBottom="20dp"
                         android:layout_gravity="center"
                         android:layout_marginRight="8dp"
-                        android:src="@drawable/ic_email" />
+                        android:src="@drawable/icono_incorrecta" />
 
                     <TextView
                         android:id="@+id/texto_preguntas_fallidas"
@@ -213,6 +216,7 @@
                         android:layout_marginLeft="25dp"
                         android:layout_gravity="center_vertical"
                         android:text="0"
+                        android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
 

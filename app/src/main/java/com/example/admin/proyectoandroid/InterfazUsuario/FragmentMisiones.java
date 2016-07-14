@@ -120,6 +120,7 @@ public class FragmentMisiones extends Fragment {
             ProgressBar pbProgreso;
             LinearLayout linearL_una_mision;
             TextView tvTituloProgreso;
+            ImageView ivCompletado;
 
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -129,7 +130,7 @@ public class FragmentMisiones extends Fragment {
             ivEstrellas = (ImageView) itemView.findViewById(R.id.imagen_lista_personalizada_mision);
             pbProgreso = (ProgressBar) itemView.findViewById(R.id.progresoMision);
             linearL_una_mision = (LinearLayout) itemView.findViewById(R.id.una_mision);
-            tvTituloProgreso = (TextView) itemView.findViewById(R.id.tv_titulo_progreso);
+            ivCompletado = (ImageView) itemView.findViewById(R.id.imagen_completado);
 
             ivEstrellas.setImageResource(imagenes[position]);
             tvTitulo.setText(titulos[position]);
@@ -137,7 +138,7 @@ public class FragmentMisiones extends Fragment {
 
             if(progresos[position] == 100){
                 linearL_una_mision.setBackgroundColor(Color.parseColor("#D8D8D8"));
-                tvTituloProgreso.setText("Completado!");
+                ivCompletado.setVisibility(View.VISIBLE);
             }
 
             return itemView;

@@ -43,18 +43,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="20dp"
                         android:layout_marginRight="8dp"
-                        android:src="@drawable/ic_usuario" />
+                        android:src="@drawable/icono_lvl" />
 
                     <TextView
                         android:id="@+id/texto_nivel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginBottom="20dp"
-                        android:text="Nivel: 1"
+                        android:text="1"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
+
 
                     <ImageView
                         android:id="@+id/img_exp"
@@ -62,7 +63,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginRight="8dp"
-                        android:src="@drawable/ic_email" />
+                        android:src="@drawable/icono_exp" />
 
                     <ProgressBar
                         style="?android:attr/progressBarStyleHorizontal"
@@ -70,6 +71,7 @@
                         android:layout_height="30dp"
                         android:id="@+id/progresoExp"
                         android:layout_marginLeft="7dp"
+                        android:layout_marginTop="7dp"
                         android:progress="40"
                         android:progressBackgroundTint="#000"
                         android:indeterminateOnly="false"
@@ -108,7 +110,7 @@
                         android:layout_marginBottom="20dp"
                         android:layout_gravity="center"
                         android:layout_marginRight="8dp"
-                        android:src="@drawable/ic_email" />
+                        android:src="@drawable/icono_fuerza" />
 
                     <TextView
                         android:id="@+id/texto_fuerza"
@@ -128,6 +130,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_gravity="center_vertical"
                         android:text="0"
+                        android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <ImageView
@@ -137,7 +140,7 @@
                         android:layout_marginBottom="20dp"
                         android:layout_gravity="center"
                         android:layout_marginRight="8dp"
-                        android:src="@drawable/ic_email" />
+                        android:src="@drawable/icono_destreza" />
 
                     <TextView
                         android:id="@+id/texto_destreza"
@@ -157,14 +160,16 @@
                         android:layout_marginLeft="15dp"
                         android:layout_gravity="center_vertical"
                         android:text="0"
+                        android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
+
                     <ImageView
                         android:id="@+id/img_inteligencia"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginRight="8dp"
-                        android:src="@drawable/ic_email" />
+                        android:src="@drawable/icono_inteligencia" />
 
                     <TextView
                         android:id="@+id/texto_inteligencia"
@@ -181,6 +186,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_gravity="center_vertical"
                         android:text="0"
+                        android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
 
