@@ -1,12 +1,18 @@
 package com.example.admin.proyectoandroid.InterfazUsuario;
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.admin.proyectoandroid.AlertDialogos.DialogoCompleta;
+import com.example.admin.proyectoandroid.AlertDialogos.DialogoPerfil;
 import com.example.admin.proyectoandroid.AplicacionPrincipal;
 import com.example.admin.proyectoandroid.R;
 import com.example.admin.proyectoandroid.clsMision;
@@ -20,6 +26,7 @@ public class ListarUnaMision extends ActionBarActivity {
 
     ArrayList<clsMision> misiones = new ArrayList<clsMision>();
     private TextView txtContenido;
+    private Button btnSiguienteEtapa;
     String[] titulos;
     String[] contenidos;
 
@@ -59,6 +66,29 @@ public class ListarUnaMision extends ActionBarActivity {
         txtContenido = (TextView) findViewById(R.id.tv_contenido_ListarUnaMision);
         txtContenido.setText(contenidos[position]);
 
+        btnSiguienteEtapa = (Button) findViewById(R.id.boton_siguiente_etapa);
+        btnSiguienteEtapa.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogoCompleta();
+                    }
+                }
+
+        );
+
+    }
+
+    public void dialogoCompleta(){
+        DialogoCompleta dialogoPersonalizado = new DialogoCompleta();
+        dialogoPersonalizado.show(getSupportFragmentManager(), "personalizado");
+        dialogoPersonalizado.setStyle(DialogFragment.STYLE_NO_TITLE, R.style.DialogTransparente);
+        dialogoPersonalizado.setCancelable(false);
+        android.app.Fragment frag = getFragmentManager().findFragmentByTag("personalizado");
+
+        if (frag != null) {
+            getFragmentManager().beginTransaction().remove(frag).commit();
+        }
     }
 
 

@@ -38,13 +38,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="230dp"
                 android:layout_margin="10dp"
+                android:orientation="vertical"
                 android:background="@drawable/post_it_azul">
 
                 <TextView
                     android:id="@+id/texto_etapas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:text="Etapa 0/0"
                     android:textStyle="bold"
                     android:background="@drawable/background_etapas"
@@ -57,10 +57,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="30dp"
-                    android:textSize="19dp"
-                    android:text="Lorem Ipsum es simplemente el texto de relleno de las imprentas"
+                    android:textSize="18dp"
+                    android:text="Lorem Ipsum es simplemente el texto de relleno de las imprentas y lo que escribo ahora no tiene sentido solo es relleno para ver como se comporta el LinearLayout ante un texto largo "
                     android:fontFamily="arial"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:scrollbars = "vertical"/>
 
             </LinearLayout>
 
@@ -72,7 +73,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/boton_siguiente"
+                android:background="@drawable/boton_completa"
                 android:textColor="#fff"
                 android:textSize="25dp"/>
 
@@ -83,7 +84,7 @@
                 android:text="ABANDONAR ETAPA"
                 android:layout_marginBottom="5dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/boton_siguiente"
+                android:background="@drawable/boton_completa"
                 android:textColor="#fff"
                 android:textSize="25dp"/>
 

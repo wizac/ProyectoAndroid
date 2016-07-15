@@ -48,10 +48,11 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:padding="40dp"
-                        android:textSize="19dp"
+                        android:textSize="18dp"
                         android:text="Lorem Ipsum es simplemente el texto de relleno de las imprentas"
                         android:fontFamily="arial"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:scrollbars = "vertical"/>
 
             </LinearLayout>
 
@@ -64,7 +65,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:text="A: "
-                android:background="@drawable/boton_siguiente"
+                android:background="@drawable/boton_completa"
                 android:textColor="#fff"
                 android:textSize="15dp"
                 />
@@ -77,7 +78,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="5dp"
                 android:text="B: "
-                android:background="@drawable/boton_siguiente"
+                android:background="@drawable/boton_completa"
                 android:textColor="#fff"
                 android:textSize="15dp"
                 />
@@ -90,7 +91,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="5dp"
                 android:text="C: "
-                android:background="@drawable/boton_siguiente"
+                android:background="@drawable/boton_completa"
                 android:textColor="#fff"
                 android:textSize="15dp"
                 />

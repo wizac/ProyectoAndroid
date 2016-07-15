@@ -2,6 +2,7 @@ package com.example.admin.proyectoandroid.InterfazUsuario;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.admin.proyectoandroid.AlertDialogos.DialogoPerfil;
+import com.example.admin.proyectoandroid.AplicacionPrincipal;
 import com.example.admin.proyectoandroid.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
             prepararDrawer(navigationView);
             // Seleccionar item por defecto
             seleccionarItem(navigationView.getMenu().getItem(0).getItemId());
+        }
+
+        if(((AplicacionPrincipal)getApplication()).getMisionesActivas().size() == 0) {
+            dialogoPerfil();
         }
     }
 
@@ -129,6 +136,18 @@ public class MainActivity extends AppCompatActivity {
             seleccionarItem(R.id.opcion_inicio);
         } else {
             moveTaskToBack(true);
+        }
+    }
+
+    public void dialogoPerfil(){
+        DialogoPerfil dialogoPersonalizado = new DialogoPerfil();
+        dialogoPersonalizado.show(getSupportFragmentManager(), "personalizado");
+        dialogoPersonalizado.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+        dialogoPersonalizado.setCancelable(false);
+        android.app.Fragment frag = getFragmentManager().findFragmentByTag("personalizado");
+
+        if (frag != null) {
+            getFragmentManager().beginTransaction().remove(frag).commit();
         }
     }
 }
