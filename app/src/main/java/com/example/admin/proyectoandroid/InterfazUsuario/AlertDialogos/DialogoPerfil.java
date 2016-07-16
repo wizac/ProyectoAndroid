@@ -30,7 +30,7 @@ public class DialogoPerfil extends DialogFragment  {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ((AplicacionPrincipal)getActivity().getApplication()).insertarUsuario(usuario.getText().toString());
+                        ((AplicacionPrincipal)getActivity().getApplication()).insertarUsuario(usuario.getText().toString(), email.getText().toString());
                         if(((AplicacionPrincipal)getActivity().getApplication()).getUsuario() != null){
                             Toast.makeText(getActivity(), "PERFIL CREADO", Toast.LENGTH_LONG).show();
                         }

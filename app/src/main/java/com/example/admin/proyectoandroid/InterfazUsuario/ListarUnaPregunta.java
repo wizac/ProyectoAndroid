@@ -87,6 +87,7 @@ public class ListarUnaPregunta extends ActionBarActivity {
                     @Override
                     public void onClick(View v) {
                         if (respuesta[position] == opcionA[position]) {
+                            Toast.makeText(getApplication(),respuesta[position] +" - " + opcionA[position],Toast.LENGTH_LONG).show();
                             btnOpcionA.setBackgroundResource(R.drawable.boton_correcto);
                             btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
                             btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);

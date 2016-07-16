@@ -8,7 +8,7 @@
     android:padding="24dp">
 
         <TextView
-            android:id="@+id/info_text"
+            android:id="@+id/tv_titulo_dialog_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -27,7 +27,7 @@
             android:background="#C8C9CB" />
 
         <EditText
-            android:id="@+id/campo"
+            android:id="@+id/campo_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

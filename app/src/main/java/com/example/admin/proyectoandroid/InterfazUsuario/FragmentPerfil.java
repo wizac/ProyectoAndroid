@@ -2,6 +2,7 @@ package com.example.admin.proyectoandroid.InterfazUsuario;
 
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.admin.proyectoandroid.AplicacionPrincipal;
+import com.example.admin.proyectoandroid.InterfazUsuario.AlertDialogos.DialogoPerfil;
 import com.example.admin.proyectoandroid.R;
 import com.example.admin.proyectoandroid.clsUsuario;
 
@@ -40,4 +42,16 @@ public class FragmentPerfil extends Fragment {
 
         return view;
     }
+
+    /*public void dialogoEditarNombre(){
+        DialogoPerfil dialogoPersonalizado = new DialogoPerfil();
+        dialogoPersonalizado.show(getFragmentManager(), "personalizado");
+        dialogoPersonalizado.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+        dialogoPersonalizado.setCancelable(false);
+        android.app.Fragment frag = getActivity().getFragmentManager().findFragmentByTag("personalizado");
+
+        if (frag != null) {
+            getFragmentManager().beginTransaction().remove(frag).commit();
+        }
+    }*/
 }
