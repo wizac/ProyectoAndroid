@@ -2,21 +2,16 @@ package com.example.admin.proyectoandroid.InterfazUsuario;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.admin.proyectoandroid.AlertDialogos.DialogoCompleta;
-import com.example.admin.proyectoandroid.AlertDialogos.DialogoPerfil;
+import com.example.admin.proyectoandroid.InterfazUsuario.AlertDialogos.DialogoCompleta;
 import com.example.admin.proyectoandroid.AplicacionPrincipal;
 import com.example.admin.proyectoandroid.R;
 import com.example.admin.proyectoandroid.clsMision;
