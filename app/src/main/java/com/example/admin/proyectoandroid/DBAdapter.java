@@ -72,13 +72,11 @@ public class DBAdapter {
 
         return relPreguntaA.insert(idpregunta,idusuario);
     }
-    public boolean usuarioInsert(String nombre)
+    public boolean usuarioInsert(String nombre,String email)
     {
 
-        return usuarioA.insert(nombre, 0, 0, 0, 0, 0, 0);
+        return usuarioA.insert(nombre, 0, 0, 0, 0, 0, 0, email, 0, 0, 0, 0);
     }
-
-
 
     //usuarios
 
@@ -87,10 +85,8 @@ public class DBAdapter {
         Cursor x=usuarioA.getNombres();
         clsUsuario y= new clsUsuario();
 
-
         //y.setNombre(x.getString(1)); ******************* CORREGIR EL CURSOS ESTA VACIO **********************
         y.setNombre("pablo");
-
 
         return y;
     }
@@ -108,11 +104,19 @@ public class DBAdapter {
         y.setFuerza(x.getInt(5));
         y.setDestreza(x.getInt(6));
         y.setInteligencia(x.getInt(7));
+        y.setEmail(x.getString(8));
+        y.setMisionesCompletas(x.getInt(9));
+        y.setMisionesFallidas(x.getInt(10));
+        y.setPreguntasSuperadas(x.getInt(11));
+        y.setPreguntasIncorrectas(x.getInt(12));
 
         return y;
     }
 
-
+    public void aumentarEstadisticas(String misionOpregunta, String superadaOfallida)
+    {
+        usuarioA.aumentarEstadisticas(misionOpregunta,superadaOfallida);
+    }
 
     public boolean borrarUsuario(int id)
     {
@@ -327,10 +331,10 @@ public class DBAdapter {
 
      return asd;
  }
-    public void misionprueba()
+    /*public void misionprueba()
     {
         misionA.misionprueba();
-    }
+    }*/
 
     private class DBHelper extends SQLiteOpenHelper {
         public DBHelper(Context context)
@@ -372,9 +376,7 @@ public class DBAdapter {
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('Nivel 50','LLega a nivel 50','incompleto','nivel_50_u')");
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('Nivel 100','LLega a nivel 100','incompleto','nivel_100_u')");
 
-
-
-            db.execSQL("insert into usuario values(0, 'pablo', 1, 0, 0, 0, 0, 0)");
+            //db.execSQL("insert into usuario values(0, 'pablo', 1, 0, 0, 0, 0, 0)");
         }
         @Override
         public void onUpgrade(SQLiteDatabase db,int oldVersion,int newVersion)

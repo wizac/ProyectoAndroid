@@ -27,11 +27,16 @@ public class UsuarioAdapter {
         public final static String FUERZA="fuerza";
         public final static String DESTREZA="destreza";
         public final static String INTELIGENCIA="inteligencia";
+        public final static String EMAIL="email";
+        public final static String MISIONESCOMPLETAS="misionesCompletas";
+        public final static String MISIONESFALLIDAS="misionesFallidas";
+        public final static String PREGUNTASSUPERADAS="preguntasSuperadas";
+        public final static String PREGUNTASINCORRECTAS="preguntasIncorrectas";
     }
 
     private final static String[] COLUMNS= {
 
-            Columns.ID,Columns.NOMBRE,Columns.NIVEL,Columns.EXP,Columns.NMISIONES,Columns.FUERZA,Columns.DESTREZA,Columns.INTELIGENCIA
+            Columns.ID,Columns.NOMBRE,Columns.NIVEL,Columns.EXP,Columns.NMISIONES,Columns.FUERZA,Columns.DESTREZA,Columns.INTELIGENCIA,Columns.EMAIL,Columns.MISIONESCOMPLETAS,Columns.MISIONESFALLIDAS,Columns.PREGUNTASSUPERADAS,Columns.PREGUNTASINCORRECTAS
     };
 
     public final static String CR_TABLE="create table if not exists " +
@@ -42,9 +47,14 @@ public class UsuarioAdapter {
             +Columns.NMISIONES+" integer not null, "
             +Columns.FUERZA+" integer not null, "
             +Columns.DESTREZA+" integer not null, "
-            +Columns.INTELIGENCIA+" integer not null)";
+            +Columns.INTELIGENCIA+" integer not null, "
+            +Columns.EMAIL+" text not null, "
+            +Columns.MISIONESCOMPLETAS+" integer not null, "
+            +Columns.MISIONESFALLIDAS+" integer not null, "
+            +Columns.PREGUNTASSUPERADAS+" integer not null, "
+            +Columns.PREGUNTASINCORRECTAS+" integer not null)";
 
-    public boolean insert(String nombre,int nivel,int exp,int nmisiones,int fuerza,int destreza,int inteligencia)
+    public boolean insert(String nombre,int nivel,int exp,int nmisiones,int fuerza,int destreza,int inteligencia,String email,int misionesCompletas,int misionesFallidas,int preguntasSuperadas,int preguntasIncorrectas)
     {
         ContentValues Values=new ContentValues();
         Values.put(Columns.NOMBRE,nombre);
@@ -54,6 +64,11 @@ public class UsuarioAdapter {
         Values.put(Columns.FUERZA,fuerza);
         Values.put(Columns.DESTREZA,destreza);
         Values.put(Columns.INTELIGENCIA,inteligencia);
+        Values.put(Columns.EMAIL,email);
+        Values.put(Columns.MISIONESCOMPLETAS,misionesCompletas);
+        Values.put(Columns.MISIONESFALLIDAS,misionesFallidas);
+        Values.put(Columns.PREGUNTASSUPERADAS,preguntasSuperadas);
+        Values.put(Columns.PREGUNTASINCORRECTAS,preguntasIncorrectas);
 
         return sqlDB.insert(NAME,null,Values)>0;
     }
@@ -108,6 +123,44 @@ public class UsuarioAdapter {
     }
 
 
+    }
+
+    public void aumentarEstadisticas(String misionOpregunta, String superadoOfallido){
+        int id=0;
+        int mS=0;
+        int mF=0;
+        int pS=0;
+        int pF=0;
+
+        Cursor var;
+        var= sqlDB.query(NAME,COLUMNS,null,null,null,null,null);
+
+        if (var.moveToFirst()) {
+            //me muevo al usuario que solo deberia haber uno
+            id = var.getInt(0);
+            mS = var.getInt(9);
+            mF = var.getInt(10);
+            pS = var.getInt(11);
+            pF = var.getInt(12);
+
+            if (misionOpregunta == "M") {
+                if (superadoOfallido == "S") {
+                    mS += 1;
+                    sqlDB.execSQL("update usuario set misionesCompletas=" + mS + " where idusuario=" + id);
+                }else {
+                    mF += 1;
+                    sqlDB.execSQL("update usuario set misionesFallidas=" + mF + " where idusuario=" + id);
+                }
+            }else{
+                if (superadoOfallido == "S") {
+                    pS += 1;
+                    sqlDB.execSQL("update usuario set preguntasSuperadas=" + pS + " where idusuario=" + id);
+                }else {
+                    pF += 1;
+                    sqlDB.execSQL("update usuario set misionesIncorrectas=" + pF + " where idusuario=" + id);
+                }
+            }
+        }
     }
 
     public void subirExp(int exp)

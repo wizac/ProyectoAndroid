@@ -151,11 +151,11 @@ public class MisionAdapter {
         return asd;
     }
 
-    public void misionprueba()
+    /*public void misionprueba()
     {
         sqlDB.execSQL(CR_TABLE);
         sqlDB.execSQL("insert into mision values(1,'texto','mas texto',5)");
-    }
+    }*/
 
     public void completarMision(String attr)
     {

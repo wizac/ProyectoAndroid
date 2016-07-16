@@ -13,6 +13,11 @@ public class clsUsuario {
     private int exp;
     private int nivel;
     private int nmisiones;
+    private String email;
+    private int misionesCompletas;
+    private int misionesFallidas;
+    private int preguntasSuperadas;
+    private int preguntasIncorrectas;
 
     public int getId() {
         return id;
@@ -78,12 +83,51 @@ public class clsUsuario {
         this.nmisiones = nmisiones;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getMisionesCompletas() {
+        return misionesCompletas;
+    }
+
+    public void setMisionesCompletas(int misionesCompletas) {
+        this.misionesCompletas = misionesCompletas;
+    }
+
+    public int getMisionesFallidas() {
+        return misionesFallidas;
+    }
+
+    public void setMisionesFallidas(int misionesFallidas) {
+        this.misionesFallidas = misionesFallidas;
+    }
+
+    public int getPreguntasSuperadas() {
+        return preguntasSuperadas;
+    }
+
+    public void setPreguntasSuperadas(int preguntasSuperadas) {
+        this.preguntasSuperadas = preguntasSuperadas;
+    }
+
+    public int getPreguntasIncorrectas() {
+        return preguntasIncorrectas;
+    }
+
+    public void setPreguntasIncorrectas(int preguntasIncorrectas) {
+        this.preguntasIncorrectas = preguntasIncorrectas;
+    }
     public clsUsuario()
     {
 
     }
 
-    public clsUsuario(int id,int fuerza,int destreza,int inteligencia,int nmisiones,int exp,int nivel,String nombre)
+    public clsUsuario(int id,int fuerza,int destreza,int inteligencia,int nmisiones,int exp,int nivel,String nombre,String email,int misionesCompletas,int misionesFallidas,int preguntasSuperadas,int preguntasIncorrectas)
     {
         this.id=id;
         this.fuerza=fuerza;
@@ -93,5 +137,10 @@ public class clsUsuario {
         this.exp=exp;
         this.nombre=nombre;
         this.nivel=nivel;
+        this.email=email;
+        this.misionesCompletas=misionesCompletas;
+        this.misionesFallidas=misionesFallidas;
+        this.preguntasSuperadas=preguntasSuperadas;
+        this.preguntasIncorrectas=preguntasIncorrectas;
     }
 }
