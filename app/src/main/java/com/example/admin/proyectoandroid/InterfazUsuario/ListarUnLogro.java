@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,9 +63,11 @@ public class ListarUnLogro extends ActionBarActivity {
             imagenes[i] = getResources().getIdentifier(logros.get(i).getNombreimagen().toString()+"_grande" , "drawable",  getPackageName());
         }
 
-        /*INDICAR TITULO Y SUBTITULO */
+        /*INDICAR TITULO, SUBTITULO Y AGREGAR ICONO HOME ATRAS*/
         if (ab != null) {
             ab.setTitle(titulos[position]);
+            ab.setHomeAsUpIndicator(R.drawable.icono_atras_2);
+            ab.setDisplayHomeAsUpEnabled(true);
         }
 
 
@@ -100,6 +103,23 @@ public class ListarUnLogro extends ActionBarActivity {
         animation.setFillAfter(true);
         animation.setDuration(DURATION);
         imageViewExpandir.startAnimation(animation);
+    }
+
+
+    // Metodo para asignar el menu al actionbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

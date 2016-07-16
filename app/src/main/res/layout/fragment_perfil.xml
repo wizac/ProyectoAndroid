@@ -32,50 +32,83 @@
                 card_view:cardCornerRadius="2dp"
                 card_view:cardUseCompatPadding="true">
 
-                <GridLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:columnCount="2"
-                    android:padding="16dp"
-                    android:rowCount="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/img_usuario"
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginRight="8dp"
-                        android:src="@drawable/ic_usuario" />
+                        android:orientation="horizontal"
+                        android:padding="12dp">
 
-                    <TextView
-                        android:id="@+id/texto_usuario"
+                        <ImageView
+                            android:id="@+id/imagen_usuario"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="8dp"
+                            android:src="@drawable/ic_usuario" />
+
+                        <TextView
+                            android:id="@+id/texto_nombre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_toRightOf="@+id/imagen_usuario"
+                            android:text="Nombre"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <ImageView
+                            android:id="@+id/icono_indicador_derecho_nombre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/indicador_derecho" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginBottom="20dp"
-                        android:text="Nombre"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                        android:orientation="horizontal"
+                        android:padding="12dp">
 
-                    <ImageView
-                        android:id="@+id/img_email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="8dp"
-                        android:src="@drawable/ic_email" />
+                        <ImageView
+                            android:id="@+id/imagen_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="8dp"
+                            android:src="@drawable/ic_email" />
 
-                    <TextView
-                        android:id="@+id/texto_email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:layout_gravity="center_vertical"
-                        android:text="email@gmail.com"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                        <TextView
+                            android:id="@+id/texto_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_toRightOf="@+id/imagen_email"
+                            android:text="email@email.com"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                </GridLayout>
+                        <ImageView
+                            android:id="@+id/icono_indicador_derecho_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/indicador_derecho" />
+
+                    </RelativeLayout>
+                </LinearLayout>
             </android.support.v7.widget.CardView>
 
             <TextView

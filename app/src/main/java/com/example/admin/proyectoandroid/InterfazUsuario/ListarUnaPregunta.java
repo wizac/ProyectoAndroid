@@ -5,6 +5,8 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -64,9 +66,11 @@ public class ListarUnaPregunta extends ActionBarActivity {
 
         }
 
-        /*INDICAR TITULO*/
+        /*INDICAR TITULO Y AGREGAR ICONO HOME ATRAS*/
         if (ab != null) {
             ab.setTitle("Categoria: " +categoria[position]);
+            ab.setHomeAsUpIndicator(R.drawable.icono_atras_2);
+            ab.setDisplayHomeAsUpEnabled(true);
         }
 
         tvDescripcion = (TextView) findViewById(R.id.tv_contenido_ListarUnaPregunta);
@@ -99,6 +103,22 @@ public class ListarUnaPregunta extends ActionBarActivity {
 
         );
 
+    }
+
+    // Metodo para asignar el menu al actionbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void dialogoCorrecta(){

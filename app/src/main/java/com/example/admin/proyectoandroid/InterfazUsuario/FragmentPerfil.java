@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.admin.proyectoandroid.AplicacionPrincipal;
@@ -24,7 +25,7 @@ public class FragmentPerfil extends Fragment {
 
         usuario = ((AplicacionPrincipal)getActivity().getApplication()).getUsuario();
 
-        TextView tvNombre = (TextView) view.findViewById(R.id.texto_usuario);
+        TextView tvNombre = (TextView) view.findViewById(R.id.texto_nombre);
         TextView tvEmail = (TextView) view.findViewById(R.id.texto_email);
         TextView tvMisionesFinalizadas = (TextView) view.findViewById(R.id.valor_misiones_finalizadas);
         TextView tvMisionesIncompletas = (TextView) view.findViewById(R.id.valor_misiones_incompletas);

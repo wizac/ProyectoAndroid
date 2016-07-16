@@ -2,9 +2,13 @@ package com.example.admin.proyectoandroid.InterfazUsuario;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -57,10 +61,12 @@ public class ListarUnaMision extends ActionBarActivity {
         // CORREGIR
         String dificultadMision = "normal";
 
-        /*INDICAR TITULO Y SUBTITULO*/
+        /*INDICAR TITULO, SUBTITULO Y AGREGAR ICONO HOME ATRAS*/
         if (ab != null) {
             ab.setTitle(tituloMision);
             ab.setSubtitle("Dificultad: " + dificultadMision);
+            ab.setHomeAsUpIndicator(R.drawable.icono_atras_2);
+            ab.setDisplayHomeAsUpEnabled(true);
         }
 
         txtContenido = (TextView) findViewById(R.id.tv_contenido_ListarUnaMision);
@@ -79,6 +85,22 @@ public class ListarUnaMision extends ActionBarActivity {
 
     }
 
+    // Metodo para asignar el menu al actionbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void dialogoCompleta(){
         DialogoCompleta dialogoPersonalizado = new DialogoCompleta();
         dialogoPersonalizado.show(getSupportFragmentManager(), "personalizado");
@@ -90,7 +112,6 @@ public class ListarUnaMision extends ActionBarActivity {
             getFragmentManager().beginTransaction().remove(frag).commit();
         }
     }
-
 
 }
 

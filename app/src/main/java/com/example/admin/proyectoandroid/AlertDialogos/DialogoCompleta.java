@@ -31,6 +31,7 @@ public class DialogoCompleta extends DialogFragment  {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        getActivity().onBackPressed();
                         Toast.makeText(getActivity(), "Dialogo mision completa", Toast.LENGTH_LONG).show();
                         dismiss();
                     }
