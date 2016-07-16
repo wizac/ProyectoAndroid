@@ -43,6 +43,7 @@ public class AplicacionPrincipal extends Application {
         {
             dbAdapter.aumentarExp(m.getExp());
             dbAdapter.aumentarProgreso(idMision, cantidad);
+            dbAdapter.aumentarEstadisticas("M","S");
             
             if(dbAdapter.getDatosUsuario().getExp() >= (dbAdapter.getDatosUsuario().getNivel()*10+(dbAdapter.getDatosUsuario().getNivel()%10)*10))
             {
@@ -163,13 +164,19 @@ public class AplicacionPrincipal extends Application {
             dbAdapter.aumentarExp(10);
             dbAdapter.completarPregunta(pregunta);
             dbAdapter.borrarRelPregunta(pregunta.getId());
+            dbAdapter.aumentarEstadisticas("P","S");
             return true;
         }
         else
         {
             dbAdapter.borrarRelPregunta(pregunta.getId());
+            dbAdapter.aumentarEstadisticas("P","F");
             return false;
         }
+    }
+
+    public void registrarMisionFallida(){
+        dbAdapter.aumentarEstadisticas("M","F");
     }
 
     public ArrayList<clsLogro> getLogros()
@@ -177,8 +184,8 @@ public class AplicacionPrincipal extends Application {
         return dbAdapter.getDatosLogro();
     }
 
-    public void insertarUsuario(String nombre){
-        dbAdapter.usuarioInsert(nombre);
+    public void insertarUsuario(String nombre,String email){
+        dbAdapter.usuarioInsert(nombre, email);
     }
 
     /*public void misionPrueba()
