@@ -27,7 +27,7 @@ public class DialogoIncorrecta extends DialogFragment  {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getActivity(), "Dialogo pregunta incorrecta", Toast.LENGTH_LONG).show();
+                        getActivity().onBackPressed();
                         dismiss();
                     }
                 }
