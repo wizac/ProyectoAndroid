@@ -43,7 +43,7 @@ public class AplicacionPrincipal extends Application {
         {
             dbAdapter.aumentarExp(m.getExp());
             dbAdapter.aumentarProgreso(idMision, cantidad);
-            dbAdapter.aumentarEstadisticas("M","S");
+            dbAdapter.aumentarEstadisticas("M", "S");
             
             if(dbAdapter.getDatosUsuario().getExp() >= (dbAdapter.getDatosUsuario().getNivel()*10+(dbAdapter.getDatosUsuario().getNivel()%10)*10))
             {
@@ -53,7 +53,7 @@ public class AplicacionPrincipal extends Application {
             }
 
             dbAdapter.completarMision(m.getTipo());
-            dbAdapter.borrarRelMision(m.getId());
+            //dbAdapter.borrarRelMision(m.getId());
 
             return false;
         }
@@ -163,13 +163,15 @@ public class AplicacionPrincipal extends Application {
         {
             dbAdapter.aumentarExp(10);
             dbAdapter.completarPregunta(pregunta);
-            dbAdapter.borrarRelPregunta(pregunta.getId());
+            //dbAdapter.borrarRelPregunta(pregunta.getId());
+            dbAdapter.cambiarEstadoPregunta(pregunta.getId(),"C");
             dbAdapter.aumentarEstadisticas("P","S");
             return true;
         }
         else
         {
-            dbAdapter.borrarRelPregunta(pregunta.getId());
+            //dbAdapter.borrarRelPregunta(pregunta.getId());
+            dbAdapter.cambiarEstadoPregunta(pregunta.getId(),"I");
             dbAdapter.aumentarEstadisticas("P","F");
             return false;
         }

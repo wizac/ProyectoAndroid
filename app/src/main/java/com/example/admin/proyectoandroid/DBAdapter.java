@@ -59,7 +59,7 @@ public class DBAdapter {
     public boolean preguntaInsert(clsPregunta a)
     {
 
-       return preguntasA.insert(a.getDescripcion(),a.getOpA(),a.getOpB(),a.getOpC(),a.getResp(),a.getCategoria(),a.getFuerza(),a.getDestreza(),a.getInteligencia());
+       return preguntasA.insert(a.getDescripcion(),a.getOpA(),a.getOpB(),a.getOpC(),a.getResp(),a.getCategoria(),a.getFuerza(),a.getDestreza(),a.getInteligencia(),a.getEstado());
     }
 
     public boolean relMisionInsert(int idmision,int idusuario)
@@ -74,8 +74,9 @@ public class DBAdapter {
     }
     public boolean usuarioInsert(String nombre,String email)
     {
+        usuarioA.registrarUsuario(nombre,email);
 
-        return usuarioA.insert(nombre, 0, 0, 0, 0, 0, 0, email, 0, 0, 0, 0);
+        return true;
     }
 
     //usuarios
@@ -324,13 +325,17 @@ public class DBAdapter {
         preguntasA.completarPregunta(pr);
     }
 
- public clsMision buscarMisionPorId(int id)
- {
-     clsMision asd=new clsMision();
-     asd=misionA.buscarMisionPorId(id);
+    public clsMision buscarMisionPorId(int id)
+    {
+        clsMision asd=new clsMision();
+        asd=misionA.buscarMisionPorId(id);
 
-     return asd;
- }
+        return asd;
+    }
+
+    public void cambiarEstadoPregunta(int id,String estado){
+        preguntasA.cambiarEstado(id,estado);
+    }
     /*public void misionprueba()
     {
         misionA.misionprueba();
@@ -362,12 +367,12 @@ public class DBAdapter {
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(2,'Piedra, papel o tijeras','Juega piedra, papel o tijeras con alguien y ganale 2 veces',50,'D')");
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(100,'Cara o cruz','Tira una modena y saca 5 caras, no deberia ser muy dificil...',20,'D')");
 
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta1', 'opcionA', 'opcionB', 'opcionC', 'opcionA', 'historia',1,1,1)");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta2?', 'si', 'no', 'tal vez', 'no', 'deporte',2,2,2)");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta3?', 'A', 'B', 'C', 'B', 'arte',3,3,3)");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta4?', 'A', 'B', 'C', 'A', 'entretenimiento',1,0,1)");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta5?', 'A', 'B', 'C', 'C', 'arte',0,0,1)");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta6', 'A', 'B', 'C', 'A', 'deporte',4,0,0)");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta1', 'opcionA', 'opcionB', 'opcionC', 'opcionA', 'historia',1,1,1,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta2?', 'si', 'no', 'tal vez', 'no', 'deporte',2,2,2,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta3?', 'A', 'B', 'C', 'B', 'arte',3,3,3,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta4?', 'A', 'B', 'C', 'A', 'entretenimiento',1,0,1,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta5?', 'A', 'B', 'C', 'C', 'arte',0,0,1,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta6', 'A', 'B', 'C', 'A', 'deporte',4,0,0,'P')");
 
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El caballero','Llegar a tener mil puntos de fuerza','completo','el_caballero')");
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El cazador','Llegar a tener mil puntos de destreza','incompleto','el_cazador_u')");
@@ -376,7 +381,7 @@ public class DBAdapter {
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('Nivel 50','LLega a nivel 50','incompleto','nivel_50_u')");
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('Nivel 100','LLega a nivel 100','incompleto','nivel_100_u')");
 
-            //db.execSQL("insert into usuario values(0, 'pablo', 1, 0, 0, 0, 0, 0)");
+            db.execSQL("insert into usuario values(0, 'pablo', 1, 0, 0, 0, 0, 0, '', 0, 0, 0, 0)");
         }
         @Override
         public void onUpgrade(SQLiteDatabase db,int oldVersion,int newVersion)

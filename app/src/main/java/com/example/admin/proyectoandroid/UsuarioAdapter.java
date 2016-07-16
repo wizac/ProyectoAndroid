@@ -177,4 +177,16 @@ public class UsuarioAdapter {
             sqlDB.execSQL("update usuario set exp="+xp +"where idusuario=" + id);
         }
     }
+
+    public void registrarUsuario(String nombre, String email){
+        int id=0;
+        Cursor var;
+        var= sqlDB.query(NAME,COLUMNS,null,null,null,null,null);
+
+        if (var.moveToFirst()) {
+            id= var.getInt(0);
+
+            sqlDB.execSQL("update usuario set nombre='"+ nombre +"', email='"+ email +"' where idusuario=" + id);
+        }
+    }
 }

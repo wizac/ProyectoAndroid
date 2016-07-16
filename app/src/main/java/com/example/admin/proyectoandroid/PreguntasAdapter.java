@@ -33,12 +33,13 @@ public class PreguntasAdapter {
         public final static String FUERZA="fuerza";
         public final static String DESTREZA="destreza";
         public final static String INTELIGENCIA="inteligencia";
+        public final static String ESTADO="estado";
 
     }
 
     private final static String[] COLUMNS= {
 
-            Columns.ID,Columns.DESCRIPCION,Columns.OPCIONA,Columns.OPCIONB,Columns.OPCIONC,Columns.RESPUESTA,Columns.CATEGORIA,Columns.FUERZA,Columns.DESTREZA,Columns.INTELIGENCIA
+            Columns.ID,Columns.DESCRIPCION,Columns.OPCIONA,Columns.OPCIONB,Columns.OPCIONC,Columns.RESPUESTA,Columns.CATEGORIA,Columns.FUERZA,Columns.DESTREZA,Columns.INTELIGENCIA,Columns.ESTADO
     };
 
     public final static String CR_TABLE="create table if not exists " +
@@ -51,10 +52,11 @@ public class PreguntasAdapter {
             +Columns.CATEGORIA+" text not null, "
             +Columns.FUERZA+" integer not null, "
             +Columns.DESTREZA+" integer not null, "
-            +Columns.INTELIGENCIA+" integer not null)";
+            +Columns.INTELIGENCIA+" integer not null, "
+            +Columns.ESTADO+" text not null)";
 
 
-    public boolean insert(String desc,String opciona, String opcionb,String opcionc,String respuesta,String categoria,int fuerza,int destreza,int inteligencia)
+    public boolean insert(String desc,String opciona, String opcionb,String opcionc,String respuesta,String categoria,int fuerza,int destreza,int inteligencia,String estado)
     {
         ContentValues Values=new ContentValues();
 
@@ -67,6 +69,7 @@ public class PreguntasAdapter {
         Values.put(Columns.FUERZA,fuerza);
         Values.put(Columns.DESTREZA,destreza);
         Values.put(Columns.INTELIGENCIA,inteligencia);
+        Values.put(Columns.ESTADO,estado);
 
         return sqlDB.insert(NAME,null,Values)>0;
     }
@@ -126,7 +129,7 @@ public class PreguntasAdapter {
 
         mis.moveToPosition(rand);
 
-        clsPregunta c =new clsPregunta(mis.getInt(0),mis.getString(1),mis.getString(2),mis.getString(3),mis.getString(4),mis.getString(5),mis.getString(6),mis.getInt(7),mis.getInt(8),mis.getInt(9));
+        clsPregunta c =new clsPregunta(mis.getInt(0),mis.getString(1),mis.getString(2),mis.getString(3),mis.getString(4),mis.getString(5),mis.getString(6),mis.getInt(7),mis.getInt(8),mis.getInt(9),mis.getString(10));
 
         return c;
     }
@@ -142,6 +145,10 @@ public class PreguntasAdapter {
         sqlDB.execSQL("update usuario set fuerza=fuerza+"+pr.getFuerza());
         sqlDB.execSQL("update usuario set destreza=destreza+"+pr.getDestreza());
         sqlDB.execSQL("update usuario set inteligencia=inteligencia+"+pr.getInteligencia());
+    }
+
+    public void cambiarEstado(int id,String estado){
+        sqlDB.execSQL("update pregunta set estado='" + estado + "' where idpregunta=" + id);
     }
 
 }

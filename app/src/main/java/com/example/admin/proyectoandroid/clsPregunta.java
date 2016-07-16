@@ -15,6 +15,15 @@ public class clsPregunta {
         private int fuerza;
         private int destreza;
         private int inteligencia;
+    private String estado;
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
     public int getFuerza() {
         return fuerza;
@@ -101,7 +110,7 @@ public class clsPregunta {
 
     }
 
-    public clsPregunta(int id,String desc,String a,String b,String c,String resp,String categoria,int fuerza,int destreza,int inteligencia)
+    public clsPregunta(int id,String desc,String a,String b,String c,String resp,String categoria,int fuerza,int destreza,int inteligencia,String estado)
     {
         this.id=id;
         this.descripcion=desc;
@@ -113,6 +122,7 @@ public class clsPregunta {
         this.fuerza=fuerza;
         this.destreza=destreza;
         this.inteligencia=inteligencia;
+        this.estado=estado;
     }
 
 
