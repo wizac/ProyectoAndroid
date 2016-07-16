@@ -63,13 +63,13 @@
                             android:text="Nombre"
                             android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                        <ImageView
-                            android:id="@+id/icono_indicador_derecho_nombre"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <Button
+                            android:id="@+id/boton_editar_nombre"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/indicador_derecho" />
+                            android:background="@drawable/icono_edit" />
 
                     </RelativeLayout>
 
@@ -99,13 +99,13 @@
                             android:text="email@email.com"
                             android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                        <ImageView
-                            android:id="@+id/icono_indicador_derecho_email"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <Button
+                            android:id="@+id/boton_editar_email"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/indicador_derecho" />
+                            android:background="@drawable/icono_edit" />
 
                     </RelativeLayout>
                 </LinearLayout>

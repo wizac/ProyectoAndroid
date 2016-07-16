@@ -9,12 +9,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.admin.proyectoandroid.AlertDialogos.DialogoCompleta;
-import com.example.admin.proyectoandroid.AlertDialogos.DialogoCorrecta;
-import com.example.admin.proyectoandroid.AlertDialogos.DialogoIncorrecta;
+import com.example.admin.proyectoandroid.InterfazUsuario.AlertDialogos.DialogoCorrecta;
+import com.example.admin.proyectoandroid.InterfazUsuario.AlertDialogos.DialogoIncorrecta;
 import com.example.admin.proyectoandroid.AplicacionPrincipal;
 import com.example.admin.proyectoandroid.R;
 import com.example.admin.proyectoandroid.clsPregunta;

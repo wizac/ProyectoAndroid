@@ -34,6 +34,9 @@ public class FragmentPerfil extends Fragment {
 
         tvNombre.setText(usuario.getNombre());
 
+        Button btnEditarNombre = (Button) view.findViewById(R.id.boton_editar_nombre);
+        Button btnEditarEmail = (Button) view.findViewById(R.id.boton_editar_email);
+
 
         return view;
     }
