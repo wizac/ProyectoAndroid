@@ -28,6 +28,7 @@ public class ListarUnaMision extends ActionBarActivity {
     private Button btnSiguienteEtapa;
     String[] titulos;
     String[] contenidos;
+    String[] dificultades;
 
 
     @Override
@@ -46,15 +47,16 @@ public class ListarUnaMision extends ActionBarActivity {
         misiones = ((AplicacionPrincipal)getApplication()).getMisionesActivas();
         titulos = new String[misiones.size()];
         contenidos = new String[misiones.size()];
+        dificultades = new String[misiones.size()];
 
         for(int i = 0; i < misiones.size(); i++)
         {
             titulos[i] = ((clsMision)misiones.get(i)).getTitulo();
             contenidos[i] = ((clsMision)misiones.get(i)).getDescripcion();
+            dificultades[i] =  ((clsMision)misiones.get(i)).getDificultad();
         }
         String tituloMision = titulos[position];
-        // CORREGIR
-        String dificultadMision = "normal";
+        String dificultadMision = dificultades[position];
 
         /*INDICAR TITULO, SUBTITULO Y AGREGAR ICONO HOME ATRAS*/
         if (ab != null) {
