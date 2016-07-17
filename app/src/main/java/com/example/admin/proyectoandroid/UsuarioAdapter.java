@@ -174,7 +174,7 @@ public class UsuarioAdapter {
             id= var.getInt(0);
             xp =xp+var.getInt(3);
 
-            sqlDB.execSQL("update usuario set exp="+xp +"where idusuario=" + id);
+            sqlDB.execSQL("update usuario set exp="+xp +" where idusuario=" + id);
         }
     }
 
