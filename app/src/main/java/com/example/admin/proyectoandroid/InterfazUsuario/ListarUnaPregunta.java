@@ -86,12 +86,11 @@ public class ListarUnaPregunta extends ActionBarActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (respuesta[position] == opcionA[position]) {
-                            Toast.makeText(getApplication(),respuesta[position] +" - " + opcionA[position],Toast.LENGTH_LONG).show();
+                        if (respuesta[position].compareTo(opcionA[position]) == 0) {
                             btnOpcionA.setBackgroundResource(R.drawable.boton_correcto);
                             btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
                             btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);
-                        } else if (respuesta[position] == opcionB[position]) {
+                        } else if (respuesta[position].compareTo(opcionB[position]) == 0) {
                             btnOpcionA.setBackgroundResource(R.drawable.boton_incorrecto);
                             btnOpcionB.setBackgroundResource(R.drawable.boton_correcto);
                             btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);
@@ -100,7 +99,6 @@ public class ListarUnaPregunta extends ActionBarActivity {
                             btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
                             btnOpcionC.setBackgroundResource(R.drawable.boton_correcto);
                         }
-
                         if (((AplicacionPrincipal) getApplication()).responderPregunta(preguntas.get(position), opcionA[position])) {
                             dialogoCorrecta();
                         } else {
@@ -115,11 +113,11 @@ public class ListarUnaPregunta extends ActionBarActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (respuesta[position] == opcionA[position]) {
+                        if (respuesta[position].compareTo(opcionA[position]) == 0) {
                             btnOpcionA.setBackgroundResource(R.drawable.boton_correcto);
                             btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
                             btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);
-                        } else if (respuesta[position] == opcionB[position]) {
+                        } else if (respuesta[position].compareTo(opcionB[position]) == 0) {
                             btnOpcionA.setBackgroundResource(R.drawable.boton_incorrecto);
                             btnOpcionB.setBackgroundResource(R.drawable.boton_correcto);
                             btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);
@@ -128,7 +126,6 @@ public class ListarUnaPregunta extends ActionBarActivity {
                             btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
                             btnOpcionC.setBackgroundResource(R.drawable.boton_correcto);
                         }
-
                         if (((AplicacionPrincipal) getApplication()).responderPregunta(preguntas.get(position), opcionB[position])) {
                             dialogoCorrecta();
                         } else {
@@ -143,11 +140,11 @@ public class ListarUnaPregunta extends ActionBarActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (respuesta[position] == opcionA[position]) {
+                        if (respuesta[position].compareTo(opcionA[position]) == 0) {
                             btnOpcionA.setBackgroundResource(R.drawable.boton_correcto);
                             btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
                             btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);
-                        } else if (respuesta[position] == opcionB[position]) {
+                        } else if (respuesta[position].compareTo(opcionB[position]) == 0) {
                             btnOpcionA.setBackgroundResource(R.drawable.boton_incorrecto);
                             btnOpcionB.setBackgroundResource(R.drawable.boton_correcto);
                             btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);
@@ -156,7 +153,6 @@ public class ListarUnaPregunta extends ActionBarActivity {
                             btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
                             btnOpcionC.setBackgroundResource(R.drawable.boton_correcto);
                         }
-
                         if (((AplicacionPrincipal) getApplication()).responderPregunta(preguntas.get(position), opcionC[position])) {
                             dialogoCorrecta();
                         } else {
