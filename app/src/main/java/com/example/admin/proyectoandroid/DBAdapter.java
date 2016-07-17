@@ -367,12 +367,12 @@ public class DBAdapter {
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(2,'Piedra, papel o tijeras','Juega piedra, papel o tijeras con alguien y ganale 2 veces',50,'D')");
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(100,'Cara o cruz','Tira una modena y saca 5 caras, no deberia ser muy dificil...',20,'D')");
 
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta1', 'opcionA', 'opcionB', 'opcionC', 'opcionA', 'historia',1,1,1,'P')");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta2?', 'si', 'no', 'tal vez', 'no', 'deporte',2,2,2,'P')");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta3?', 'A', 'B', 'C', 'B', 'arte',3,3,3,'P')");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta4?', 'A', 'B', 'C', 'A', 'entretenimiento',1,0,1,'P')");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta5?', 'A', 'B', 'C', 'C', 'arte',0,0,1,'P')");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia) values('pregunta6', 'A', 'B', 'C', 'A', 'deporte',4,0,0,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta1', 'opcionA', 'opcionB', 'opcionC', 'opcionA', 'historia',1,1,1,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta2?', 'si', 'no', 'tal vez', 'no', 'deporte',2,2,2,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta3?', 'A', 'B', 'C', 'B', 'arte',3,3,3,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta4?', 'A', 'B', 'C', 'A', 'entretenimiento',1,0,1,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta5?', 'A', 'B', 'C', 'C', 'arte',0,0,1,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta6', 'A', 'B', 'C', 'A', 'deporte',4,0,0,'P')");
 
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El caballero','Llegar a tener mil puntos de fuerza','completo','el_caballero')");
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El cazador','Llegar a tener mil puntos de destreza','incompleto','el_cazador_u')");
