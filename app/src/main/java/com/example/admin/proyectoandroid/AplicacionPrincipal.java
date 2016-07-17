@@ -159,7 +159,7 @@ public class AplicacionPrincipal extends Application {
 
     public boolean responderPregunta (clsPregunta pregunta, String respuesta)
     {
-        if (pregunta.getResp() == respuesta)
+        if (pregunta.getResp().equals(respuesta))
         {
             dbAdapter.aumentarExp(10);
             dbAdapter.completarPregunta(pregunta);
