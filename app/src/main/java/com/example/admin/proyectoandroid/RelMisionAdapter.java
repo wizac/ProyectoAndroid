@@ -120,6 +120,8 @@ public class RelMisionAdapter {
             x.setTitulo(dos.getString(2));
             x.setDescripcion(dos.getString(3));
             x.setExp(dos.getInt(4));
+            x.setTipo(dos.getString(5));
+            x.setDificultad(dos.getString(6));
 
             asd.add(x);
         };
