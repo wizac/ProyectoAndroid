@@ -28,7 +28,7 @@
     <ImageView
         android:id="@+id/logo_mission"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="150dp"
         android:layout_below="@+id/info_text"
         android:layout_centerHorizontal="true"
         android:paddingBottom="24dp"
@@ -51,6 +51,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_border"
         android:ems="10"
+        android:maxLength="25"
         android:hint="Nombre"
         android:inputType="textPersonName"
         android:padding="16dp"
@@ -64,7 +65,8 @@
         android:layout_marginBottom="5dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_border"
-        android:ems="25"
+        android:ems="10"
+        android:maxLength="25"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:padding="16dp"
@@ -83,12 +85,23 @@
         android:id="@+id/entrar_boton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="24dp"
-        android:paddingTop="24dp"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp"
         android:layout_marginTop="25dp"
         android:text="CREAR PERFIL"
         android:textColor="@android:color/white"
-        android:background="@drawable/side_nav_bar"/>
+        android:background="@drawable/boton_cuadrado_azul"/>
+
+        <Button
+            android:id="@+id/salir_boton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:layout_marginTop="10dp"
+            android:text="SALIR"
+            android:textColor="@android:color/white"
+            android:background="@drawable/boton_cuadrado_azul"/>
 
     </LinearLayout>
  </ScrollView>

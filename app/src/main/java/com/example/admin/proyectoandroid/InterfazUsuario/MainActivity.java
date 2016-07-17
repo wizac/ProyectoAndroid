@@ -38,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
             seleccionarItem(navigationView.getMenu().getItem(0).getItemId());
         }
 
-        if(((AplicacionPrincipal)getApplication()).getMisionesActivas().size() == 0) {
+        if(((AplicacionPrincipal)getApplication()).getMisionesActivas().size() == 0 ||
+                ((AplicacionPrincipal)getApplication()).getUsuario().getEmail().equals("") ||
+                ((AplicacionPrincipal)getApplication()).getUsuario().getEmail() == null) {
             dialogoPerfil();
         }
     }

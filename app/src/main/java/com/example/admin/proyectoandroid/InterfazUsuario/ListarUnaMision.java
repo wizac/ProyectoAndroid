@@ -100,9 +100,9 @@ public class ListarUnaMision extends ActionBarActivity {
 
     public void dialogoCompleta(){
         DialogoCompleta dialogoPersonalizado = new DialogoCompleta();
-        dialogoPersonalizado.show(getSupportFragmentManager(), "personalizado");
         dialogoPersonalizado.setStyle(DialogFragment.STYLE_NO_TITLE, R.style.DialogTransparente);
         dialogoPersonalizado.setCancelable(false);
+        dialogoPersonalizado.show(getSupportFragmentManager(), "personalizado");
         android.app.Fragment frag = getFragmentManager().findFragmentByTag("personalizado");
 
         if (frag != null) {

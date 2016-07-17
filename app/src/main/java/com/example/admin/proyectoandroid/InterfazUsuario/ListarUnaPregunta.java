@@ -128,6 +128,7 @@ public class ListarUnaPregunta extends ActionBarActivity {
                         }
                         if (((AplicacionPrincipal) getApplication()).responderPregunta(preguntas.get(position), opcionB[position])) {
                             dialogoCorrecta();
+
                         } else {
                             dialogoIncorrecta();
                         }
@@ -183,9 +184,9 @@ public class ListarUnaPregunta extends ActionBarActivity {
 
     public void dialogoCorrecta(){
         DialogoCorrecta dialogoPersonalizado = new DialogoCorrecta();
-        dialogoPersonalizado.show(getSupportFragmentManager(), "personalizado");
         dialogoPersonalizado.setStyle(DialogFragment.STYLE_NO_TITLE, R.style.DialogTransparente);
         dialogoPersonalizado.setCancelable(false);
+        dialogoPersonalizado.show(getSupportFragmentManager(), "personalizado");
         android.app.Fragment frag = getFragmentManager().findFragmentByTag("personalizado");
 
         if (frag != null) {
@@ -195,9 +196,9 @@ public class ListarUnaPregunta extends ActionBarActivity {
 
     public void dialogoIncorrecta(){
         DialogoIncorrecta dialogoPersonalizado = new DialogoIncorrecta();
-        dialogoPersonalizado.show(getSupportFragmentManager(), "personalizado");
         dialogoPersonalizado.setStyle(DialogFragment.STYLE_NO_TITLE, R.style.DialogTransparente);
         dialogoPersonalizado.setCancelable(false);
+        dialogoPersonalizado.show(getSupportFragmentManager(), "personalizado");
         android.app.Fragment frag = getFragmentManager().findFragmentByTag("personalizado");
 
         if (frag != null) {
