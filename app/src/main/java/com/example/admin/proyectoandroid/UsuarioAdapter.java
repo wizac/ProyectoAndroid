@@ -157,7 +157,7 @@ public class UsuarioAdapter {
                     sqlDB.execSQL("update usuario set preguntasSuperadas=" + pS + " where idusuario=" + id);
                 }else {
                     pF += 1;
-                    sqlDB.execSQL("update usuario set misionesIncorrectas=" + pF + " where idusuario=" + id);
+                    sqlDB.execSQL("update usuario set preguntasIncorrectas=" + pF + " where idusuario=" + id);
                 }
             }
         }
