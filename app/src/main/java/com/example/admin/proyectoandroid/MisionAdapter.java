@@ -28,12 +28,13 @@ public class MisionAdapter {
         public final static String DESCRIPCION="descripcion";
         public final static String EXP="exp";
         public final static String TIPO="tipo";
+        public final static String DIFICULTAD="dificultad";
 
     }
 
     private final static String[] COLUMNS= {
 
-            Columns.ID,Columns.PROGRESO,Columns.TITULO,Columns.DESCRIPCION,Columns.EXP
+            Columns.ID,Columns.PROGRESO,Columns.TITULO,Columns.DESCRIPCION,Columns.EXP,Columns.TIPO
     };
 
     public final static String CR_TABLE="create table if not exists " +
@@ -42,9 +43,10 @@ public class MisionAdapter {
             +Columns.TITULO +" text not null, "
             +Columns.DESCRIPCION+" text not null, "
             +Columns.EXP+" integer not null, "
-            +Columns.TIPO+" text not null)";
+            +Columns.TIPO+" text not null, "
+            +Columns.DIFICULTAD+" text not null)";
 
-    public boolean insert(int progreso,String titulo, String descripcion,int exp,String tipo)
+    public boolean insert(int progreso,String titulo, String descripcion,int exp,String tipo,String dificultad)
     {
         ContentValues Values=new ContentValues();
         Values.put(Columns.PROGRESO,progreso);
@@ -52,7 +54,7 @@ public class MisionAdapter {
         Values.put(Columns.DESCRIPCION,descripcion);
         Values.put(Columns.EXP,exp);
         Values.put(Columns.TIPO,tipo);
-
+        Values.put(Columns.DIFICULTAD,dificultad);
 
         return sqlDB.insert(NAME,null,Values)>0;
     }
@@ -116,7 +118,7 @@ public class MisionAdapter {
         //mis.moveToPosition(rand);
         mis.moveToFirst();
 
-        clsMision c =new clsMision(mis.getInt(0),mis.getInt(4),mis.getInt(1),mis.getString(2),mis.getString(3),0,mis.getString(5));
+        clsMision c =new clsMision(mis.getInt(0),mis.getInt(4),mis.getInt(1),mis.getString(2),mis.getString(3),0,mis.getString(5),mis.getString(6));
 
         return c;
     }
@@ -137,6 +139,7 @@ public class MisionAdapter {
             asd.setDescripcion(cur1.getString(3));
             asd.setExp(cur1.getInt(4));
             asd.setTipo(cur1.getString(5));
+            asd.setDificultad(cur1.getString(6));
         }
 
         if (cur2.moveToFirst())

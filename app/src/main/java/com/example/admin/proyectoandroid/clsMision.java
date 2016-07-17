@@ -12,7 +12,15 @@ public class clsMision {
     private int exp;
     private int progresoActual;
     private String tipo;
+    private String dificultad;
 
+    public String getDificultad() {
+        return dificultad;
+    }
+
+    public void setDificultad(String dificultad) {
+        this.dificultad = dificultad;
+    }
 
     public int getId() {
         return id;
@@ -59,7 +67,7 @@ public class clsMision {
 
     }
 
-    public clsMision(int id ,int exp,int progreso,String titulo,String descripcion,int progresoActual,String tipo)
+    public clsMision(int id ,int exp,int progreso,String titulo,String descripcion,int progresoActual,String tipo,String dificultad)
     {
         this.id=id;
         this.exp=exp;
@@ -68,6 +76,7 @@ public class clsMision {
         this.titulo=titulo;
         this.progresoActual=progresoActual;
         this.tipo=tipo;
+        this.dificultad=dificultad;
     }
 
     public int getProgresoActual()

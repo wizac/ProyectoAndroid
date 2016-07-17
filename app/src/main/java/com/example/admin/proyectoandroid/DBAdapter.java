@@ -53,7 +53,7 @@ public class DBAdapter {
     public boolean misionInsert(clsMision a )
     {
 
-        return misionA.insert(a.getProgreso(), a.getTitulo(), a.getDescripcion(), a.getExp(), a.getTipo());
+        return misionA.insert(a.getProgreso(), a.getTitulo(), a.getDescripcion(), a.getExp(), a.getTipo(), a.getDificultad());
     }
 
     public boolean preguntaInsert(clsPregunta a)
@@ -356,16 +356,16 @@ public class DBAdapter {
             db.execSQL(PreguntasAdapter.CR_TABLE);
             db.execSQL(RelPreguntaAdapter.CR_TABLE);
 
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(5,'Saluda a todos','Dile hola a 5 personas y consigue que ellos te devuelvan el saludo.',20,'I')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(20,'A ejercitar','Ejercita haciendo 20 abdominales',35,'F')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(100,'Presiona el boton!','Preciona el boton de progreso 300 veces! Rapido rapido rapido!',50,'D')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(40,'Termina ese libro','Termina de leer ese libro que dejaste en el final, o busca un articulo interesante. Leer con frecuencia es bueno',25,'I')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(100,'Hora de la verdad','Confesa tus sentimientos a ese chico o chica que te gusta, es ahora o nunca!',100,'D')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(70,'Sal a correr','Trota un par de vueltas a la manzana, le hara bien a tu corazon. Y no olvides estirar!',50,'F')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(90,'5 a 5','Chocale los 5 a 5 personas distintas',35,'D')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(100,'Respondidos','Ve al modo preguntas y responde 10 preguntas correctas',50,'I')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(2,'Piedra, papel o tijeras','Juega piedra, papel o tijeras con alguien y ganale 2 veces',50,'D')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo) values(100,'Cara o cruz','Tira una modena y saca 5 caras, no deberia ser muy dificil...',20,'D')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(5,'Saluda a todos','Dile hola a 5 personas y consigue que ellos te devuelvan el saludo.',20,'I','Dificil')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(20,'A ejercitar','Ejercita haciendo 20 abdominales',35,'F','Normal')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(100,'Presiona el boton!','Preciona el boton de progreso 300 veces! Rapido rapido rapido!',50,'D','Facil')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(40,'Termina ese libro','Termina de leer ese libro que dejaste en el final, o busca un articulo interesante. Leer con frecuencia es bueno',25,'I','Despreciable')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(100,'Hora de la verdad','Confesa tus sentimientos a ese chico o chica que te gusta, es ahora o nunca!',100,'D','Fin del mundo')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(70,'Sal a correr','Trota un par de vueltas a la manzana, le hara bien a tu corazon. Y no olvides estirar!',50,'F','Suicidio')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(90,'5 a 5','Chocale los 5 a 5 personas distintas',35,'D','Insano')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(100,'Respondidos','Ve al modo preguntas y responde 10 preguntas correctas',50,'I','Normal')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(2,'Piedra, papel o tijeras','Juega piedra, papel o tijeras con alguien y ganale 2 veces',50,'D','Dificil')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(100,'Cara o cruz','Tira una modena y saca 5 caras, no deberia ser muy dificil...',20,'D','Facil')");
 
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta1', 'opcionA', 'opcionB', 'opcionC', 'opcionA', 'historia',1,1,1,'P')");
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta2?', 'si', 'no', 'tal vez', 'no', 'deporte',2,2,2,'P')");
