@@ -41,7 +41,7 @@ public class DialogoCorrecta extends DialogFragment  {
                     public void onClick(View v) {
                         Intent intent = new Intent(getActivity(), MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        intent.putExtra("ItemMenu",0);
+                        intent.putExtra("ItemMenu", 0);
                         intent.putExtra("PosicionTab", 1);
                         startActivity(intent);
                         if (mp != null) {
@@ -68,6 +68,7 @@ public class DialogoCorrecta extends DialogFragment  {
         mp= MediaPlayer.create(getActivity(), R.raw.respuesta_correcta);
         mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
         mp.seekTo(0);
+        mp.setVolume(120,120);
         mp.start();
     }
 
