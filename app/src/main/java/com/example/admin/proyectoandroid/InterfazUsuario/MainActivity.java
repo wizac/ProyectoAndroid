@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             if(getIntent().getExtras() != null && getIntent().getExtras().containsKey("ItemMenu")) {
                 item = getIntent().getExtras().getInt("ItemMenu");
                 seleccionarItem(navigationView.getMenu().getItem(item).getItemId());
+                getIntent().removeExtra("ItemMenu");
             }
             else{
                 seleccionarItem(navigationView.getMenu().getItem(item).getItemId());
@@ -95,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                     Bundle args = new Bundle();
                     args.putInt("PosicionTab", getIntent().getExtras().getInt("PosicionTab"));
                     fragmento.setArguments(args);
+                    getIntent().removeExtra("PosicionTab");
                 }
                 break;
             case R.id.opcion_cuenta:

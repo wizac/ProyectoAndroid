@@ -1,6 +1,8 @@
 package com.example.admin.proyectoandroid.InterfazUsuario.AlertDialogos;
 
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -18,6 +20,8 @@ import com.example.admin.proyectoandroid.R;
 
 public class DialogoIncorrecta extends DialogFragment  {
 
+    MediaPlayer mp = new MediaPlayer();
+
     public DialogoIncorrecta() {
     }
 
@@ -25,6 +29,8 @@ public class DialogoIncorrecta extends DialogFragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialogo_incorrecta, container);
+
+        reproducirRespIncorrecta();
 
         Button btnIncorrecta = (Button) view.findViewById(R.id.aceptar_incorrecta);
 
@@ -37,6 +43,13 @@ public class DialogoIncorrecta extends DialogFragment  {
                         intent.putExtra("ItemMenu",0);
                         intent.putExtra("PosicionTab",1);
                         startActivity(intent);
+                        if (mp != null) {
+                            mp.stop();
+                            if (mp.isPlaying()) {
+                                mp.stop();
+                                mp.release();
+                            }
+                        }
                         dismiss();
                     }
                 }
@@ -46,6 +59,27 @@ public class DialogoIncorrecta extends DialogFragment  {
         getDialog().getWindow().setGravity(Gravity.TOP);
 
         return view;
+    }
+
+    public void reproducirRespIncorrecta(){
+        mp.reset();
+        mp.release();
+        mp= MediaPlayer.create(getActivity(), R.raw.respuesta_incorrecta);
+        mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mp.seekTo(0);
+        mp.start();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mp != null) {
+            mp.stop();
+            if (mp.isPlaying()) {
+                mp.stop();
+                mp.release();
+            }
+        }
     }
 
 }

@@ -84,7 +84,7 @@ public class FragmentMisiones extends Fragment {
     }
 
     public class ListViewAdapter extends BaseAdapter {
-        // Declare Variables
+
         Context context;
         String[] titulos;
         int[] imagenes;

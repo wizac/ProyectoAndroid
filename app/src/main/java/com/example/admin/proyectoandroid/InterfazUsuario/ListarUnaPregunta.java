@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 
 public class ListarUnaPregunta extends ActionBarActivity {
+
     private TextView tvDescripcion;
     private Button btnOpcionA, btnOpcionB, btnOpcionC;
     ArrayList<clsPregunta> preguntas = new ArrayList<clsPregunta>();
@@ -62,12 +63,13 @@ public class ListarUnaPregunta extends ActionBarActivity {
             opcionB[i] = preguntas.get(i).getOpB();
             opcionC[i] = preguntas.get(i).getOpC();
             respuesta[i] = preguntas.get(i).getResp();
-
         }
 
-        /*INDICAR TITULO Y AGREGAR ICONO HOME ATRAS*/
+        /*INDICAR TITULO, SUBTITULO Y AGREGAR ICONO HOME ATRAS*/
         if (ab != null) {
-            ab.setTitle("Categoria: " +categoria[position]);
+            ab.setTitle("Categoria: " + categoria[position]);
+            int totalEstadisticas = preguntas.get(position).getDestreza() + preguntas.get(position).getInteligencia() + preguntas.get(position).getFuerza();
+            ab.setSubtitle("Total estadisticas extras +"+ totalEstadisticas);
             ab.setHomeAsUpIndicator(R.drawable.icono_atras_2);
             ab.setDisplayHomeAsUpEnabled(true);
         }
@@ -128,7 +130,6 @@ public class ListarUnaPregunta extends ActionBarActivity {
                         }
                         if (((AplicacionPrincipal) getApplication()).responderPregunta(preguntas.get(position), opcionB[position])) {
                             dialogoCorrecta();
-
                         } else {
                             dialogoIncorrecta();
                         }
@@ -165,7 +166,7 @@ public class ListarUnaPregunta extends ActionBarActivity {
         );
 
     }
-
+    
     // Metodo para asignar el menu al actionbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

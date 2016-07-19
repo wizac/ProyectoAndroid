@@ -21,7 +21,7 @@
             android:orientation="horizontal" >
 
             <LinearLayout
-                android:id="@+id/single_post_circuito_linearbox_pregunta"
+                android:id="@+id/linearL_pregunta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -96,7 +96,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:id="@+id/imagen_completado"
+                        android:id="@+id/imagen_estado"
                         android:src="@drawable/icono_correct"
                         android:visibility="invisible"/>
                 </LinearLayout>
