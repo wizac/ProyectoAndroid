@@ -86,8 +86,9 @@ public class DBAdapter {
         Cursor x=usuarioA.getNombres();
         clsUsuario y= new clsUsuario();
 
-        //y.setNombre(x.getString(1)); ******************* CORREGIR EL CURSOS ESTA VACIO **********************
-        y.setNombre("pablo");
+        x.moveToFirst();
+
+        y.setNombre(x.getString(1));
 
         return y;
     }
@@ -192,23 +193,21 @@ public class DBAdapter {
 
     public ArrayList<clsLogro> getDatosLogro()
     {
-        Cursor M=logroA.getDatos();
+        Cursor m=logroA.getDatos();
 
         ArrayList<clsLogro> listalog=new ArrayList<clsLogro>();
 
-        while (M.moveToNext())
-        {
-            clsLogro x=new clsLogro();
-            x.setId(M.getInt(0));
-            x.setNombre(M.getString(1));
-            x.setEstado(M.getString(2));
-            x.setDescripcion(M.getString(3));
-            x.setNombreimagen(M.getString(4));
+        if(m.moveToFirst()) {
+            do {
+                clsLogro x = new clsLogro();
+                x.setId(m.getInt(0));
+                x.setNombre(m.getString(1));
+                x.setEstado(m.getString(2));
+                x.setDescripcion(m.getString(3));
+                x.setNombreimagen(m.getString(4));
 
-
-
-
-            listalog.add(x);
+                listalog.add(x);
+            }while (m.moveToNext());
         }
 
         return listalog;
@@ -377,11 +376,11 @@ public class DBAdapter {
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El caballero','Llegar a tener mil puntos de fuerza','completo','el_caballero')");
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El cazador','Llegar a tener mil puntos de destreza','incompleto','el_cazador_u')");
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El mago','Llegar a tener mil puntos de inteligencia','incompleto','el_mago_u')");
-            db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('Nivel 10','LLega a nivel 10','completo','nivel_10')");
+            db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('Nivel 10','LLega a nivel 10','incompleto','nivel_10')");
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('Nivel 50','LLega a nivel 50','incompleto','nivel_50_u')");
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('Nivel 100','LLega a nivel 100','incompleto','nivel_100_u')");
 
-            db.execSQL("insert into usuario values(0, 'pablo', 1, 0, 0, 0, 0, 0, '', 0, 0, 0, 0)");
+            db.execSQL("insert into usuario values(0, '', 1, 0, 0, 0, 0, 0, '', 0, 0, 0, 0)");
         }
         @Override
         public void onUpgrade(SQLiteDatabase db,int oldVersion,int newVersion)

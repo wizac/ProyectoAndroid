@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -97,34 +98,35 @@ public class RelMisionAdapter {
 
     }
 
-    public ArrayList<clsMision> misionesActuales()
-    {
+    public ArrayList<clsMision> misionesActuales() {
         Cursor mis;
         Cursor dos;
-        ArrayList<clsMision> asd=new ArrayList<>();
+        ArrayList<clsMision> asd = new ArrayList<>();
 
 
-        mis=sqlDB.rawQuery("select * from relMision",null);
-        mis.moveToFirst();
+        mis = sqlDB.rawQuery("select * from relMision", null);
 
-        while (mis.moveToNext())
-        {
-            clsMision x=new clsMision();
-            x.setId(mis.getInt(0));
-            x.setProgresoActual(mis.getInt(2));
+        if (mis.moveToFirst()){
 
-            dos=sqlDB.rawQuery("select * from mision where idmision="+mis.getInt(0),null);
-            dos.moveToFirst();
+            do {
+                clsMision x = new clsMision();
+                x.setId(mis.getInt(0));
+                x.setProgresoActual(mis.getInt(2));
 
-            x.setProgreso(dos.getInt(1));
-            x.setTitulo(dos.getString(2));
-            x.setDescripcion(dos.getString(3));
-            x.setExp(dos.getInt(4));
-            x.setTipo(dos.getString(5));
-            x.setDificultad(dos.getString(6));
+                dos = sqlDB.rawQuery("select * from mision where idmision=" + mis.getInt(0), null);
+                dos.moveToFirst();
 
-            asd.add(x);
-        };
+                x.setProgreso(dos.getInt(1));
+                x.setTitulo(dos.getString(2));
+                x.setDescripcion(dos.getString(3));
+                x.setExp(dos.getInt(4));
+                x.setTipo(dos.getString(5));
+                x.setDificultad(dos.getString(6));
+
+                //Log.d("pregunta", "" + x.getId());
+                asd.add(x);
+            }while (mis.moveToNext());
+        }
 
         return asd;
     }

@@ -99,29 +99,30 @@ public class RelPreguntaAdapter {
 
 
         mis=sqlDB.rawQuery("select * from relPregunta",null);
-        mis.moveToFirst();
 
-        while (mis.moveToNext())
-        {
-            clsPregunta x=new clsPregunta();
-            x.setId(mis.getInt(0));
+        if(mis.moveToFirst()) {
 
-            dos=sqlDB.rawQuery("select * from pregunta where idpregunta="+mis.getInt(0),null);
-            dos.moveToFirst();
+            do {
+                clsPregunta x = new clsPregunta();
+                x.setId(mis.getInt(0));
 
-            x.setDescripcion(dos.getString(1));
-            x.setOpA(dos.getString(2));
-            x.setOpB(dos.getString(3));
-            x.setOpC(dos.getString(4));
-            x.setResp(dos.getString(5));
-            x.setCategoria(dos.getString(6));
-            x.setFuerza(dos.getInt(7));
-            x.setDestreza(dos.getInt(8));
-            x.setInteligencia(dos.getInt(9));
-            x.setEstado(dos.getString(10));
+                dos = sqlDB.rawQuery("select * from pregunta where idpregunta=" + mis.getInt(0), null);
+                dos.moveToFirst();
 
-            asd.add(x);
-        };
+                x.setDescripcion(dos.getString(1));
+                x.setOpA(dos.getString(2));
+                x.setOpB(dos.getString(3));
+                x.setOpC(dos.getString(4));
+                x.setResp(dos.getString(5));
+                x.setCategoria(dos.getString(6));
+                x.setFuerza(dos.getInt(7));
+                x.setDestreza(dos.getInt(8));
+                x.setInteligencia(dos.getInt(9));
+                x.setEstado(dos.getString(10));
+
+                asd.add(x);
+            }while (mis.moveToNext());
+        }
 
         return asd;
     }

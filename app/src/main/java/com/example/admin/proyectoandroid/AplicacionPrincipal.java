@@ -35,6 +35,39 @@ public class AplicacionPrincipal extends Application {
         return dbAdapter.getDatosUsuario();
     }
 
+    public void cumplirLogros(){
+        ArrayList<clsLogro> ll = dbAdapter.getDatosLogro();
+        clsUsuario u = dbAdapter.getDatosUsuario();
+
+        for(clsLogro l : ll){
+            if(l.getNombre().equals("El caballero")){
+                if(u.getFuerza() >= 1000){
+                    dbAdapter.cumplirLogro(l.getId());
+                }
+            }else if(l.getNombre().equals("El cazador")){
+                if(u.getDestreza() >= 1000){
+                    dbAdapter.cumplirLogro(l.getId());
+                }
+            }else if(l.getNombre().equals("El mago")){
+                if(u.getInteligencia() >= 1000){
+                    dbAdapter.cumplirLogro(l.getId());
+                }
+            }else if(l.getNombre().equals("Nivel 10")){
+                if(u.getNivel() >= 10){
+                    dbAdapter.cumplirLogro(l.getId());
+                }
+            }else if(l.getNombre().equals("Nivel 50")){
+                if(u.getInteligencia() >= 50){
+                    dbAdapter.cumplirLogro(l.getId());
+                }
+            }else if(l.getNombre().equals("Nivel 100")){
+                if(u.getInteligencia() >= 100){
+                    dbAdapter.cumplirLogro(l.getId());
+                }
+            }
+        }
+    }
+
     public boolean aumentarProgreso(int idMision, int cantidad)
     {
         clsMision m = dbAdapter.buscarMisionPorId(idMision);
@@ -54,12 +87,14 @@ public class AplicacionPrincipal extends Application {
 
             dbAdapter.completarMision(m.getTipo());
             //dbAdapter.borrarRelMision(m.getId());
+            cumplirLogros();
 
             return false;
         }
         else
         {
             dbAdapter.aumentarProgreso(idMision, cantidad);
+            cumplirLogros();
             return false;
         }
     }
@@ -101,6 +136,7 @@ public class AplicacionPrincipal extends Application {
                     }
                 }
             }
+            //Log.d("pregunta", "" + m.getId());
             misiones.add(m);
             dbAdapter.relMisionInsert(m.getId(), dbAdapter.getDatosUsuario().getId());
         }
@@ -136,6 +172,7 @@ public class AplicacionPrincipal extends Application {
                 }
             }
             preguntas.add(p);
+            dbAdapter.cambiarEstadoPregunta(p.getId(),"P");
             dbAdapter.relPreguntaInsert(p.getId(), dbAdapter.getDatosUsuario().getId());
         }
 
@@ -166,6 +203,7 @@ public class AplicacionPrincipal extends Application {
             //dbAdapter.borrarRelPregunta(pregunta.getId());
             dbAdapter.cambiarEstadoPregunta(pregunta.getId(),"C");
             dbAdapter.aumentarEstadisticas("P","S");
+            cumplirLogros();
             return true;
         }
         else
@@ -173,6 +211,7 @@ public class AplicacionPrincipal extends Application {
             //dbAdapter.borrarRelPregunta(pregunta.getId());
             dbAdapter.cambiarEstadoPregunta(pregunta.getId(),"I");
             dbAdapter.aumentarEstadisticas("P","F");
+            cumplirLogros();
             return false;
         }
     }
