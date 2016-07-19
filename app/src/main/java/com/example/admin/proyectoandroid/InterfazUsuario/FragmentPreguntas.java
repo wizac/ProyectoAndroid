@@ -93,7 +93,7 @@ public class FragmentPreguntas extends Fragment {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(estado[position].toString().toUpperCase().compareTo("C") != 0 && estado[position].toString().toUpperCase().compareTo("F") != 0) {
+                if(estado[position].toString().toUpperCase().compareTo("C") != 0 && estado[position].toString().toUpperCase().compareTo("I") != 0) {
                     Intent i = new Intent(getActivity(), ListarUnaPregunta.class);
                     i.putExtra("position", position);
                     startActivity(i);
@@ -170,12 +170,12 @@ public class FragmentPreguntas extends Fragment {
             tvInteligencia.setText("Inteligencia: +"+inteligencia[position]);
 
             if(estado[position].toString().toUpperCase().compareTo("C") == 0){
-                linearL_una_pregunta.setBackgroundColor(Color.parseColor("#D8D8D8"));
+                linearL_una_pregunta.setBackgroundColor(Color.parseColor("#E6E6E6"));
                 ivEstado.setImageResource(R.drawable.icono_correct);
                 ivEstado.setVisibility(View.VISIBLE);
             }
             else if(estado[position].toString().toUpperCase().compareTo("I") == 0){
-                linearL_una_pregunta.setBackgroundColor(Color.parseColor("#D8D8D8"));
+                linearL_una_pregunta.setBackgroundColor(Color.parseColor("#E6E6E6"));
                 ivEstado.setImageResource(R.drawable.icono_failed);
                 ivEstado.setVisibility(View.VISIBLE);
             }
