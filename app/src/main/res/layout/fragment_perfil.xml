@@ -39,9 +39,11 @@
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:orientation="horizontal"
-                        android:padding="10dp">
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingTop="16dp">
 
                         <ImageView
                             android:id="@+id/imagen_usuario"
@@ -65,8 +67,8 @@
 
                         <Button
                             android:id="@+id/boton_editar_nombre"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:drawableLeft="@drawable/indicador_derecho"
                             style="@style/Widget.AppCompat.Button.Borderless"
                             android:backgroundTint="#fff"
@@ -77,9 +79,11 @@
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:orientation="horizontal"
-                        android:padding="10dp">
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="16dp">
 
                         <ImageView
                             android:id="@+id/imagen_email"
@@ -103,8 +107,8 @@
 
                         <Button
                             android:id="@+id/boton_editar_email"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:drawableLeft="@drawable/indicador_derecho"
                             style="@style/Widget.AppCompat.Button.Borderless"
                             android:backgroundTint="#fff"

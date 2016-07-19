@@ -44,6 +44,9 @@ public class DialogoEditarEmail extends DialogFragment  {
                         if(!emailNuevo.equals("") && emailNuevo != null) {
                             ((AplicacionPrincipal) getActivity().getApplication()).insertarUsuario(nombre, emailNuevo);
                             Fragment fragmento = new FragmentCuenta();
+                            Bundle args = new Bundle();
+                            args.putInt("varOrdenTabCuenta", 0);
+                            fragmento.setArguments(args);
                             if (fragmento != null) {
                                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                                 ft.replace(R.id.contenedor_principal, fragmento);

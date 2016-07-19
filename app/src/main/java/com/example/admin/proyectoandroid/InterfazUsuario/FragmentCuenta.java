@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.admin.proyectoandroid.R;
 
@@ -56,6 +57,9 @@ public class FragmentCuenta extends Fragment {
         adapter.addFragment(new FragmentPerfil(), getString(R.string.titulo_tab_perfil));
         adapter.addFragment(new FragmentEstadisticas(), getString(R.string.titulo_tab_estadisticas));
         viewPager.setAdapter(adapter);
+        if (getArguments() != null) {
+            viewPager.setCurrentItem(getArguments().getInt("varOrdenTabCuenta"));
+        }
     }
 
     @Override

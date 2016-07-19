@@ -16,6 +16,7 @@ import com.example.admin.proyectoandroid.AplicacionPrincipal;
 import com.example.admin.proyectoandroid.InterfazUsuario.FragmentCreditos;
 import com.example.admin.proyectoandroid.InterfazUsuario.FragmentCuenta;
 import com.example.admin.proyectoandroid.InterfazUsuario.FragmentEstadisticas;
+import com.example.admin.proyectoandroid.InterfazUsuario.FragmentInicio;
 import com.example.admin.proyectoandroid.InterfazUsuario.FragmentPerfil;
 import com.example.admin.proyectoandroid.R;
 
@@ -48,6 +49,9 @@ public class DialogoEditarNombre extends DialogFragment  {
                         if (!nombreNuevo.equals("") && nombreNuevo != null) {
                             ((AplicacionPrincipal) getActivity().getApplication()).insertarUsuario(nombreNuevo, email);
                             Fragment fragmento = new FragmentCuenta();
+                            Bundle args = new Bundle();
+                            args.putInt("varOrdenTabCuenta", 0);
+                            fragmento.setArguments(args);
                             if (fragmento != null) {
                                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                                 ft.replace(R.id.contenedor_principal, fragmento);
@@ -55,7 +59,6 @@ public class DialogoEditarNombre extends DialogFragment  {
                             }
                             dismiss();
                         } else {
-                            Toast.makeText(getActivity(),"no entra", Toast.LENGTH_LONG).show();
                             dismiss();
                         }
                     }

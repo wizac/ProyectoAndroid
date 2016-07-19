@@ -1,6 +1,8 @@
 package com.example.admin.proyectoandroid.InterfazUsuario;
 
+import android.content.ClipData;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -12,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.admin.proyectoandroid.InterfazUsuario.AlertDialogos.DialogoPerfil;
 import com.example.admin.proyectoandroid.AplicacionPrincipal;
@@ -35,7 +38,14 @@ public class MainActivity extends AppCompatActivity {
         if (navigationView != null) {
             prepararDrawer(navigationView);
             // Seleccionar item por defecto
-            seleccionarItem(navigationView.getMenu().getItem(0).getItemId());
+            int item = 0;
+            if(getIntent().getExtras() != null && getIntent().getExtras().containsKey("ItemMenu")) {
+                item = getIntent().getExtras().getInt("ItemMenu");
+                seleccionarItem(navigationView.getMenu().getItem(item).getItemId());
+            }
+            else{
+                seleccionarItem(navigationView.getMenu().getItem(item).getItemId());
+            }
         }
 
         if(((AplicacionPrincipal)getApplication()).getMisionesActivas().size() == 0 ||
@@ -71,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void seleccionarItem(int idView) {
+    public void seleccionarItem(int idView) {
         Fragment fragmento = null;
         FragmentManager fragmentManager = getSupportFragmentManager();
         String title = getString(R.string.app_name);
@@ -81,6 +91,11 @@ public class MainActivity extends AppCompatActivity {
                 fragmento= new FragmentInicio();
                 title = "Inicio";
                 viewIsAtHome = true;
+                if(getIntent().getExtras() != null && getIntent().getExtras().containsKey("PosicionTab")){
+                    Bundle args = new Bundle();
+                    args.putInt("PosicionTab", getIntent().getExtras().getInt("PosicionTab"));
+                    fragmento.setArguments(args);
+                }
                 break;
             case R.id.opcion_cuenta:
                 fragmento = new FragmentCuenta();
@@ -107,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
             fragmentManager
                     .beginTransaction()
                     .replace(R.id.contenedor_principal, fragmento)
+                    .addToBackStack(null)
                     .commit();
         }
 
@@ -129,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -140,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
             moveTaskToBack(true);
         }
     }
+
 
     public void dialogoPerfil(){
         DialogoPerfil dialogoPersonalizado = new DialogoPerfil();

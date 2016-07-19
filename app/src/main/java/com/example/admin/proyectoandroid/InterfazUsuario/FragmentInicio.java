@@ -55,6 +55,9 @@ public class FragmentInicio extends Fragment {
         adapter.addFragment(new FragmentMisiones(), getString(R.string.titulo_tab_misiones));
         adapter.addFragment(new FragmentPreguntas(), getString(R.string.titulo_tab_preguntas));
         viewPager.setAdapter(adapter);
+        if (getArguments() != null) {
+            viewPager.setCurrentItem(getArguments().getInt("PosicionTab"));
+        }
     }
 
     @Override
