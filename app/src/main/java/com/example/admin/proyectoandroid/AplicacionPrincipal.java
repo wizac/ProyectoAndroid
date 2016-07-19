@@ -78,7 +78,7 @@ public class AplicacionPrincipal extends Application {
             dbAdapter.aumentarProgreso(idMision, cantidad);
             dbAdapter.aumentarEstadisticas("M", "S");
             
-            if(dbAdapter.getDatosUsuario().getExp() >= (dbAdapter.getDatosUsuario().getNivel()*10+(dbAdapter.getDatosUsuario().getNivel()%10)*10))
+            if(dbAdapter.getDatosUsuario().getExp() >= (dbAdapter.getDatosUsuario().getNivel()*10+(dbAdapter.getDatosUsuario().getNivel()/10)*10))
             {
                 dbAdapter.subirlvl();
 
@@ -172,7 +172,7 @@ public class AplicacionPrincipal extends Application {
                 }
             }
             preguntas.add(p);
-            dbAdapter.cambiarEstadoPregunta(p.getId(),"P");
+            dbAdapter.cambiarEstadoPregunta(p.getId(), "P");
             dbAdapter.relPreguntaInsert(p.getId(), dbAdapter.getDatosUsuario().getId());
         }
 
@@ -235,6 +235,14 @@ public class AplicacionPrincipal extends Application {
             p = 100;
         }
         return p;
+    }
+
+    public int porcentajeExp(){
+        clsUsuario u = dbAdapter.getDatosUsuario();
+
+        int exp = u.getExp() * 100 / (u.getNivel() * 10 + (u.getNivel() / 10) * 10);
+
+        return exp;
     }
 
     /*public void misionPrueba()
