@@ -190,6 +190,14 @@ public class AplicacionPrincipal extends Application {
         dbAdapter.usuarioInsert(nombre, email);
     }
 
+    public int porcentajeProgreso(clsMision mision){
+        int p = mision.getProgresoActual() * 100 / mision.getProgreso();
+        if(p > 100){
+            p = 100;
+        }
+        return p;
+    }
+
     /*public void misionPrueba()
     {
         dbAdapter.misionprueba();
