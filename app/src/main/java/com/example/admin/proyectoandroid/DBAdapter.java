@@ -371,7 +371,7 @@ public class DBAdapter {
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta2?', 'si', 'no', 'tal vez', 'no', 'deporte',2,2,2,'C')");
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta3?', 'A', 'B', 'C', 'B', 'arte',3,3,3,'P')");
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta4?', 'A', 'B', 'C', 'A', 'entretenimiento',1,0,1,'P')");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta5?', 'A', 'B', 'C', 'C', 'arte',0,0,1,'F')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta5?', 'A', 'B', 'C', 'C', 'arte',0,0,1,'I')");
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta6', 'A', 'B', 'C', 'A', 'deporte',4,0,0,'P')");
 
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El caballero','Llegar a tener mil puntos de fuerza','completo','el_caballero')");

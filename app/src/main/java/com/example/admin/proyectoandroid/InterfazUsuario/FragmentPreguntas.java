@@ -93,12 +93,11 @@ public class FragmentPreguntas extends Fragment {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //if(estado[position].compareTo("C") != 0 && estado[position].compareTo("F") != 0) {
-                Intent i = new Intent(getActivity(), ListarUnaPregunta.class);
-                i.putExtra("position", position);
-                startActivity(i);
-                Toast.makeText(getActivity(),"Respuesta: "+((AplicacionPrincipal)getActivity().getApplication()).getPreguntasActivas().get(position).getResp()+" -- "+ "Estado: "+((AplicacionPrincipal)getActivity().getApplication()).getPreguntasActivas().get(position).getEstado(), Toast.LENGTH_LONG).show();
-                // }
+                if(estado[position].toString().toUpperCase().compareTo("C") != 0 && estado[position].toString().toUpperCase().compareTo("F") != 0) {
+                    Intent i = new Intent(getActivity(), ListarUnaPregunta.class);
+                    i.putExtra("position", position);
+                    startActivity(i);
+                 }
 
             }
         });
@@ -170,16 +169,16 @@ public class FragmentPreguntas extends Fragment {
             tvDestreza.setText("Destreza: +" + destreza[position]);
             tvInteligencia.setText("Inteligencia: +"+inteligencia[position]);
 
-            /*if(estado[position].compareTo("C") == 0){
+            if(estado[position].toString().toUpperCase().compareTo("C") == 0){
                 linearL_una_pregunta.setBackgroundColor(Color.parseColor("#D8D8D8"));
                 ivEstado.setImageResource(R.drawable.icono_correct);
                 ivEstado.setVisibility(View.VISIBLE);
             }
-            else if(estado[position].compareTo("F") == 0){
+            else if(estado[position].toString().toUpperCase().compareTo("I") == 0){
                 linearL_una_pregunta.setBackgroundColor(Color.parseColor("#D8D8D8"));
                 ivEstado.setImageResource(R.drawable.icono_failed);
                 ivEstado.setVisibility(View.VISIBLE);
-            }*/
+            }
 
             return itemView;
         }
