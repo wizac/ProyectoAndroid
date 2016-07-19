@@ -118,6 +118,7 @@ public class RelPreguntaAdapter {
             x.setFuerza(dos.getInt(7));
             x.setDestreza(dos.getInt(8));
             x.setInteligencia(dos.getInt(9));
+            x.setEstado(dos.getString(10));
 
             asd.add(x);
         };
