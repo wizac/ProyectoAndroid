@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.admin.proyectoandroid.InterfazUsuario.AlertDialogos.DialogoCompleta;
 import com.example.admin.proyectoandroid.AplicacionPrincipal;
@@ -87,7 +88,7 @@ public class ListarUnaMision extends ActionBarActivity {
                     @Override
                     public void onClick(View v) {
                         ((AplicacionPrincipal)getApplication()).aumentarProgreso(misiones.get(position).getId(), 1);
-                        tvEtapa.setText("Etapa " + ((AplicacionPrincipal)getApplication()).getMisionesActivas().get(position).getProgresoActual() +"/"+etapas[position]);
+                        tvEtapa.setText("Etapa " + ((AplicacionPrincipal) getApplication()).getMisionesActivas().get(position).getProgresoActual() + "/" + etapas[position]);
                         cambiarTexto();
                         if(misiones.get(position).getProgreso() == ((AplicacionPrincipal)getApplication()).getMisionesActivas().get(position).getProgresoActual()){
                             dialogoCompleta();
@@ -107,7 +108,7 @@ public class ListarUnaMision extends ActionBarActivity {
     }
 
     public void cambiarTexto(){
-        if(misiones.get(position).getProgreso() - 1 == misiones.get(position).getProgresoActual()){
+        if(etapas[position] - 1 == ((AplicacionPrincipal)getApplication()).getMisionesActivas().get(position).getProgresoActual()){
             btnSiguienteEtapa.setText("COMPLETAR MISION");
         }
     }
