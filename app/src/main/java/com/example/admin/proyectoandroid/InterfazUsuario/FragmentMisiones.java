@@ -31,6 +31,8 @@ public class FragmentMisiones extends Fragment {
     ArrayList<clsMision> misiones = new ArrayList<clsMision>();
     String[] titulos;
     int[] imagenes;
+    int[] etapas;
+    int[] etapaActual;
     int[] progresos;
 
     @Override
@@ -47,11 +49,15 @@ public class FragmentMisiones extends Fragment {
         misiones = ((AplicacionPrincipal)getActivity().getApplication()).getMisionesActivas();
         titulos = new String[misiones.size()];
         imagenes = new int[misiones.size()];
+        etapas = new int[misiones.size()];
+        etapaActual = new int[misiones.size()];
         progresos = new int[misiones.size()];
 
         for(int i = 0; i < misiones.size(); i++)
         {
             titulos[i] = misiones.get(i).getTitulo();
+            etapas[i] = misiones.get(i).getProgreso();
+            etapaActual[i] = misiones.get(i).getProgresoActual();
             progresos[i] = ((AplicacionPrincipal)getActivity().getApplication()).porcentajeProgreso(misiones.get(i));
             if(progresos[i] >= 30 && progresos[i] < 50){
                 imagenes[i] = R.drawable.estrellas_1llenas_2vacias;
@@ -73,7 +79,7 @@ public class FragmentMisiones extends Fragment {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(progresos[position] != 100) {
+                if(etapas[position] != etapaActual[position]) {
                     Intent i = new Intent(getActivity(), ListarUnaMision.class);
                     i.putExtra("position", position);
                     startActivity(i);
@@ -136,7 +142,7 @@ public class FragmentMisiones extends Fragment {
             tvTitulo.setText(titulos[position]);
             pbProgreso.setProgress(progresos[position]);
 
-            if(progresos[position] == 100){
+            if(etapas[position] == etapaActual[position]){
                 linearL_una_mision.setBackgroundColor(Color.parseColor("#E6E6E6"));
                 ivCompletado.setVisibility(View.VISIBLE);
             }

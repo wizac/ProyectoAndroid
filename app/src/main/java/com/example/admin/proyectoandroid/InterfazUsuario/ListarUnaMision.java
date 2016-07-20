@@ -79,13 +79,16 @@ public class ListarUnaMision extends ActionBarActivity {
 
         tvContenido.setText(contenidos[position]);
         tvEtapa.setText("Etapa "+etapaActual[position]+"/"+etapas[position]);
+        cambiarTexto(position);
 
         btnSiguienteEtapa.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         ((AplicacionPrincipal)getApplication()).aumentarProgreso(misiones.get(position).getId(), 1);
-                        if(misiones.get(position).getProgresoActual() == misiones.get(position).getProgresoActual()){
+                        tvEtapa.setText("Etapa " + (etapaActual[position] + 1)+"/"+etapas[position]);
+                        cambiarTexto(position);
+                        if(misiones.get(position).getProgreso() == misiones.get(position).getProgresoActual()){
                             dialogoCompleta();
                         }
                     }
@@ -102,11 +105,10 @@ public class ListarUnaMision extends ActionBarActivity {
 
     }
 
-    // Metodo para asignar el menu al actionbar
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    public void cambiarTexto(int position){
+        if(misiones.get(position).getProgreso() - 1 == misiones.get(position).getProgresoActual()){
+            btnSiguienteEtapa.setText("COMPLETAR MISION");
+        }
     }
 
     public void irAtras(){
@@ -115,6 +117,13 @@ public class ListarUnaMision extends ActionBarActivity {
         intent.putExtra("ItemMenu", 0);
         intent.putExtra("PosicionTab", 0);
         startActivity(intent);
+    }
+
+    // Metodo para asignar el menu al actionbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
