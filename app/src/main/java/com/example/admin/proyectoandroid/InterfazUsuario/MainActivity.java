@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (navigationView != null) {
             prepararDrawer(navigationView);
+
             // Seleccionar item por defecto
             int item = 0;
             if(getIntent().getExtras() != null && getIntent().getExtras().containsKey("ItemMenu")) {
@@ -50,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(((AplicacionPrincipal)getApplication()).getMisionesActivas().size() == 0 ||
-                ((AplicacionPrincipal)getApplication()).getUsuario().getEmail().equals("") ||
-                ((AplicacionPrincipal)getApplication()).getUsuario().getEmail() == null) {
+                ((AplicacionPrincipal)getApplication()).getUsuario().getNombre().equals("") ||
+                ((AplicacionPrincipal)getApplication()).getUsuario().getNombre() == null) {
             dialogoPerfil();
         }
     }

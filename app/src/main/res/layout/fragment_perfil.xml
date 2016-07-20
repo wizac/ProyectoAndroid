@@ -42,8 +42,7 @@
                         android:layout_height="50dp"
                         android:orientation="horizontal"
                         android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
-                        android:paddingTop="16dp">
+                        android:paddingRight="16dp">
 
                         <ImageView
                             android:id="@+id/imagen_usuario"
@@ -82,8 +81,7 @@
                         android:layout_height="50dp"
                         android:orientation="horizontal"
                         android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
-                        android:paddingBottom="16dp">
+                        android:paddingRight="16dp">
 
                         <ImageView
                             android:id="@+id/imagen_email"
