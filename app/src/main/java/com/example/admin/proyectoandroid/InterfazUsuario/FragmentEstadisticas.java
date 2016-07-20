@@ -32,7 +32,7 @@ public class FragmentEstadisticas extends Fragment {
         TextView tvValorInteligencia = (TextView) view.findViewById(R.id.valor_inteligencia);
 
         tvValorNivel.setText(usuario.getNivel() + "");
-        pbProgreso.setProgress(usuario.getExp());
+        pbProgreso.setProgress(((AplicacionPrincipal)getActivity().getApplication()).porcentajeExp());
         tvValorFuerza.setText(usuario.getFuerza() + "");
         tvValorDestreza.setText(usuario.getDestreza() + "");
         tvValorInteligencia.setText(usuario.getInteligencia() + "");
