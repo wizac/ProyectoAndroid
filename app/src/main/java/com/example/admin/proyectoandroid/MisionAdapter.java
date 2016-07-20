@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
+import android.util.Log;
 
 import java.util.Random;
 
@@ -130,7 +131,7 @@ public class MisionAdapter {
         Cursor cur2;
 
         cur1=sqlDB.rawQuery("select * from mision where idmision="+id,null);
-        cur2=sqlDB.rawQuery("select progreso from relacion where idmision="+id,null);
+        cur2=sqlDB.rawQuery("select progreso from relMision where idmision="+id,null);
         if(cur1.moveToFirst())
         {
             asd.setId(cur1.getInt(0));
@@ -138,6 +139,7 @@ public class MisionAdapter {
             asd.setTitulo(cur1.getString(2));
             asd.setDescripcion(cur1.getString(3));
             asd.setExp(cur1.getInt(4));
+            //Log.d("pregunta", "" + asd.getExp());
             asd.setTipo(cur1.getString(5));
             asd.setDificultad(cur1.getString(6));
         }
@@ -162,11 +164,14 @@ public class MisionAdapter {
 
     public void completarMision(String attr)
     {
-        if(attr=="F")
-            sqlDB.execSQL("update usuario set fuerza=fuerza+1");
-        if(attr=="D")
-            sqlDB.execSQL("update usuario set destreza=destreza+1");
-        if(attr=="I")
-            sqlDB.execSQL("update usuario set inteligencia=inteligencia+1");
+        Cursor cur=sqlDB.rawQuery("select * from usuario",null);
+        cur.moveToFirst();
+        //Log.d("pregunta", "" + cur.getInt(0) + "-attr-" + attr);
+        if(attr.equals("F"))
+            sqlDB.execSQL("update usuario set fuerza=fuerza+1 where idusuario="+cur.getInt(0));
+        if(attr.equals("D"))
+            sqlDB.execSQL("update usuario set destreza=destreza+1 where idusuario=0"+cur.getInt(0));
+        if(attr.equals("I"))
+            sqlDB.execSQL("update usuario set inteligencia=inteligencia+1 where idusuario=0"+cur.getInt(0));
     }
 }

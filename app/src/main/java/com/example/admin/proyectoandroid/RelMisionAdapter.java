@@ -91,9 +91,10 @@ public class RelMisionAdapter {
     {
         Cursor mis;
         int progreso=0;
-        mis=sqlDB.rawQuery("select * from relMision",null);
+        mis=sqlDB.rawQuery("select * from relMision where idmision="+idmision,null);
         mis.moveToFirst();
-        progreso=progreso+mis.getInt(2);
+        progreso=cant+mis.getInt(2);
+        //Log.d("pregunta", "" + idmision + "---" + cant + "---" + progreso);
         sqlDB.execSQL("update relMision set progreso="+progreso+" where idmision="+idmision);
 
     }
