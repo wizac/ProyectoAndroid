@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
+import android.util.Log;
 
 /**
  * Created by sebyc on 17/01/2016.
@@ -172,7 +173,8 @@ public class UsuarioAdapter {
 
         if (var.moveToFirst()) {
             id= var.getInt(0);
-            xp =xp+var.getInt(3);
+            xp =exp+var.getInt(3);
+            Log.d("pregunta", "" + exp + "-exp-" + xp);
 
             sqlDB.execSQL("update usuario set exp="+xp +" where idusuario=" + id);
         }
