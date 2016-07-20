@@ -231,6 +231,7 @@ public class AplicacionPrincipal extends Application {
 
     public int porcentajeProgreso(clsMision mision){
         int p = mision.getProgresoActual() * 100 / mision.getProgreso();
+        //Log.d("pregunta", "" + mision.getProgresoActual() + "---" + mision.getProgreso() + "---" + p);
         if(p > 100){
             p = 100;
         }
@@ -241,6 +242,7 @@ public class AplicacionPrincipal extends Application {
         clsUsuario u = dbAdapter.getDatosUsuario();
 
         int exp = u.getExp() * 100 / (u.getNivel() * 10 + (u.getNivel() / 10) * 10);
+        //Log.d("pregunta", "" + u.getExp() + "---" + u.getNivel() + "---" + exp);
 
         return exp;
     }

@@ -95,7 +95,7 @@ public class RelMisionAdapter {
         mis.moveToFirst();
         progreso=cant+mis.getInt(2);
         //Log.d("pregunta", "" + idmision + "---" + cant + "---" + progreso);
-        sqlDB.execSQL("update relMision set progreso="+progreso+" where idmision="+idmision);
+        sqlDB.execSQL("update relMision set progreso=" + progreso + " where idmision=" + idmision);
 
     }
 
@@ -124,10 +124,14 @@ public class RelMisionAdapter {
                 x.setTipo(dos.getString(5));
                 x.setDificultad(dos.getString(6));
 
+                dos.close();
                 //Log.d("pregunta", "" + x.getId());
                 asd.add(x);
             }while (mis.moveToNext());
         }
+
+        mis.close();
+
 
         return asd;
     }
