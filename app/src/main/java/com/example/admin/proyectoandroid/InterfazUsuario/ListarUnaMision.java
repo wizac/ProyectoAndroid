@@ -1,5 +1,6 @@
 package com.example.admin.proyectoandroid.InterfazUsuario;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
@@ -83,11 +84,21 @@ public class ListarUnaMision extends ActionBarActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dialogoCompleta();
+                        ((AplicacionPrincipal)getApplication()).aumentarProgreso(misiones.get(position).getId(), 1);
+                        if(misiones.get(position).getProgresoActual() == misiones.get(position).getProgresoActual()){
+                            dialogoCompleta();
+                        }
                     }
                 }
 
         );
+
+        btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irAtras();
+            }
+        });
 
     }
 
@@ -98,10 +109,18 @@ public class ListarUnaMision extends ActionBarActivity {
         return true;
     }
 
+    public void irAtras(){
+        Intent intent = new Intent(getApplication(), MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("ItemMenu", 0);
+        intent.putExtra("PosicionTab", 0);
+        startActivity(intent);
+    }
+
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                onBackPressed();
+                irAtras();
                 return true;
         }
         return super.onOptionsItemSelected(item);
