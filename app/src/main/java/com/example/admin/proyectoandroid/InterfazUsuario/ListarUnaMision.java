@@ -25,6 +25,7 @@ import java.util.ArrayList;
 public class ListarUnaMision extends ActionBarActivity {
 
     ArrayList<clsMision> misiones = new ArrayList<clsMision>();
+    int position;
     private TextView tvContenido, tvEtapa;
     private Button btnSiguienteEtapa, btnSalir;
     String[] titulos;
@@ -44,7 +45,7 @@ public class ListarUnaMision extends ActionBarActivity {
         final ActionBar ab = getSupportActionBar();
 
         Bundle  extras = getIntent().getExtras();
-        final int position = extras.getInt("position");
+        position = extras.getInt("position");
 
         misiones = ((AplicacionPrincipal)getApplication()).getMisionesActivas();
         titulos = new String[misiones.size()];
@@ -79,16 +80,16 @@ public class ListarUnaMision extends ActionBarActivity {
 
         tvContenido.setText(contenidos[position]);
         tvEtapa.setText("Etapa "+etapaActual[position]+"/"+etapas[position]);
-        cambiarTexto(position);
+        cambiarTexto();
 
         btnSiguienteEtapa.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         ((AplicacionPrincipal)getApplication()).aumentarProgreso(misiones.get(position).getId(), 1);
-                        tvEtapa.setText("Etapa " + (etapaActual[position] + 1)+"/"+etapas[position]);
-                        cambiarTexto(position);
-                        if(misiones.get(position).getProgreso() == misiones.get(position).getProgresoActual()){
+                        tvEtapa.setText("Etapa " + ((AplicacionPrincipal)getApplication()).getMisionesActivas().get(position).getProgresoActual() +"/"+etapas[position]);
+                        cambiarTexto();
+                        if(misiones.get(position).getProgreso() == ((AplicacionPrincipal)getApplication()).getMisionesActivas().get(position).getProgresoActual()){
                             dialogoCompleta();
                         }
                     }
@@ -105,18 +106,23 @@ public class ListarUnaMision extends ActionBarActivity {
 
     }
 
-    public void cambiarTexto(int position){
+    public void cambiarTexto(){
         if(misiones.get(position).getProgreso() - 1 == misiones.get(position).getProgresoActual()){
             btnSiguienteEtapa.setText("COMPLETAR MISION");
         }
     }
 
     public void irAtras(){
-        Intent intent = new Intent(getApplication(), MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("ItemMenu", 0);
-        intent.putExtra("PosicionTab", 0);
-        startActivity(intent);
+        if(etapaActual[position] != ((AplicacionPrincipal)getApplication()).getMisionesActivas().get(position).getProgresoActual()) {
+            Intent intent = new Intent(getApplication(), MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("ItemMenu", 0);
+            intent.putExtra("PosicionTab", 0);
+            startActivity(intent);
+        }
+        else{
+            onBackPressed();
+        }
     }
 
     // Metodo para asignar el menu al actionbar
