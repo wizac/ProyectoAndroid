@@ -17,10 +17,14 @@ public class LlenarDatosDiarios extends BroadcastReceiver{
     public void onReceive(Context context, Intent intent) {
 
         misiones = ((AplicacionPrincipal)context.getApplicationContext()).getMisionesActivas();
+        int contador = 0;
         for(int i = 0; i < misiones.size(); i++){
             if(misiones.get(i).getProgresoActual() < misiones.get(i).getProgreso()){
-                ((AplicacionPrincipal)context.getApplicationContext()).registrarMisionFallida();
+                contador ++;
             }
+        }
+        if(contador > 0){
+            ((AplicacionPrincipal)context.getApplicationContext()).registrarMisionFallida(contador);
         }
         ((AplicacionPrincipal)context.getApplicationContext()).llenarMisionesDiarias();
         ((AplicacionPrincipal)context.getApplicationContext()).llenarPreguntasDiarias();
