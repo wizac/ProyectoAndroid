@@ -89,13 +89,15 @@ public class ListarUnaMision extends ActionBarActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        etapaVolatil[position] ++;
-                        contadorClicks ++;
-                        tvEtapa.setText("Etapa " + etapaVolatil[position] + "/" + etapas[position]);
-                        cambiarTexto();
-                        if(etapas[position] == etapaVolatil[position]){
-                            aumentarProgresoMision();
-                            dialogoCompleta();
+                        if(etapaVolatil[position] < etapas[position]) {
+                            etapaVolatil[position]++;
+                            contadorClicks++;
+                            tvEtapa.setText("Etapa " + etapaVolatil[position] + "/" + etapas[position]);
+                            cambiarTexto();
+                            if (etapaVolatil[position] == etapas[position]) {
+                                aumentarProgresoMision();
+                                dialogoCompleta();
+                            }
                         }
                     }
                 }

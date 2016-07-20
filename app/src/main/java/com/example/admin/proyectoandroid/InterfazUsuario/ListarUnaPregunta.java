@@ -32,7 +32,8 @@ public class ListarUnaPregunta extends ActionBarActivity {
     String[] opcionB;
     String[] opcionC;
     String[] respuesta;
-
+    boolean primerClick;
+    int position = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +45,9 @@ public class ListarUnaPregunta extends ActionBarActivity {
         final ActionBar ab = getSupportActionBar();
 
         Bundle  extras = getIntent().getExtras();
-        int idPregunta= extras.getInt("idPregunta");
-        final int position = extras.getInt("position");
+        position = extras.getInt("position");
+
+        primerClick = false;
 
         preguntas = ((AplicacionPrincipal)getApplication()).getPreguntasActivas();
         descripcion = new String[preguntas.size()];
@@ -88,23 +90,14 @@ public class ListarUnaPregunta extends ActionBarActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (respuesta[position].compareTo(opcionA[position]) == 0) {
-                            btnOpcionA.setBackgroundResource(R.drawable.boton_correcto);
-                            btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
-                            btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);
-                        } else if (respuesta[position].compareTo(opcionB[position]) == 0) {
-                            btnOpcionA.setBackgroundResource(R.drawable.boton_incorrecto);
-                            btnOpcionB.setBackgroundResource(R.drawable.boton_correcto);
-                            btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);
-                        } else {
-                            btnOpcionA.setBackgroundResource(R.drawable.boton_incorrecto);
-                            btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
-                            btnOpcionC.setBackgroundResource(R.drawable.boton_correcto);
-                        }
-                        if (((AplicacionPrincipal) getApplication()).responderPregunta(preguntas.get(position), opcionA[position])) {
-                            dialogoCorrecta();
-                        } else {
-                            dialogoIncorrecta();
+                        if(!primerClick) {
+                            cambiarColorOpciones();
+                            if (((AplicacionPrincipal) getApplication()).responderPregunta(preguntas.get(position), opcionA[position])) {
+                                dialogoCorrecta();
+                            } else {
+                                dialogoIncorrecta();
+                            }
+                            primerClick = true;
                         }
                     }
                 }
@@ -115,23 +108,14 @@ public class ListarUnaPregunta extends ActionBarActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (respuesta[position].compareTo(opcionA[position]) == 0) {
-                            btnOpcionA.setBackgroundResource(R.drawable.boton_correcto);
-                            btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
-                            btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);
-                        } else if (respuesta[position].compareTo(opcionB[position]) == 0) {
-                            btnOpcionA.setBackgroundResource(R.drawable.boton_incorrecto);
-                            btnOpcionB.setBackgroundResource(R.drawable.boton_correcto);
-                            btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);
-                        } else {
-                            btnOpcionA.setBackgroundResource(R.drawable.boton_incorrecto);
-                            btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
-                            btnOpcionC.setBackgroundResource(R.drawable.boton_correcto);
-                        }
-                        if (((AplicacionPrincipal) getApplication()).responderPregunta(preguntas.get(position), opcionB[position])) {
-                            dialogoCorrecta();
-                        } else {
-                            dialogoIncorrecta();
+                        if(!primerClick) {
+                            cambiarColorOpciones();
+                            if (((AplicacionPrincipal) getApplication()).responderPregunta(preguntas.get(position), opcionB[position])) {
+                                dialogoCorrecta();
+                            } else {
+                                dialogoIncorrecta();
+                            }
+                            primerClick = true;
                         }
                     }
                 }
@@ -142,29 +126,36 @@ public class ListarUnaPregunta extends ActionBarActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (respuesta[position].compareTo(opcionA[position]) == 0) {
-                            btnOpcionA.setBackgroundResource(R.drawable.boton_correcto);
-                            btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
-                            btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);
-                        } else if (respuesta[position].compareTo(opcionB[position]) == 0) {
-                            btnOpcionA.setBackgroundResource(R.drawable.boton_incorrecto);
-                            btnOpcionB.setBackgroundResource(R.drawable.boton_correcto);
-                            btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);
-                        } else {
-                            btnOpcionA.setBackgroundResource(R.drawable.boton_incorrecto);
-                            btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
-                            btnOpcionC.setBackgroundResource(R.drawable.boton_correcto);
-                        }
-                        if (((AplicacionPrincipal) getApplication()).responderPregunta(preguntas.get(position), opcionC[position])) {
-                            dialogoCorrecta();
-                        } else {
-                            dialogoIncorrecta();
+                        if(!primerClick) {
+                            cambiarColorOpciones();
+                            if (((AplicacionPrincipal) getApplication()).responderPregunta(preguntas.get(position), opcionC[position])) {
+                                dialogoCorrecta();
+                            } else {
+                                dialogoIncorrecta();
+                            }
+                            primerClick = true;
                         }
                     }
                 }
 
         );
 
+    }
+
+    public void cambiarColorOpciones(){
+        if (respuesta[position].compareTo(opcionA[position]) == 0) {
+            btnOpcionA.setBackgroundResource(R.drawable.boton_correcto);
+            btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
+            btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);
+        } else if (respuesta[position].compareTo(opcionB[position]) == 0) {
+            btnOpcionA.setBackgroundResource(R.drawable.boton_incorrecto);
+            btnOpcionB.setBackgroundResource(R.drawable.boton_correcto);
+            btnOpcionC.setBackgroundResource(R.drawable.boton_incorrecto);
+        } else {
+            btnOpcionA.setBackgroundResource(R.drawable.boton_incorrecto);
+            btnOpcionB.setBackgroundResource(R.drawable.boton_incorrecto);
+            btnOpcionC.setBackgroundResource(R.drawable.boton_correcto);
+        }
     }
     
     // Metodo para asignar el menu al actionbar
