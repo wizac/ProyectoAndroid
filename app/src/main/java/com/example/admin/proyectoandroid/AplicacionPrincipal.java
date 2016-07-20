@@ -216,8 +216,10 @@ public class AplicacionPrincipal extends Application {
         }
     }
 
-    public void registrarMisionFallida(){
-        dbAdapter.aumentarEstadisticas("M","F");
+    public void registrarMisionFallida(int cantidad){
+        for(int i = 0; i < cantidad; i++) {
+            dbAdapter.aumentarEstadisticas("M", "F");
+        }
     }
 
     public ArrayList<clsLogro> getLogros()
