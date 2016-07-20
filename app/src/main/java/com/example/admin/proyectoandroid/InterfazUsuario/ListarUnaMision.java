@@ -24,11 +24,13 @@ import java.util.ArrayList;
 public class ListarUnaMision extends ActionBarActivity {
 
     ArrayList<clsMision> misiones = new ArrayList<clsMision>();
-    private TextView txtContenido;
-    private Button btnSiguienteEtapa;
+    private TextView tvContenido, tvEtapa;
+    private Button btnSiguienteEtapa, btnSalir;
     String[] titulos;
     String[] contenidos;
     String[] dificultades;
+    int[] etapas;
+    int[] etapaActual;
 
 
     @Override
@@ -41,19 +43,22 @@ public class ListarUnaMision extends ActionBarActivity {
         final ActionBar ab = getSupportActionBar();
 
         Bundle  extras = getIntent().getExtras();
-        int idMision= extras.getInt("idMision");
         final int position = extras.getInt("position");
 
         misiones = ((AplicacionPrincipal)getApplication()).getMisionesActivas();
         titulos = new String[misiones.size()];
         contenidos = new String[misiones.size()];
         dificultades = new String[misiones.size()];
+        etapas = new int[misiones.size()];
+        etapaActual = new int[misiones.size()];
 
         for(int i = 0; i < misiones.size(); i++)
         {
             titulos[i] = ((clsMision)misiones.get(i)).getTitulo();
             contenidos[i] = ((clsMision)misiones.get(i)).getDescripcion();
             dificultades[i] =  ((clsMision)misiones.get(i)).getDificultad();
+            etapas[i] =  ((clsMision)misiones.get(i)).getProgreso();
+            etapaActual[i] = ((clsMision)misiones.get(i)).getProgresoActual();
         }
         String tituloMision = titulos[position];
         String dificultadMision = dificultades[position];
@@ -66,10 +71,14 @@ public class ListarUnaMision extends ActionBarActivity {
             ab.setDisplayHomeAsUpEnabled(true);
         }
 
-        txtContenido = (TextView) findViewById(R.id.tv_contenido_ListarUnaMision);
-        txtContenido.setText(contenidos[position]);
-
         btnSiguienteEtapa = (Button) findViewById(R.id.boton_siguiente_etapa);
+        btnSalir = (Button) findViewById(R.id.boton_salir);
+        tvContenido = (TextView) findViewById(R.id.tv_contenido_ListarUnaMision);
+        tvEtapa = (TextView) findViewById(R.id.texto_etapas);
+
+        tvContenido.setText(contenidos[position]);
+        tvEtapa.setText("Etapa "+etapaActual[position]+"/"+etapas[position]);
+
         btnSiguienteEtapa.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
