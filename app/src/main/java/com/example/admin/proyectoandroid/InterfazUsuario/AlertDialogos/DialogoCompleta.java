@@ -66,6 +66,7 @@ public class DialogoCompleta extends DialogFragment  {
         mp.release();
         mp= MediaPlayer.create(getActivity(), R.raw.mision_completa);
         mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mp.setVolume(70,70);
         mp.seekTo(0);
         mp.start();
     }

@@ -6,11 +6,13 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.admin.proyectoandroid.InterfazUsuario.AlertDialogos.DialogoCompleta;
 import com.example.admin.proyectoandroid.AplicacionPrincipal;
@@ -31,9 +33,8 @@ public class ListarUnaMision extends ActionBarActivity {
     String[] titulos;
     String[] contenidos;
     String[] dificultades;
-    int[] etapas;
-    int[] etapaActual;
-
+    int[] etapas, etapaActual, etapaVolatil;
+    int contadorClicks = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class ListarUnaMision extends ActionBarActivity {
         dificultades = new String[misiones.size()];
         etapas = new int[misiones.size()];
         etapaActual = new int[misiones.size()];
+        etapaVolatil = new int[misiones.size()];
 
         for(int i = 0; i < misiones.size(); i++)
         {
@@ -61,6 +63,7 @@ public class ListarUnaMision extends ActionBarActivity {
             dificultades[i] =  ((clsMision)misiones.get(i)).getDificultad();
             etapas[i] =  ((clsMision)misiones.get(i)).getProgreso();
             etapaActual[i] = ((clsMision)misiones.get(i)).getProgresoActual();
+            etapaVolatil[i] = ((clsMision)misiones.get(i)).getProgresoActual();
         }
         String tituloMision = titulos[position];
         String dificultadMision = dificultades[position];
@@ -86,10 +89,12 @@ public class ListarUnaMision extends ActionBarActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ((AplicacionPrincipal)getApplication()).aumentarProgreso(misiones.get(position).getId(), 1);
-                        tvEtapa.setText("Etapa " + ((AplicacionPrincipal)getApplication()).getMisionesActivas().get(position).getProgresoActual() +"/"+etapas[position]);
+                        etapaVolatil[position] ++;
+                        contadorClicks ++;
+                        tvEtapa.setText("Etapa " + etapaVolatil[position] + "/" + etapas[position]);
                         cambiarTexto();
-                        if(misiones.get(position).getProgreso() == ((AplicacionPrincipal)getApplication()).getMisionesActivas().get(position).getProgresoActual()){
+                        if(etapas[position] == etapaVolatil[position]){
+                            aumentarProgresoMision();
                             dialogoCompleta();
                         }
                     }
@@ -107,13 +112,18 @@ public class ListarUnaMision extends ActionBarActivity {
     }
 
     public void cambiarTexto(){
-        if(misiones.get(position).getProgreso() - 1 == misiones.get(position).getProgresoActual()){
+        if(etapas[position] - 1 == etapaVolatil[position]){
             btnSiguienteEtapa.setText("COMPLETAR MISION");
         }
     }
 
+    public void aumentarProgresoMision(){
+        ((AplicacionPrincipal)getApplication()).aumentarProgreso(misiones.get(position).getId(), contadorClicks);
+    }
+
     public void irAtras(){
-        if(etapaActual[position] != ((AplicacionPrincipal)getApplication()).getMisionesActivas().get(position).getProgresoActual()) {
+        if(etapaActual[position] != etapaVolatil[position]) {
+            aumentarProgresoMision();
             Intent intent = new Intent(getApplication(), MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("ItemMenu", 0);
@@ -139,6 +149,12 @@ public class ListarUnaMision extends ActionBarActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        irAtras();
+        return true;
     }
 
     public void dialogoCompleta(){

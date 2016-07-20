@@ -32,7 +32,7 @@
                 card_view:cardUseCompatPadding="true">
 
                 <GridLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:columnCount="2"
                     android:padding="16dp"
@@ -42,7 +42,6 @@
                         android:id="@+id/img_nivel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:layout_marginRight="8dp"
                         android:src="@drawable/icono_lvl" />
 
@@ -67,13 +66,13 @@
 
                     <ProgressBar
                         style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="212dp"
-                        android:layout_height="30dp"
+                        android:layout_width="180dp"
+                        android:layout_height="12dp"
                         android:id="@+id/progresoExp"
                         android:layout_marginLeft="7dp"
-                        android:layout_marginTop="7dp"
-                        android:progress="40"
-                        android:progressBackgroundTint="#000"
+                        android:layout_gravity="center_vertical"
+                        android:progressDrawable="@drawable/progress_bar_horizontal"
+                        android:progress="0"
                         android:indeterminateOnly="false"
                         android:longClickable="false" />
 

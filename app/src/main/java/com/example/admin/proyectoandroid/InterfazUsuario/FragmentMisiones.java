@@ -59,10 +59,10 @@ public class FragmentMisiones extends Fragment {
             etapas[i] = misiones.get(i).getProgreso();
             etapaActual[i] = misiones.get(i).getProgresoActual();
             progresos[i] = ((AplicacionPrincipal)getActivity().getApplication()).porcentajeProgreso(misiones.get(i));
-            if(progresos[i] >= 30 && progresos[i] < 50){
+            if(progresos[i] >= 30 && progresos[i] < 60){
                 imagenes[i] = R.drawable.estrellas_1llenas_2vacias;
             }
-            else if(progresos[i] >= 50 && progresos[i] < 80){
+            else if(progresos[i] >= 60 && progresos[i] <= 99){
                 imagenes[i] = R.drawable.estrellas_2llenas_1vacias;
             }
             else if(progresos[i] == 100){
