@@ -48,7 +48,12 @@ public class FragmentLogros extends Fragment {
             titulos[i] = logros.get(i).getNombre();
             estados[i] = logros.get(i).getEstado();
             descripciones[i] = logros.get(i).getDescripcion();
-            imagenes[i] = getResources().getIdentifier(logros.get(i).getNombreimagen().toString() , "drawable",  getActivity().getApplication().getPackageName());
+            if(estados[i].toString().compareTo("completo") == 0) {
+                imagenes[i] = getResources().getIdentifier(logros.get(i).getNombreimagen().toString(), "drawable", getActivity().getApplication().getPackageName());
+            }
+            else{
+                imagenes[i] = getResources().getIdentifier(logros.get(i).getNombreimagen().toString() + "_u", "drawable", getActivity().getApplication().getPackageName());
+            }
         }
 
         adapter = new ListViewAdapter(getContext(), titulos, imagenes, estados, descripciones);

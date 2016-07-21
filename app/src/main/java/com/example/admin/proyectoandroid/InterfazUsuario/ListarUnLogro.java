@@ -60,7 +60,12 @@ public class ListarUnLogro extends ActionBarActivity {
             titulos[i] = logros.get(i).getNombre();
             estados[i] = logros.get(i).getEstado();
             descripciones[i] = logros.get(i).getDescripcion();
-            imagenes[i] = getResources().getIdentifier(logros.get(i).getNombreimagen().toString()+"_grande" , "drawable",  getPackageName());
+            if(estados[i].toString().compareTo("completo") == 0) {
+                imagenes[i] = getResources().getIdentifier(logros.get(i).getNombreimagen().toString() + "_grande", "drawable", getPackageName());
+            }
+            else{
+                imagenes[i] = getResources().getIdentifier(logros.get(i).getNombreimagen().toString() + "_u_grande", "drawable", getPackageName());
+            }
         }
 
         /*INDICAR TITULO, SUBTITULO Y AGREGAR ICONO HOME ATRAS*/
