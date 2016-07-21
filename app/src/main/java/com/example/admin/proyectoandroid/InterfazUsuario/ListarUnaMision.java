@@ -153,10 +153,13 @@ public class ListarUnaMision extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        irAtras();
-        return true;
+        if (keyCode == event.KEYCODE_BACK) {
+            irAtras();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     public void dialogoCompleta(){
