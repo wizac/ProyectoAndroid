@@ -33,7 +33,6 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/edit_text_border"
             android:ems="10"
-            android:maxLength="25"
             android:hint="Campo"
             android:inputType="textPersonName"
             android:padding="16dp"

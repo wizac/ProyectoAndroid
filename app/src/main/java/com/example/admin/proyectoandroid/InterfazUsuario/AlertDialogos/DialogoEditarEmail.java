@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.InputFilter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,12 +28,17 @@ public class DialogoEditarEmail extends DialogFragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialogo_editar, container);
 
+        int maxLength = 50;
+        InputFilter[] fArray = new InputFilter[1];
+        fArray[0] = new InputFilter.LengthFilter(maxLength);
+
         Button btnguardar = (Button) view.findViewById(R.id.boton_guardar);
         Button btncancelar = (Button) view.findViewById(R.id.boton_cancelar);
         final TextView tituloDialog = (TextView) view.findViewById(R.id.tv_titulo_dialog_edit);
         final EditText email = (EditText) view.findViewById(R.id.campo_edit);
         tituloDialog.setText("Puedes modificar el email de tu perfil");
         email.setHint("Email");
+        email.setFilters(fArray);
         email.setText(((AplicacionPrincipal) getActivity().getApplication()).getUsuario().getEmail());
 
         btnguardar.setOnClickListener(
