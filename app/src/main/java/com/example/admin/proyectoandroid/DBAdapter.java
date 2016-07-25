@@ -355,16 +355,16 @@ public class DBAdapter {
             db.execSQL(PreguntasAdapter.CR_TABLE);
             db.execSQL(RelPreguntaAdapter.CR_TABLE);
 
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(5,'Saluda a todos','Dile hola a 5 personas y consigue que ellos te devuelvan el saludo.',5,'I','Dificil')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(5,'Saluda a todos','Dile hola a 5 personas y consigue que ellos te devuelvan el saludo.',20,'I','Dificil')");
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(20,'A ejercitar','Ejercita haciendo 20 abdominales',20,'F','Normal')");
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(300,'Presiona el boton!','Preciona el boton de progreso 300 veces! Rapido rapido rapido!',300,'D','Facil')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(1,'Termina ese libro','Termina de leer ese libro que dejaste en el final, o busca un articulo interesante. Leer con frecuencia es bueno',1,'I','Despreciable')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(1,'Hora de la verdad','Confesa tus sentimientos a ese chico o chica que te gusta, es ahora o nunca!',1,'D','Fin del mundo')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(1,'Sal a correr','Trota un par de vueltas a la manzana, le hara bien a tu corazon. Y no olvides estirar!',1,'F','Suicidio')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(5,'5 a 5','Chocale los 5 a 5 personas distintas',5,'D','Insano')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(10,'Respondidos','Ve al modo preguntas y responde 10 preguntas correctas',10,'I','Normal')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(2,'Piedra, papel o tijeras','Juega piedra, papel o tijeras con alguien y ganale 2 veces',2,'D','Dificil')");
-            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(5,'Cara o cruz','Tira una modena y saca 5 caras, no deberia ser muy dificil...',5,'D','Facil')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(1,'Termina ese libro','Termina de leer ese libro que dejaste en el final, o busca un articulo interesante. Leer con frecuencia es bueno',5,'I','Despreciable')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(1,'Hora de la verdad','Confesa tus sentimientos a ese chico o chica que te gusta, es ahora o nunca!',100,'D','Fin del mundo')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(1,'Sal a correr','Trota un par de vueltas a la manzana, le hara bien a tu corazon. Y no olvides estirar!',15,'F','Suicidio')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(5,'5 a 5','Chocale los 5 a 5 personas distintas',20,'D','Insano')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(10,'Respondidos','Ve al modo preguntas y responde 10 preguntas correctas',5,'I','Normal')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(2,'Piedra, papel o tijeras','Juega piedra, papel o tijeras con alguien y ganale 2 veces',20,'D','Dificil')");
+            db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(5,'Cara o cruz','Tira una modena y saca 5 caras, no deberia ser muy dificil...',10,'D','Facil')");
 
             //Entretenimiento
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Quién es la mascota de SEGA?', 'Sonic', 'Mario', 'Pac Man', 'Sonic', 'entretenimiento',1,1,1,'P')");
@@ -380,7 +380,7 @@ public class DBAdapter {
             //deporte
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Cuál es el estilo de natación más rápido?', 'Espalda', 'Mariposa', 'Crol', 'Crol', 'deporte',4,0,0,'P')");
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Cuántos jugadores componen un equipo de rugby?.', '11', '15', '17', '15', 'deporte',4,0,0,'P')");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿En qué país se inventó el voleibol?.', ' Gran Bretaña', 'Francia', 'Estados Unidos', 'Estados Unidos', 'deporte',4,0,0,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿En qué país se inventó el voleibol?.', 'Gran Bretaña', 'Francia', 'Estados Unidos', 'Estados Unidos', 'deporte',4,0,0,'P')");
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿De qué color es el cero en el cilindro de la ruleta?.', 'Verde', 'Negro', 'Rojo', 'Verde', 'deporte',4,0,0,'P')");
             //historia
             db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Cuál es la ciudad más antigua de América Latina?', 'Valparaíso', 'Caral', 'La Paz', 'Caral', 'historia',4,0,0,'P')");
