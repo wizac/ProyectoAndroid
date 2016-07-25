@@ -1,6 +1,7 @@
 package com.example.admin.proyectoandroid.InterfazUsuario;
 
 import android.content.ClipData;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -14,21 +15,41 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import java.util.Calendar;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.widget.Toast;
 
 import com.example.admin.proyectoandroid.InterfazUsuario.AlertDialogos.DialogoPerfil;
 import com.example.admin.proyectoandroid.AplicacionPrincipal;
+import com.example.admin.proyectoandroid.InterfazUsuario.Servicios.LlenarDatosDiarios;
 import com.example.admin.proyectoandroid.R;
 
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
+    private PendingIntent pendingIntent;
     private boolean viewIsAtHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Calendar calendar = Calendar.getInstance();
+
+
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+        calendar.set(Calendar.AM_PM,Calendar.PM);
+
+        Intent myIntent = new Intent(MainActivity.this, LlenarDatosDiarios.class);
+        pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, myIntent,0);
+
+        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 24*60*60*1000 , pendingIntent);
 
         agregarToolbar();
 

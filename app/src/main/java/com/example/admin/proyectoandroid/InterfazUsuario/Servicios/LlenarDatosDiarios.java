@@ -1,11 +1,16 @@
 package com.example.admin.proyectoandroid.InterfazUsuario.Servicios;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
 
 import com.example.admin.proyectoandroid.AplicacionPrincipal;
+import com.example.admin.proyectoandroid.InterfazUsuario.MainActivity;
 import com.example.admin.proyectoandroid.clsMision;
+import com.example.admin.proyectoandroid.R;
 
 import java.util.ArrayList;
 
@@ -28,8 +33,26 @@ public class LlenarDatosDiarios extends BroadcastReceiver{
         }
         ((AplicacionPrincipal)context.getApplicationContext()).llenarMisionesDiarias();
         ((AplicacionPrincipal)context.getApplicationContext()).llenarPreguntasDiarias();
+
+        CrearNotificacion(context, "Mission Accomplished", "Tienes nuevas misiones y preguntas. Echa un vistazo", "Aviso");
     }
 
 
+    public void CrearNotificacion(Context context, String msg, String msgText, String msgAlert){
+
+        PendingIntent notificIntent = PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class), 0);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle(msg)
+                .setTicker(msgAlert)
+                .setContentText(msgText);
+
+        mBuilder.setContentIntent(notificIntent);
+        mBuilder.setDefaults(NotificationCompat.DEFAULT_SOUND);
+        mBuilder.setAutoCancel(true);
+
+        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(1, mBuilder.build());
+    }
 
 }
