@@ -366,12 +366,26 @@ public class DBAdapter {
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(2,'Piedra, papel o tijeras','Juega piedra, papel o tijeras con alguien y ganale 2 veces',2,'D','Dificil')");
             db.execSQL("insert into mision (progreso,titulo,descripcion,exp,tipo,dificultad) values(5,'Cara o cruz','Tira una modena y saca 5 caras, no deberia ser muy dificil...',5,'D','Facil')");
 
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta1', 'opcionA', 'opcionB', 'opcionC', 'opcionA', 'historia',1,1,1,'P')");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta2?', 'si', 'no', 'tal vez', 'no', 'deporte',2,2,2,'C')");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta3?', 'A', 'B', 'C', 'B', 'arte',3,3,3,'P')");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta4?', 'A', 'B', 'C', 'A', 'entretenimiento',1,0,1,'P')");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta5?', 'A', 'B', 'C', 'C', 'arte',0,0,1,'I')");
-            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('pregunta6', 'A', 'B', 'C', 'A', 'deporte',4,0,0,'P')");
+            //Entretenimiento
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Quién es la mascota de SEGA?', 'Ryu', 'Mario', 'Pac Man', 'Sonic', 'entretenimiento',1,1,1,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Qué personaje del videojuego Mortal Kombat tiene poderes de hielo?', 'Scorpion', 'Reptile', 'Motaro', 'Sub-Zero', 'entretenimiento',2,2,2,'C')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Cuántos colores tiene un cubo de Rubik clásico?', '3', '4', '9', '6', 'entretenimiento',1,1,1,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Cuál es el nombre de Paul McCartney ?', 'Paul James McCartney', 'Sir Paul MacCartney', 'Paul McCartney Suer', 'James Paul McCartney', 'entretenimiento',1,1,1,'P')");
+
+            //arte
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Quién pintó el cuadro “El jardín de las delicias”?', 'Carvaggio', 'Velázquez', 'Arcimboldo', 'El Bosco', 'arte',3,3,3,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Quién escribió “El viejo y el mar?', 'Norman Mailer', 'Gabriel García Márquez', 'Truman Capote', 'Ernest Hemingway', 'arte',0,0,1,'I')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Dónde nació Shakespeare?', 'Albacete', 'Surrey', 'New Castle', 'Stratford-upon-Avon', 'arte',0,0,1,'I')");
+
+            //deporte
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Cuál es el estilo de natación más rápido?', 'Espalda', 'Mariposa', 'Pecho', 'Crol', 'deporte',4,0,0,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Cuántos jugadores componen un equipo de rugby?.', '11', '12', '17', '15', 'deporte',4,0,0,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿En qué país se inventó el voleibol?.', ' Gran Bretaña', 'Francia', 'Rusia', 'Estados Unidos', 'deporte',4,0,0,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿De qué color es el cero en el cilindro de la ruleta?.', 'Blanco', 'Negro', 'Rojo', 'Verde', 'deporte',4,0,0,'P')");
+            //historia
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Cuál es la ciudad más antigua de América Latina?', 'Valparaíso', 'Arequipa', 'La Paz', 'Caral', 'historia',4,0,0,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Con qué emperador estuvo casada Cleopatra?', 'Ptolomeo XIV', 'Julio César', 'Marco Antonio', 'Todas son correctas', 'historia',4,0,0,'P')");
+            db.execSQL("insert into pregunta(descripcion,opciona,opcionb,opcionc,respuesta,categoria,fuerza,destreza,inteligencia,estado) values('¿Qué país fue dirigido por Stalin?', 'Polonia', 'Alemania', 'Cuba', 'Union Soviética', 'historia',4,0,0,'P')");
 
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El caballero','Llegar a tener mil puntos de fuerza','incompleto','el_caballero')");
             db.execSQL("insert into logro (nombre,descripcion,estado,nombreimagen) values('El cazador','Llegar a tener mil puntos de destreza','incompleto','el_cazador')");
