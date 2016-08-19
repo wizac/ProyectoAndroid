@@ -45,7 +45,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:padding="40dp"
+                        android:padding="45dp"
                         android:textSize="18dp"
                         android:text="Lorem Ipsum es simplemente el texto de relleno de las imprentas"
                         android:fontFamily="arial"

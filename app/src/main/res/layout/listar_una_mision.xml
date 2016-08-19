@@ -55,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:padding="30dp"
+                    android:padding="45dp"
                     android:textSize="18dp"
                     android:text="Lorem Ipsum es simplemente el texto de relleno de las imprentas y lo que escribo ahora no tiene sentido solo es relleno para ver como se comporta el LinearLayout ante un texto largo "
                     android:fontFamily="arial"

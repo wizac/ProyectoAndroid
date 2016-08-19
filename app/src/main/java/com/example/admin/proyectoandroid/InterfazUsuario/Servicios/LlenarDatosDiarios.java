@@ -35,6 +35,12 @@ public class LlenarDatosDiarios extends BroadcastReceiver{
         ((AplicacionPrincipal)context.getApplicationContext()).llenarPreguntasDiarias();
 
         CrearNotificacion(context, "Mission Accomplished", "Tienes nuevas misiones y preguntas. Echa un vistazo", "Aviso");
+
+        Intent i = new Intent(context, MainActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.addFlags (Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        i.putExtra("close_activity",true);
+        context.startActivity(i);
     }
 
 
