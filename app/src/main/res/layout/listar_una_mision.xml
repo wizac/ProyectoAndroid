@@ -38,7 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:orientation="vertical"
-                android:background="@drawable/post_it_azul">
+                android:background="@drawable/post_it_azul"
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/texto_etapas"
@@ -52,10 +53,10 @@
 
                 <TextView
                     android:id="@+id/tv_contenido_ListarUnaMision"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:padding="45dp"
+                    android:padding="50dp"
                     android:textSize="18dp"
                     android:text="Lorem Ipsum es simplemente el texto de relleno de las imprentas y lo que escribo ahora no tiene sentido solo es relleno para ver como se comporta el LinearLayout ante un texto largo "
                     android:fontFamily="arial"

@@ -19,9 +19,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".InterfazUsuario.ListarUnaMision"/>
-        <activity android:name=".InterfazUsuario.ListarUnaPregunta"/>
-        <activity android:name=".InterfazUsuario.ListarUnLogro"/>
+        <activity android:name=".InterfazUsuario.ListarUnaMision"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".InterfazUsuario.ListarUnaPregunta"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".InterfazUsuario.ListarUnLogro"
+                  android:screenOrientation="portrait">
+        </activity>
         <receiver android:name=".InterfazUsuario.Servicios.LlenarDatosDiarios" />
     </application>
 </manifest>
