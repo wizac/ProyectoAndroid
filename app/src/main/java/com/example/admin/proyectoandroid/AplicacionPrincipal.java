@@ -72,6 +72,10 @@ public class AplicacionPrincipal extends Application {
     {
         clsMision m = dbAdapter.buscarMisionPorId(idMision);
 
+        Log.d("pregunta", ""+ m.getDescripcion() + m.getProgreso() + "cant" + cantidad + "prog act" + m.getProgresoActual());
+
+        boolean r = false;
+
         if(m.getProgresoActual() + cantidad >= m.getProgreso())
         {
             dbAdapter.aumentarExp(m.getExp());
@@ -82,20 +86,21 @@ public class AplicacionPrincipal extends Application {
             {
                 dbAdapter.subirlvl();
 
-                return true;
+                r = true;
             }
 
+            Log.d("pregunta", ""+ m.getTipo());
             dbAdapter.completarMision(m.getTipo());
             //dbAdapter.borrarRelMision(m.getId());
             cumplirLogros();
 
-            return false;
+            return r;
         }
         else
         {
             dbAdapter.aumentarProgreso(idMision, cantidad);
             cumplirLogros();
-            return false;
+            return r;
         }
     }
 
