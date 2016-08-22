@@ -166,12 +166,12 @@ public class MisionAdapter {
     {
         Cursor cur=sqlDB.rawQuery("select * from usuario",null);
         cur.moveToFirst();
-        //Log.d("pregunta", "" + cur.getInt(0) + "-attr-" + attr);
+        Log.d("pregunta", "" + cur.getInt(0) + "-attr-" + attr);
         if(attr.equals("F"))
             sqlDB.execSQL("update usuario set fuerza=fuerza+1 where idusuario="+cur.getInt(0));
         if(attr.equals("D"))
-            sqlDB.execSQL("update usuario set destreza=destreza+1 where idusuario=0"+cur.getInt(0));
+            sqlDB.execSQL("update usuario set destreza=destreza+1 where idusuario="+cur.getInt(0));
         if(attr.equals("I"))
-            sqlDB.execSQL("update usuario set inteligencia=inteligencia+1 where idusuario=0"+cur.getInt(0));
+            sqlDB.execSQL("update usuario set inteligencia=inteligencia+1 where idusuario="+cur.getInt(0));
     }
 }
